@@ -1,0 +1,74 @@
+# Puneet Srivastava — Professional Profile
+# puneetsrivastava.com
+# Last updated: 2026
+
+Puneet Srivastava is a pricing strategist,
+builder, and creator based in Pflugerville,
+Texas. He is Senior Director of Pricing
+Strategy and Intelligence at Cohesity, a
+pre-IPO data management and cybersecurity
+company based in San Jose, California.
+
+BACKGROUND
+
+Puneet studied Material Science with a minor
+in Computer Science at IIT Kanpur (1996-2000)
+and completed his MBA in General Management
+at IIM Ahmedabad (2002-2004) with an exchange
+semester at HHL Leipzig, Germany.
+
+His career spans Infosys (software engineer,
+Goldman Sachs trade processing systems),
+Coca-Cola (area sales manager), Marketics
+(analytics domain consultant), Dell
+Technologies (consultant to director, India
+and Round Rock Texas, 2007-2022), and
+Cohesity (2022 to present).
+
+EXPERTISE
+
+Pricing strategy and architecture for B2B
+SaaS and software products. Deal-level margin
+economics and commercial model design.
+Aftermarket and parts pricing intelligence.
+AI-driven monetization strategy. Renewal
+pricing and install base growth. SKU
+structuring and discount governance.
+
+THE KNOWLEDGE QUADRANT FRAMEWORK
+
+Puneet created the Knowledge Quadrant
+Framework — a model for understanding how
+AI displacement affects knowledge workers.
+The framework maps work across two axes:
+the nature of knowledge (explicit versus
+tacit) and the nature of output (accuracy
+versus originality). This produces four
+archetypes: The Doctors, The Builders,
+The Generals, and The Creators. Within
+these live eight personas ranging from
+The Doer (highest AI displacement risk)
+to The Oracle (minimal risk). The framework
+is published as a LinkedIn article series.
+
+KAIROS
+
+Puneet built Kairos — a self-inquiry tool
+that applies the Knowledge Quadrant
+Framework to a person's actual workday.
+Users describe their day in free text.
+A local AI model analyzes the narrative
+and returns an honest assessment of their
+quadrant blend, dominant persona,
+displacement signals, and one question
+to sit with. Kairos runs entirely locally
+on Llama 3.2 via Ollama. No data is stored.
+Currently in private beta.
+
+CONTACT
+
+Website: puneetsrivastava.com
+Email: contact@puneetsrivastava.com
+LinkedIn: linkedin.com/in/puneet-srivastava-2b46203
+Writing: LinkedIn Pulse articles under
+"Knowledge Quadrant Framework"
