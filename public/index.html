@@ -428,6 +428,43 @@
       margin-top: 48px;
     }
 
+    /* ── ABOUT LAYOUT ── */
+    .about-layout {
+      display: flex;
+      align-items: flex-start;
+      gap: 48px;
+      margin-top: 8px;
+    }
+
+    .about-portrait {
+      width: 280px;
+      flex-shrink: 0;
+      position: sticky;
+      top: 40px;
+    }
+
+    .about-portrait img {
+      width: 100%;
+      border-radius: 8px;
+      display: block;
+      filter: contrast(1.05) saturate(0.95);
+    }
+
+    .about-portrait-caption {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.72rem;
+      color: #555;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-align: center;
+      margin-top: 12px;
+    }
+
+    .about-text {
+      flex: 1;
+      min-width: 0;
+    }
+
     /* ── FRAMEWORK IMAGE ── */
     .framework-image {
       width: 240px;
@@ -480,6 +517,16 @@
         font-size: 1.4rem;
       }
 
+      .about-layout {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .about-portrait {
+        width: 220px;
+        position: static;
+      }
+
       .framework-layout {
         flex-direction: column;
         align-items: center;
@@ -512,17 +559,28 @@
     <div class="container">
       <h2>About</h2>
 
-      <p>I didn't set out to become a pricing strategist. I set out to understand how things work.</p>
+      <div class="about-layout">
 
-      <p>From 1996 to 2000 I studied Material Science at IIT Kanpur — with a minor in Computer Science, because I couldn't resist understanding how logical structures behave alongside physical ones. Two different languages for the same question: what makes a system do what it does? After graduating I joined Infosys in Bangalore as a Software Engineer, where I spent two years building trade processing systems for Goldman Sachs. I learned something there that has never left me — how quickly sophisticated technical work gets systematized, documented, and distributed across geographies the moment someone figures out the repeatable pattern. The offshore model was the original displacement engine. I was inside it at 22. It shaped everything I think about what knowledge is actually worth.</p>
+        <div class="about-portrait">
+          <img src="/portrait.jpg" alt="Puneet Srivastava" loading="lazy">
+          <div class="about-portrait-caption">Puneet Srivastava</div>
+        </div>
 
-      <p>In 2002 I went to IIM Ahmedabad for my MBA in General Management, with an exchange semester at HHL Leipzig — my first real immersion in European commercial thinking and global business architecture. By the time I graduated in 2004 I had added strategic and commercial vocabulary to an engineering and systems foundation. What I needed next was a place where all three could work together.</p>
+        <div class="about-text">
+          <p>I didn't set out to become a pricing strategist. I set out to understand how things work.</p>
 
-      <p>Coca-Cola gave me the first piece. As an Area Sales Manager from 2004 to 2006, I learned what no engineering curriculum teaches — how to make people want something. The gap between what something costs to make and what someone will willingly pay for it is not a math problem. It is a human one. From 2006 to 2007 at Marketics in Bangalore, I ran rigorous, long-horizon analytics for businesses as a Domain Consultant. The answers were rarely what anyone expected. That combination — human intuition plus analytical precision — became my permanent operating mode.</p>
+          <p>From 1996 to 2000 I studied Material Science at IIT Kanpur — with a minor in Computer Science, because I couldn't resist understanding how logical structures behave alongside physical ones. Two different languages for the same question: what makes a system do what it does? After graduating I joined Infosys in Bangalore as a Software Engineer, where I spent two years building trade processing systems for Goldman Sachs. I learned something there that has never left me — how quickly sophisticated technical work gets systematized, documented, and distributed across geographies the moment someone figures out the repeatable pattern. The offshore model was the original displacement engine. I was inside it at 22. It shaped everything I think about what knowledge is actually worth.</p>
 
-      <p>Dell was my decade-long graduate school. From 2007 to 2012 across Dell India, and from 2012 to 2022 at Dell's headquarters in Round Rock, Texas, I built prediction models, collaborative filtering systems, and pricing architectures underneath some of the largest commercial decisions the company made. I moved from Consultant to Director over that decade. Pricing stopped being a function somewhere in that journey and became a craft — the point where strategy, psychology, data science, and human judgment all arrive at the same table simultaneously. The most honest test of whether a company actually understands the value it creates.</p>
+          <p>In 2002 I went to IIM Ahmedabad for my MBA in General Management, with an exchange semester at HHL Leipzig — my first real immersion in European commercial thinking and global business architecture. By the time I graduated in 2004 I had added strategic and commercial vocabulary to an engineering and systems foundation. What I needed next was a place where all three could work together.</p>
 
-      <p>Since 2022 I have been at Cohesity as Senior Director of Pricing Strategy, leading a team of six through the company's transition to cloud-native SaaS monetization and a landmark industry integration. The question I work on every day is the same one that hooked me at Marketics: how do you build something worth exactly what it charges? The Knowledge Quadrant Framework and Kairos were inevitable. I watched knowledge work get commoditized at Infosys in 2000. I watched it happen again at Dell across a decade. Now I'm watching it happen to everyone, everywhere, at once — accelerated by AI. The framework is my attempt to give people a precise language for what is happening. Kairos is the tool that makes it personal.</p>
+          <p>Coca-Cola gave me the first piece. As an Area Sales Manager from 2004 to 2006, I learned what no engineering curriculum teaches — how to make people want something. The gap between what something costs to make and what someone will willingly pay for it is not a math problem. It is a human one. From 2006 to 2007 at Marketics in Bangalore, I ran rigorous, long-horizon analytics for businesses as a Domain Consultant. The answers were rarely what anyone expected. That combination — human intuition plus analytical precision — became my permanent operating mode.</p>
+
+          <p>Dell was my decade-long graduate school. From 2007 to 2012 across Dell India, and from 2012 to 2022 at Dell's headquarters in Round Rock, Texas, I built prediction models, collaborative filtering systems, and pricing architectures underneath some of the largest commercial decisions the company made. I moved from Consultant to Director over that decade. Pricing stopped being a function somewhere in that journey and became a craft — the point where strategy, psychology, data science, and human judgment all arrive at the same table simultaneously. The most honest test of whether a company actually understands the value it creates.</p>
+
+          <p>Since 2022 I have been at Cohesity as Senior Director of Pricing Strategy, leading a team of six through the company's transition to cloud-native SaaS monetization and a landmark industry integration. The question I work on every day is the same one that hooked me at Marketics: how do you build something worth exactly what it charges? The Knowledge Quadrant Framework and Kairos were inevitable. I watched knowledge work get commoditized at Infosys in 2000. I watched it happen again at Dell across a decade. Now I'm watching it happen to everyone, everywhere, at once — accelerated by AI. The framework is my attempt to give people a precise language for what is happening. Kairos is the tool that makes it personal.</p>
+        </div>
+
+      </div>
     </div>
   </section>
 
