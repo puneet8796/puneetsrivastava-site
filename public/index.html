@@ -10,6 +10,10 @@
   <meta property="og:url" content="https://puneetsrivastava.com">
   <meta property="og:type" content="website">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -54,9 +58,11 @@
     body {
       background-color: #0d0d0d;
       color: #f0ede8;
-      font-family: system-ui, -apple-system, sans-serif;
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      font-weight: 300;
       line-height: 1.7;
-      font-size: 1rem;
+      margin: 0;
+      padding: 0;
     }
 
     .container {
@@ -74,19 +80,45 @@
       text-decoration: underline;
     }
 
+    h1, h2 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 300;
+      letter-spacing: 0.06em;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      color: #f0ede8;
+      letter-spacing: 0.04em;
+    }
+
+    h2 {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      color: #c9a84c;
+      letter-spacing: 0.08em;
+      margin-bottom: 32px;
+    }
+
+    h3 {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #c9a84c;
+    }
+
     p {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      font-weight: 300;
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #c8c4bc;
       margin-bottom: 1.25em;
     }
 
     p:last-child {
       margin-bottom: 0;
-    }
-
-    h2 {
-      color: #c9a84c;
-      font-size: 1.75rem;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
     }
 
     /* ── BUTTONS ── */
@@ -142,17 +174,14 @@
       text-align: center;
     }
 
-    .hero h1 {
-      color: #f0ede8;
-      font-size: 3rem;
-      font-weight: 700;
-    }
-
     .hero-subhead {
-      color: #c9a84c;
-      font-size: 0.85rem;
-      letter-spacing: 0.12em;
-      margin-top: 8px;
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #666;
+      margin-top: 6px;
+      margin-bottom: 32px;
     }
 
     .hero-body {
@@ -168,6 +197,34 @@
       justify-content: center;
       flex-wrap: wrap;
       margin-top: 36px;
+    }
+
+    /* ── HERO IMAGE ── */
+    .hero-section {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: min(700px, 100vw);
+      height: min(700px, 100vw);
+      background-image: url('/threshold.jpg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0.08;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .hero-section > * {
+      position: relative;
+      z-index: 1;
     }
 
     /* ── QUADRANT GRID ── */
@@ -221,6 +278,7 @@
       font-size: 1rem;
       font-weight: 600;
       margin-bottom: 8px;
+      text-transform: none;
     }
 
     .article-card.featured h3 {
@@ -258,6 +316,7 @@
       font-size: 1.1rem;
       font-weight: 600;
       margin-bottom: 8px;
+      text-transform: none;
     }
 
     .callout-card h3 a {
@@ -369,6 +428,35 @@
       margin-top: 48px;
     }
 
+    /* ── FRAMEWORK IMAGE ── */
+    .framework-image {
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+      opacity: 0.85;
+      filter: contrast(1.1);
+    }
+
+    .framework-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .framework-layout {
+      display: flex;
+      align-items: flex-start;
+      gap: 48px;
+      margin-top: 40px;
+    }
+
+    .framework-content {
+      flex: 1;
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 600px) {
       .hero {
@@ -391,13 +479,23 @@
       h2 {
         font-size: 1.4rem;
       }
+
+      .framework-layout {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .framework-image {
+        width: 180px;
+        height: 180px;
+      }
     }
   </style>
 </head>
 <body>
 
   <!-- ── HERO ── -->
-  <section class="hero">
+  <section class="hero hero-section">
     <div class="container">
       <h1>Puneet Srivastava</h1>
       <p class="hero-subhead">SCIENTIST · BUILDER · PRICING STRATEGIST</p>
@@ -435,28 +533,35 @@
 
       <p class="kqf-opening">"The question nobody is asking clearly enough is not 'will AI take my job.' It is 'which part of what I do is actually mine.'"</p>
 
-      <p>The Knowledge Quadrant Framework maps how people create value at work — and how exposed that value is to AI displacement. Two axes. The first is the nature of your knowledge: Explicit knowledge is documented, trainable, searchable — the kind AI can replicate at scale. Tacit knowledge is judgment, pattern recognition, contextual instinct earned by living through real situations. You cannot Google it or prompt for it. The second axis is your output: Accuracy means there is a right answer and being wrong has real consequences. Originality means there is no right answer — the value lives entirely in the freshness of what you produce.</p>
+      <div class="framework-layout">
+        <div class="framework-image">
+          <img src="/threshold.jpg" alt="Standing at the threshold — the Knowledge Quadrant Framework" loading="lazy">
+        </div>
+        <div class="framework-content">
+          <p>The Knowledge Quadrant Framework maps how people create value at work — and how exposed that value is to AI displacement. Two axes. The first is the nature of your knowledge: Explicit knowledge is documented, trainable, searchable — the kind AI can replicate at scale. Tacit knowledge is judgment, pattern recognition, contextual instinct earned by living through real situations. You cannot Google it or prompt for it. The second axis is your output: Accuracy means there is a right answer and being wrong has real consequences. Originality means there is no right answer — the value lives entirely in the freshness of what you produce.</p>
 
-      <div class="quadrant-grid">
-        <div class="quadrant-card">
-          <h3>THE DOCTORS</h3>
-          <div class="quadrant-axes">Explicit knowledge · Accuracy</div>
-          <p>Surgeons, lawyers, analysts, engineers writing production code. High stakes, verifiable output. AI is entering this room fastest.</p>
-        </div>
-        <div class="quadrant-card">
-          <h3>THE BUILDERS</h3>
-          <div class="quadrant-axes">Explicit knowledge · Originality</div>
-          <p>Marketers, designers, copywriters, product communicators. Pattern-based creativity at scale. AI is displacing the volume tier first.</p>
-        </div>
-        <div class="quadrant-card">
-          <h3>THE GENERALS</h3>
-          <div class="quadrant-axes">Tacit knowledge · Accuracy</div>
-          <p>Strategists, senior leaders, negotiators, advisors. Consequential calls on incomplete information. The human premium zone — and it is growing.</p>
-        </div>
-        <div class="quadrant-card">
-          <h3>THE CREATORS</h3>
-          <div class="quadrant-axes">Tacit knowledge · Originality</div>
-          <p>This quadrant creates history. AI can assist but cannot originate.</p>
+          <div class="quadrant-grid">
+            <div class="quadrant-card">
+              <h3>THE DOCTORS</h3>
+              <div class="quadrant-axes">Explicit knowledge · Accuracy</div>
+              <p>Surgeons, lawyers, analysts, engineers writing production code. High stakes, verifiable output. AI is entering this room fastest.</p>
+            </div>
+            <div class="quadrant-card">
+              <h3>THE BUILDERS</h3>
+              <div class="quadrant-axes">Explicit knowledge · Originality</div>
+              <p>Marketers, designers, copywriters, product communicators. Pattern-based creativity at scale. AI is displacing the volume tier first.</p>
+            </div>
+            <div class="quadrant-card">
+              <h3>THE GENERALS</h3>
+              <div class="quadrant-axes">Tacit knowledge · Accuracy</div>
+              <p>Strategists, senior leaders, negotiators, advisors. Consequential calls on incomplete information. The human premium zone — and it is growing.</p>
+            </div>
+            <div class="quadrant-card">
+              <h3>THE CREATORS</h3>
+              <div class="quadrant-axes">Tacit knowledge · Originality</div>
+              <p>This quadrant creates history. AI can assist but cannot originate.</p>
+            </div>
+          </div>
         </div>
       </div>
 
