@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kairos — a self-inquiry tool by Puneet Srivastava</title>
+<meta name="description" content="Ten minutes of honest questions about how you work, and where AI actually changes it. Built on the Knowledge Quadrant Framework.">
+
+<!-- Open Graph for LinkedIn / link previews -->
+<meta property="og:title" content="Kairos — know where you stand">
+<meta property="og:description" content="A self-inquiry tool built on the Knowledge Quadrant Framework. No account, no login. Currently in beta.">
+<meta property="og:url" content="https://kairos.puneetsrivastava.com">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #0e0d0b;
+    --surface: #171511;
+    --line: #2a2721;
+    --text: #e8e4da;
+    --muted: #9a937f;
+    --gold: #d4af5f;
+    --gold-deep: #a8842f;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ---------- header ---------- */
+  header {
+    padding: 28px 0;
+  }
+  header a {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+  }
+  header a:hover, header a:focus-visible { color: var(--gold); }
+
+  /* ---------- hero ---------- */
+  .hero { padding: 64px 0 48px; }
+
+  .status {
+    display: inline-block;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    border: 1px solid var(--gold-deep);
+    border-radius: 3px;
+    padding: 3px 10px;
+    margin-bottom: 28px;
+  }
+
+  h1 {
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: clamp(52px, 10vw, 84px);
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+  }
+
+  .lede {
+    margin-top: 20px;
+    font-size: 20px;
+    line-height: 1.55;
+    color: var(--text);
+    max-width: 34ch;
+  }
+  .lede em {
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  /* signature: the kairos moment — a timeline with one marked point */
+  .moment {
+    margin: 44px 0 0;
+    position: relative;
+    height: 28px;
+  }
+  .moment .track {
+    position: absolute;
+    top: 50%;
+    left: 0; right: 0;
+    height: 1px;
+    background: var(--line);
+  }
+  .moment .node {
+    position: absolute;
+    top: 50%;
+    left: 38%;
+    width: 9px; height: 9px;
+    transform: translate(-50%, -50%) rotate(45deg);
+    background: var(--gold);
+  }
+  .moment .node-label {
+    position: absolute;
+    top: -14px;
+    left: 38%;
+    transform: translateX(-50%);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .moment .node { animation: settle 1.4s cubic-bezier(.2,.8,.2,1) both; }
+    @keyframes settle {
+      from { left: 8%; opacity: 0; }
+      to   { left: 38%; opacity: 1; }
+    }
+  }
+
+  /* ---------- launch ---------- */
+  .launch { padding: 40px 0 8px; }
+
+  .btn {
+    display: inline-block;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 15px;
+    letter-spacing: 0.04em;
+    color: var(--bg);
+    background: var(--gold);
+    text-decoration: none;
+    padding: 14px 30px;
+    border-radius: 4px;
+    transition: background 0.15s ease;
+  }
+  .btn:hover, .btn:focus-visible { background: #e6c47a; }
+
+  .coldstart {
+    margin-top: 14px;
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  /* ---------- what it does ---------- */
+  .how { padding: 56px 0; }
+
+  .how h2, .honest h2 {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 22px;
+  }
+
+  .steps { display: grid; gap: 14px; }
+  .step {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 18px 20px;
+  }
+  .step strong {
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: 19px;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .step span { color: var(--muted); font-size: 15.5px; }
+
+  /* ---------- honesty block ---------- */
+  .honest { padding: 8px 0 56px; }
+  .honest p { color: var(--muted); font-size: 15.5px; max-width: 52ch; }
+  .honest p + p { margin-top: 12px; }
+  .honest a { color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--gold-deep); }
+  .honest a:hover, .honest a:focus-visible { color: #e6c47a; }
+
+  /* ---------- footer ---------- */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 28px 0 48px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer p, footer a {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12.5px;
+    color: var(--muted);
+    text-decoration: none;
+  }
+  footer a:hover, footer a:focus-visible { color: var(--gold); }
+
+  a:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <a href="https://www.puneetsrivastava.com">&larr; puneetsrivastava.com</a>
+  </header>
+
+  <section class="hero">
+    <span class="status">BETA</span>
+    <h1>Kairos</h1>
+    <p class="lede">Ten minutes of honest questions about how you work, and where AI <em>actually</em> changes it.</p>
+
+    <div class="moment" aria-hidden="true">
+      <div class="track"></div>
+      <div class="node"></div>
+      <div class="node-label">kairos &middot; the opportune moment</div>
+    </div>
+  </section>
+
+  <section class="launch">
+    <!-- TODO: confirm this is the current Kairos URL -->
+    <a class="btn" href="https://kairos-ps.streamlit.app/" target="_blank" rel="noopener">Launch Kairos &rarr;</a>
+    <p class="coldstart">Hosted beta. First load can take up to 30 seconds while the app wakes up.</p>
+  </section>
+
+  <section class="how">
+    <h2>How it works</h2>
+    <div class="steps">
+      <div class="step">
+        <strong>Answer</strong>
+        <span>A short set of questions about the work you actually do, not the title you hold.</span>
+      </div>
+      <div class="step">
+        <strong>Map</strong>
+        <span>Your answers land on the Knowledge Quadrant, a framework for how knowledge work survives contact with AI.</span>
+      </div>
+      <div class="step">
+        <strong>See where you stand</strong>
+        <span>You get a persona, a plain-language read on your exposure, and what to strengthen next.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="honest">
+    <h2>The honest fine print</h2>
+    <!-- TODO: verify every claim below against what the app actually does today.
+         Only ship sentences that are literally true. -->
+    <p>Kairos runs on Claude (Anthropic's API), with a local-model fallback. No account, no login, and nothing is stored after your session ends.</p>
+    <p>It is in beta. Some answers will be rough. If something breaks or a question reads wrong, I want to know.</p>
+    <p>The framework behind it is written up in full at <a href="https://www.puneetsrivastava.com">puneetsrivastava.com</a>.</p>
+  </section>
+
+  <footer>
+    <p>Built by Puneet Srivastava</p>
+    <!-- TODO: replace with your real contact email -->
+    <a href="mailto:punsri@gmail.com">Report a bug / request beta access</a>
+  </footer>
+
+</div>
+
+</body>
+</html>
