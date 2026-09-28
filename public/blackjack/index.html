@@ -1,0 +1,1920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+<title>Blackjack Bootcamp</title>
+<meta name="description" content="Blackjack Bootcamp: learn basic strategy from zero to table-ready, with lessons, an adaptive coach that targets your weak spots, timed tests, and a personal strategy heat map. Built by Puneet Srivastava.">
+<meta property="og:title" content="Blackjack Bootcamp">
+<meta property="og:description" content="Judgment under known odds. Learn basic strategy with an adaptive coach and timed tests.">
+<meta property="og:url" content="https://puneetsrivastava.com/blackjack/">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+/* ============================================================================
+   DESIGN TOKENS
+   Subject: a private high-stakes card room, not a slot-machine arcade.
+   Felt green + brass, real card geometry, serif display for gravitas,
+   geometric sans for UI. Numbers get tabular treatment.
+   ============================================================================ */
+:root{
+  --felt-deep:   #0B3D2E;
+  --felt-mid:    #145842;
+  --felt-light:  #1E6E52;
+  --cream:       #F5F1E6;
+  --cream-dim:   #E4DEC9;
+  --brass:       #C9A227;
+  --brass-bright:#E0B93A;
+  --card-red:    #8B1E1E;
+  --ink:         #17211C;
+  --ink-soft:    #3A4A42;
+  --line:        rgba(245,241,230,0.14);
+  --line-strong: rgba(245,241,230,0.28);
+  --shadow-deep: 0 12px 32px rgba(0,0,0,0.45);
+  --radius-card: 9px;
+  --radius-panel: 6px;
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-num: 'Manrope', sans-serif;
+}
+
+@font-face{
+  font-family:'Fraunces';
+  src: local('Fraunces');
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; }
+body{
+  background: radial-gradient(ellipse at top, var(--felt-light) 0%, var(--felt-deep) 55%, #06251C 100%);
+  background-attachment: fixed;
+  color: var(--cream);
+  font-family: var(--font-body);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+}
+#app{ max-width: 980px; margin: 0 auto; padding: 20px 20px 64px; }
+
+h1,h2,h3,h4{ font-family: var(--font-display); font-weight: 600; margin: 0 0 8px; color: var(--cream); letter-spacing: -0.01em; }
+h1{ font-size: 2rem; }
+h2{ font-size: 1.5rem; }
+h3{ font-size: 1.15rem; }
+p{ margin: 0 0 12px; color: var(--cream-dim); }
+button{ font-family: var(--font-body); }
+:focus-visible{ outline: 2px solid var(--brass-bright); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* ---- top nav ---- */
+.topbar{
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 14px 4px 20px; border-bottom: 1px solid var(--line);
+  margin-bottom: 24px; gap: 12px; flex-wrap: wrap;
+}
+.brand{ display:flex; align-items:center; gap:10px; }
+.brand-mark{ width:30px; height:30px; flex-shrink:0; }
+.brand-text{ font-family: var(--font-display); font-size: 1.25rem; font-weight:700; color:var(--cream); }
+.brand-text em{ font-style:normal; color:var(--brass-bright); }
+nav.tabs{ display:flex; gap:6px; flex-wrap: wrap; }
+.tab-btn{
+  background:transparent; border:1px solid transparent; color: var(--cream-dim);
+  padding: 8px 14px; border-radius: var(--radius-panel); cursor:pointer;
+  font-size: 0.88rem; font-weight:600; transition: background .15s, color .15s, border-color .15s;
+}
+.tab-btn:hover{ background: rgba(245,241,230,0.06); color: var(--cream); }
+.tab-btn.active{ background: var(--brass); color: var(--felt-deep); border-color: var(--brass); }
+
+/* ---- panels/cards (UI panels, NOT playing cards) ---- */
+.panel{
+  background: rgba(255,255,255,0.035);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-panel);
+  padding: 20px;
+  margin-bottom: 18px;
+}
+.panel-tight{ padding: 14px 18px; }
+.grid-2{ display:grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.grid-3{ display:grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+@media (max-width: 720px){
+  .grid-2, .grid-3{ grid-template-columns: 1fr; }
+}
+
+/* ---- buttons ---- */
+.btn{
+  font-weight: 700; font-size: 0.92rem; padding: 11px 20px; border-radius: 5px;
+  border: 1px solid transparent; cursor:pointer; transition: transform .1s, filter .15s, background .15s;
+  letter-spacing: 0.01em;
+}
+.btn:active{ transform: translateY(1px); }
+.btn-primary{ background: var(--brass); color: var(--felt-deep); }
+.btn-primary:hover{ background: var(--brass-bright); }
+.btn-primary:disabled{ opacity:0.4; cursor:not-allowed; }
+.btn-outline{ background:transparent; border-color: var(--line-strong); color: var(--cream); }
+.btn-outline:hover{ background: rgba(245,241,230,0.08); }
+.btn-danger{ background:transparent; border-color: rgba(139,30,30,0.6); color:#E08787; }
+.btn-danger:hover{ background: rgba(139,30,30,0.18); }
+.btn-row{ display:flex; gap:10px; flex-wrap:wrap; }
+.btn-sm{ padding: 7px 14px; font-size:0.82rem; }
+
+/* ---- stat chips / dashboard numbers ---- */
+.stat{
+  display:flex; flex-direction:column; gap:2px;
+}
+.stat .num{ font-family: var(--font-num); font-size: 2.1rem; font-weight:800; color: var(--brass-bright);
+  font-variant-numeric: tabular-nums; line-height:1; }
+.stat .label{ font-size: 0.78rem; color: var(--cream-dim); text-transform: none; }
+.stat-row{ display:flex; gap: 28px; flex-wrap:wrap; }
+
+.badge{
+  display:inline-flex; align-items:center; gap:6px; padding: 4px 11px; border-radius: 20px;
+  font-size: 0.75rem; font-weight:700; border:1px solid var(--line-strong);
+}
+.badge-novice{ color:#E0A05A; border-color: rgba(224,160,90,0.5); }
+.badge-competent{ color:#7EC8E3; border-color: rgba(126,200,227,0.5); }
+.badge-tableready{ color:#7ED9A0; border-color: rgba(126,217,160,0.5); }
+
+/* ---- playing cards (the hero visual element) ---- */
+.hand-row{ display:flex; gap: 10px; align-items:flex-end; flex-wrap:wrap; min-height: 128px; }
+.card{
+  width: 78px; height: 108px; background: var(--cream); border-radius: var(--radius-card);
+  box-shadow: var(--shadow-deep); position: relative; flex-shrink:0;
+  display:flex; flex-direction:column; justify-content:space-between; padding: 7px 8px;
+  font-family: var(--font-num); font-weight: 700; color: var(--ink);
+  animation: dealIn .28s ease-out;
+}
+.card.red{ color: var(--card-red); }
+@keyframes dealIn{ from{ opacity:0; transform: translateY(-14px) rotate(-3deg); } to{ opacity:1; transform: translateY(0) rotate(0); } }
+.card .corner{ font-size: 1rem; line-height:1; display:flex; flex-direction:column; align-items:center; gap:1px; }
+.card .corner.bottom{ align-self:flex-end; transform: rotate(180deg); }
+.card .pip-suit{ font-size: 1.6rem; }
+.card .center-suit{ position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:2.1rem; opacity:0.9; }
+.card-back{
+  width:78px; height:108px; border-radius: var(--radius-card); flex-shrink:0;
+  background: repeating-linear-gradient(45deg, var(--felt-mid), var(--felt-mid) 6px, var(--felt-deep) 6px, var(--felt-deep) 12px);
+  border: 2px solid var(--brass); box-shadow: var(--shadow-deep);
+}
+@media (max-width: 480px){
+  .card, .card-back{ width:60px; height:84px; }
+  .card .pip-suit{ font-size:1.2rem; } .card .corner{ font-size:0.8rem; } .card .center-suit{ font-size:1.5rem; }
+}
+
+.seat-label{ font-size:0.78rem; color: var(--cream-dim); font-weight:700; margin-bottom:6px; display:flex; gap:8px; align-items:center; }
+.total-pill{
+  background: rgba(0,0,0,0.28); border:1px solid var(--line-strong); border-radius:20px; padding:2px 10px;
+  font-family: var(--font-num); font-weight:800; font-size:0.82rem; color: var(--brass-bright);
+}
+
+/* ---- feedback banner ---- */
+.feedback{
+  border-radius: var(--radius-panel); padding: 14px 18px; margin: 14px 0; font-size:0.94rem;
+  border: 1px solid; animation: fadeSlide .2s ease-out;
+}
+@keyframes fadeSlide{ from{opacity:0; transform:translateY(-6px);} to{opacity:1; transform:translateY(0);} }
+.feedback.correct{ background: rgba(126,217,160,0.1); border-color: rgba(126,217,160,0.4); color:#BFE9CE; }
+.feedback.incorrect{ background: rgba(224,135,135,0.1); border-color: rgba(224,135,135,0.4); color:#F0C4C4; }
+.feedback strong{ color: inherit; }
+
+/* ---- decision buttons ---- */
+.decision-row{ display:flex; gap:10px; flex-wrap:wrap; margin-top:18px; }
+.dbtn{
+  flex:1; min-width: 90px; padding: 14px 10px; border-radius: 6px; border:1px solid var(--line-strong);
+  background: rgba(245,241,230,0.05); color: var(--cream); font-weight:800; font-size:0.95rem; cursor:pointer;
+  transition: background .12s, border-color .12s;
+}
+.dbtn:hover:not(:disabled){ background: rgba(201,162,39,0.18); border-color: var(--brass); }
+.dbtn:disabled{ opacity:0.35; cursor:not-allowed; }
+
+/* ---- lesson list ---- */
+.lesson-item{
+  display:flex; align-items:center; gap:14px; padding: 14px 16px; border-radius: var(--radius-panel);
+  border:1px solid var(--line); cursor:pointer; margin-bottom:10px; transition: background .12s;
+  background: rgba(255,255,255,0.02);
+}
+.lesson-item:hover{ background: rgba(255,255,255,0.055); }
+.lesson-num{
+  width:30px; height:30px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+  font-weight:800; font-size:0.85rem; flex-shrink:0; border:1.5px solid var(--line-strong); color:var(--cream-dim);
+}
+.lesson-item.done .lesson-num{ background: var(--brass); color: var(--felt-deep); border-color:var(--brass); }
+.lesson-title{ font-weight:700; flex:1; }
+.lesson-check{ color: var(--brass-bright); font-weight:800; }
+
+/* ---- strategy chart ---- */
+.chart-scroll{ overflow-x:auto; }
+table.strategy-table{ border-collapse: collapse; font-size:0.78rem; font-family: var(--font-num); min-width: 640px; }
+table.strategy-table th, table.strategy-table td{
+  border: 1px solid rgba(0,0,0,0.25); text-align:center; padding: 6px 4px; width: 42px;
+}
+table.strategy-table th{ background: var(--felt-mid); color: var(--cream); font-weight:800; }
+table.strategy-table td.hdr{ background: var(--felt-mid); color:var(--cream); font-weight:800; text-align:left; padding-left:8px; }
+table.strategy-table td{ font-weight:700; color: var(--ink); background: var(--cream); cursor:default; }
+.act-H{ background:#DDEBE1 !important; }
+.act-S{ background:#F5F1E6 !important; }
+.act-D{ background:#F7DFA6 !important; }
+.act-P{ background:#BFDCE8 !important; }
+.act-R{ background:#E9C2C2 !important; }
+.heat-0{ } .heat-1{ box-shadow: inset 0 0 0 2px rgba(224,160,90,0.5); }
+.heat-2{ box-shadow: inset 0 0 0 2px rgba(224,120,60,0.75); }
+.heat-3{ box-shadow: inset 0 0 0 2px rgba(139,30,30,0.85); background: #E9B0B0 !important; }
+.legend-row{ display:flex; gap:14px; flex-wrap:wrap; margin-top:12px; font-size:0.8rem; color:var(--cream-dim); }
+.legend-swatch{ display:inline-flex; align-items:center; gap:6px; }
+.legend-swatch .sw{ width:14px; height:14px; border-radius:3px; display:inline-block; }
+
+/* ---- focus areas panel ---- */
+.focus-item{ display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid var(--line); }
+.focus-item:last-child{ border-bottom:none; }
+.acc-bar-track{ width:100%; height:6px; background: rgba(0,0,0,0.3); border-radius:3px; margin-top:6px; overflow:hidden; }
+.acc-bar-fill{ height:100%; background: var(--brass); border-radius:3px; }
+
+/* ---- progress chart (canvas) ---- */
+canvas#progressChart{ width:100%; max-width:100%; }
+
+/* ---- misc ---- */
+.muted{ color: var(--cream-dim); font-size:0.85rem; }
+.divider{ height:1px; background: var(--line); margin: 16px 0; border:none; }
+.center-col{ display:flex; flex-direction:column; align-items:center; text-align:center; }
+.q-check{ background: rgba(0,0,0,0.2); border-radius: var(--radius-panel); padding:16px; margin-top:14px; }
+.q-option{
+  display:block; width:100%; text-align:left; padding:11px 14px; margin:6px 0; border-radius:5px;
+  border:1px solid var(--line-strong); background: rgba(245,241,230,0.04); color: var(--cream); cursor:pointer;
+  font-size:0.9rem;
+}
+.q-option:hover:not(:disabled){ background: rgba(201,162,39,0.15); }
+.q-option.correct-choice{ background: rgba(126,217,160,0.22); border-color:#7ED9A0; }
+.q-option.wrong-choice{ background: rgba(224,135,135,0.22); border-color:#E08787; }
+.timer-display{ font-family: var(--font-num); font-weight:800; font-size:1.4rem; color: var(--brass-bright); font-variant-numeric: tabular-nums; }
+.progress-track{ width:100%; height:8px; background: rgba(0,0,0,0.3); border-radius:4px; overflow:hidden; margin: 10px 0 4px; }
+.progress-fill{ height:100%; background: linear-gradient(90deg, var(--brass), var(--brass-bright)); }
+.modal-backdrop{
+  position:fixed; inset:0; background:rgba(0,0,0,0.65); display:flex; align-items:center; justify-content:center;
+  z-index:100; padding:20px;
+}
+.modal-box{ background: var(--felt-deep); border:1px solid var(--line-strong); border-radius:8px; padding:26px; max-width:420px; box-shadow: var(--shadow-deep); }
+.session-summary-row{ display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--line); }
+.session-summary-row:last-child{ border-bottom:none; }
+a.link{ color: var(--brass-bright); text-decoration: underline; cursor:pointer; }
+</style>
+</head>
+<body>
+<div id="app"><!-- rendered by JS --></div>
+<p style="text-align:center;margin:0 0 36px;font-size:0.82rem;color:#E4DEC9;">Built by <a href="/" style="color:#E0B93A;">Puneet Srivastava</a> &middot; For learning basic strategy, not a recommendation to gamble.</p>
+<script>
+// ============================================================================
+// CARD & SHOE ENGINE
+// ============================================================================
+const SUITS = [
+  {sym:'♠', color:'black', name:'spades'},
+  {sym:'♥', color:'red',   name:'hearts'},
+  {sym:'♦', color:'red',   name:'diamonds'},
+  {sym:'♣', color:'black', name:'clubs'},
+];
+const RANKS = ['A','2','3','4','5','6','7','8','9','10','J','Q','K'];
+
+function rankValue(rank){
+  if (rank === 'A') return 11;
+  if (['J','Q','K'].includes(rank)) return 10;
+  return parseInt(rank, 10);
+}
+// normalized rank for strategy lookup: 2-10 (numeric) or 'A'
+function normRank(rank){
+  if (rank === 'A') return 'A';
+  if (['J','Q','K'].includes(rank)) return 10;
+  return parseInt(rank, 10);
+}
+
+class Shoe{
+  constructor(numDecks = 6){
+    this.numDecks = numDecks;
+    this.cards = [];
+    this.build();
+  }
+  build(){
+    this.cards = [];
+    for (let d = 0; d < this.numDecks; d++){
+      for (const s of SUITS){
+        for (const r of RANKS){
+          this.cards.push({rank:r, suit:s.sym, color:s.color});
+        }
+      }
+    }
+    // Fisher-Yates shuffle
+    for (let i = this.cards.length - 1; i > 0; i--){
+      const j = Math.floor(Math.random() * (i+1));
+      [this.cards[i], this.cards[j]] = [this.cards[j], this.cards[i]];
+    }
+    // reshuffle at ~75% penetration (deal down to 25% remaining, standard casino practice)
+    this.penetrationCutoff = Math.floor(this.cards.length * 0.25);
+  }
+  needsReshuffle(){ return this.cards.length <= this.penetrationCutoff; }
+  draw(){
+    if (this.cards.length === 0) this.build();
+    return this.cards.pop();
+  }
+  maybeReshuffle(){
+    if (this.needsReshuffle()) this.build();
+  }
+}
+
+function handValue(cards){
+  // returns {total, isSoft} — soft means at least one ace counted as 11 without busting
+  let total = 0, aces = 0;
+  for (const c of cards){
+    total += rankValue(c.rank);
+    if (c.rank === 'A') aces++;
+  }
+  let softAces = aces;
+  while (total > 21 && softAces > 0){
+    total -= 10;
+    softAces--;
+  }
+  const isSoft = softAces > 0 && total <= 21;
+  return { total, isSoft };
+}
+
+function isBlackjack(cards){
+  return cards.length === 2 && handValue(cards).total === 21;
+}
+function isBust(cards){
+  return handValue(cards).total > 21;
+}
+
+function isPairHand(cards){
+  if (cards.length !== 2) return false;
+  return normRank(cards[0].rank) === normRank(cards[1].rank) ||
+         (cards[0].rank === 'A' && cards[1].rank === 'A');
+}
+function pairRankOf(cards){
+  const nr = normRank(cards[0].rank);
+  return nr === 'A' ? 'A' : String(nr);
+}
+
+// ============================================================================
+// BASIC STRATEGY ENGINE — verified 6-deck, Dealer Stands Soft 17 (S17),
+// Double After Split (DAS) allowed, Late Surrender (LS) allowed.
+// Cross-checked against Wizard of Odds published S17 6-deck tables and
+// multiple independent reference charts. See inline notes on divergence
+// points (11 vs A, soft 18 vs 2) which are the well-known S17/H17 splits.
+//
+// Action codes: H=Hit S=Stand D=Double-else-Hit Ds=Double-else-Stand
+//               P=Split Ph=Split-if-DAS-else-Hit Rh=Surrender-else-Hit
+// ============================================================================
+const DEALER_COLS = ['2','3','4','5','6','7','8','9','10','A'];
+
+const HARD_TOTALS = {
+  5:  ['H','H','H','H','H','H','H','H','H','H'],
+  6:  ['H','H','H','H','H','H','H','H','H','H'],
+  7:  ['H','H','H','H','H','H','H','H','H','H'],
+  8:  ['H','H','H','H','H','H','H','H','H','H'],
+  9:  ['H','D','D','D','D','H','H','H','H','H'],
+  10: ['D','D','D','D','D','D','D','D','H','H'],
+  11: ['D','D','D','D','D','D','D','D','D','H'],  // 6D S17: 11 vs A is Hit (see resolveAction note)
+  12: ['H','H','S','S','S','H','H','H','H','H'],
+  13: ['S','S','S','S','S','H','H','H','H','H'],
+  14: ['S','S','S','S','S','H','H','H','H','H'],
+  15: ['S','S','S','S','S','H','H','H','Rh','H'],
+  16: ['S','S','S','S','S','H','H','Rh','Rh','Rh'],
+  17: ['S','S','S','S','S','S','S','S','S','S'],
+  18: ['S','S','S','S','S','S','S','S','S','S'],
+  19: ['S','S','S','S','S','S','S','S','S','S'],
+  20: ['S','S','S','S','S','S','S','S','S','S'],
+  21: ['S','S','S','S','S','S','S','S','S','S'],
+};
+
+const SOFT_TOTALS = {
+  13: ['H','H','H','D','D','H','H','H','H','H'], // A,2
+  14: ['H','H','H','D','D','H','H','H','H','H'], // A,3
+  15: ['H','H','D','D','D','H','H','H','H','H'], // A,4
+  16: ['H','H','D','D','D','H','H','H','H','H'], // A,5
+  17: ['H','D','D','D','D','H','H','H','H','H'], // A,6
+  18: ['S','Ds','Ds','Ds','Ds','S','S','H','H','H'], // A,7 -- stand vs 2 (6D S17), double vs 3-6, stand 7-8, hit 9/10/A
+  19: ['S','S','S','S','Ds','S','S','S','S','S'], // A,8
+  20: ['S','S','S','S','S','S','S','S','S','S'], // A,9
+};
+
+const PAIRS = {
+  'A': ['P','P','P','P','P','P','P','P','P','P'],
+  '10':['S','S','S','S','S','S','S','S','S','S'],
+  '9': ['P','P','P','P','P','S','P','P','S','S'],
+  '8': ['P','P','P','P','P','P','P','P','P','Rh'], // 8,8 vs A: surrender if allowed (LS), else split
+  '7': ['P','P','P','P','P','P','H','H','H','H'],
+  '6': ['Ph','P','P','P','P','H','H','H','H','H'],
+  '5': ['D','D','D','D','D','D','D','D','H','H'], // never split 5s -- treat as hard 10
+  '4': ['H','H','H','Ph','Ph','H','H','H','H','H'],
+  '3': ['Ph','Ph','P','P','P','P','H','H','H','H'],
+  '2': ['Ph','Ph','P','P','P','P','H','H','H','H'],
+};
+
+function colIndex(upcard){
+  if (upcard === 'A') return 9;
+  if (upcard >= 10) return 8;
+  return upcard - 2;
+}
+
+function resolveAction(code, {canDouble, canSplit, dasAllowed=true, surrenderAllowed=true}={}){
+  switch(code){
+    case 'D':  return canDouble ? 'D' : 'H';
+    case 'Ds': return canDouble ? 'D' : 'S';
+    case 'Ph': return (canSplit && dasAllowed) ? 'P' : 'H';
+    case 'P':  return canSplit ? 'P' : 'H';
+    case 'Rh': return surrenderAllowed ? 'R' : 'H';
+    case 'Rs': return surrenderAllowed ? 'R' : 'S';
+    default:   return code;
+  }
+}
+
+// hand: {isPair, pairRank, isSoft, total, cardsCount, splitDepth}
+function getCorrectAction(hand, dealerUpcard){
+  const canDouble = (hand.cardsCount ?? 2) === 2;
+  const canSplit = hand.isPair && (hand.splitDepth ?? 0) < 3;
+  const ci = colIndex(dealerUpcard);
+
+  if (hand.isPair && canSplit){
+    const raw = PAIRS[hand.pairRank][ci];
+    return resolveAction(raw, {canDouble, canSplit, dasAllowed:true, surrenderAllowed:true});
+  }
+  if (hand.isSoft && SOFT_TOTALS[hand.total]){
+    const raw = SOFT_TOTALS[hand.total][ci];
+    return resolveAction(raw, {canDouble, canSplit:false});
+  }
+  const clamped = Math.max(5, Math.min(21, hand.total));
+  const raw = HARD_TOTALS[clamped][ci];
+  return resolveAction(raw, {canDouble, canSplit:false});
+}
+
+function actionLabel(code){
+  return {H:'Hit', S:'Stand', D:'Double', P:'Split', R:'Surrender'}[code] || code;
+}
+
+// Human-readable rationale for why an action is correct — used in coaching feedback.
+function explainAction(hand, dealerUpcard, action){
+  const upLabel = dealerUpcard === 'A' ? 'Ace' : String(dealerUpcard);
+  const handDesc = hand.isPair ? `a pair of ${hand.pairRank}s`
+    : hand.isSoft ? `soft ${hand.total}` : `hard ${hand.total}`;
+  const reasons = {
+    H: `With ${handDesc} vs. dealer ${upLabel}, the dealer's card is strong enough (or your total weak enough) that standing loses more often than the bust risk from hitting.`,
+    S: `With ${handDesc} vs. dealer ${upLabel}, your total already beats the dealer's likely outcome more often than hitting would — drawing risks busting a hand that's already ahead.`,
+    D: `With ${handDesc} vs. dealer ${upLabel}, the odds favor you strongly enough that doubling your bet on this one extra card maximizes expected profit versus just hitting or standing.`,
+    P: `With ${handDesc} vs. dealer ${upLabel}, splitting turns one so-so hand into two hands that each start from a stronger position than the combined total would give you.`,
+    R: `With ${handDesc} vs. dealer ${upLabel}, the math says you're a statistical underdog on this hand by more than 50% — surrendering half your bet loses less long-run than playing it out.`,
+  };
+  return reasons[action] || '';
+}
+// ============================================================================
+// PERSISTENCE LAYER (localStorage)
+// ============================================================================
+const STORAGE_KEY = 'bjbootcamp_v1';
+
+function defaultState(){
+  return {
+    createdAt: Date.now(),
+    lessons: {}, // lessonId -> {completed: bool, completedAt}
+    categoryStats: {}, // categoryTag -> {attempts: [{correct:bool, ts}], ...} rolling log capped at 20
+    testSessions: [], // {date, handsPlayed, correct, accuracy, categoryBreakdown, vegasScore, bestStreak, milestoneAtTime}
+    totalHandsPracticed: 0,
+    totalPracticeSessions: 0,
+    daysActive: [], // array of yyyy-mm-dd strings
+    lastSeenMilestone: 'Novice',
+  };
+}
+
+function loadState(){
+  try{
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return defaultState();
+    const parsed = JSON.parse(raw);
+    // merge with defaults to survive schema additions
+    return Object.assign(defaultState(), parsed);
+  }catch(e){
+    console.error('Failed to load state, starting fresh', e);
+    return defaultState();
+  }
+}
+
+function saveState(state){
+  try{
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  }catch(e){
+    console.error('Failed to save state', e);
+  }
+}
+
+function markDayActive(state){
+  const d = new Date();
+  const key = d.toISOString().slice(0,10);
+  if (!state.daysActive.includes(key)) state.daysActive.push(key);
+}
+
+// ---- Category tagging ----
+// Broad category: 'hard', 'soft', 'pairs'
+// Specific tag: fine-grained scenario key, e.g. "16v10", "12v2-6", "soft18v9-10-A", "split9s"
+function categoryTagsFor(hand, dealerUpcard){
+  const upBucket = (up) => {
+    if (up === 'A') return 'A';
+    return String(up);
+  };
+  const up = upBucket(dealerUpcard);
+  const tags = [];
+
+  if (hand.isPair){
+    tags.push('pairs');
+    tags.push(`split${hand.pairRank}s_v${up}`);
+    tags.push(`split${hand.pairRank}s`); // broader pair-rank tag
+  } else if (hand.isSoft){
+    tags.push('soft');
+    tags.push(`soft${hand.total}_v${up}`);
+    tags.push(`soft${hand.total}`);
+  } else {
+    tags.push('hard');
+    tags.push(`hard${hand.total}_v${up}`);
+    tags.push(`hard${hand.total}`);
+  }
+
+  // named tricky scenarios called out in the brief
+  if (!hand.isPair && !hand.isSoft){
+    if (hand.total === 16 && up === '10') tags.push('16v10');
+    if (hand.total === 12 && ['2','3','4','5','6'].includes(up)) tags.push('12v2-6');
+  }
+  if (hand.isSoft && hand.total === 18 && ['9','10','A'].includes(up)) tags.push('soft18v9-10-A');
+  if (hand.isPair && hand.pairRank === '9') tags.push('splitting9s');
+
+  return tags;
+}
+
+function humanCategoryLabel(tag){
+  const map = {
+    'hard':'Hard totals', 'soft':'Soft totals', 'pairs':'Pairs',
+    '16v10':'16 vs dealer 10', '12v2-6':'12 vs dealer 2-6',
+    'soft18v9-10-A':'Soft 18 vs 9/10/A', 'splitting9s':'Splitting 9s',
+  };
+  if (map[tag]) return map[tag];
+  // e.g. hard16_v10 -> "Hard 16 vs 10"; soft18_v9 -> "Soft 18 vs 9"; splitAs_v6 -> "Split As vs 6"
+  const m1 = tag.match(/^hard(\d+)_v(.+)$/); if (m1) return `Hard ${m1[1]} vs ${m1[2]}`;
+  const m2 = tag.match(/^soft(\d+)_v(.+)$/); if (m2) return `Soft ${m2[1]} vs ${m2[2]}`;
+  const m3 = tag.match(/^split(\w+?)s_v(.+)$/); if (m3) return `Split ${m3[1]}s vs ${m3[2]}`;
+  const m4 = tag.match(/^hard(\d+)$/); if (m4) return `Hard ${m4[1]}`;
+  const m5 = tag.match(/^soft(\d+)$/); if (m5) return `Soft ${m5[1]}`;
+  const m6 = tag.match(/^split(\w+?)s$/); if (m6) return `Split ${m6[1]}s`;
+  return tag;
+}
+
+const ROLLING_WINDOW = 20;
+
+function recordAttempt(state, tags, correct){
+  const ts = Date.now();
+  for (const tag of tags){
+    if (!state.categoryStats[tag]) state.categoryStats[tag] = { attempts: [] };
+    state.categoryStats[tag].attempts.push({ correct, ts });
+    if (state.categoryStats[tag].attempts.length > ROLLING_WINDOW){
+      state.categoryStats[tag].attempts = state.categoryStats[tag].attempts.slice(-ROLLING_WINDOW);
+    }
+  }
+}
+
+function accuracyFor(state, tag){
+  const s = state.categoryStats[tag];
+  if (!s || s.attempts.length === 0) return null;
+  const correct = s.attempts.filter(a => a.correct).length;
+  return correct / s.attempts.length;
+}
+
+function attemptCountFor(state, tag){
+  const s = state.categoryStats[tag];
+  return s ? s.attempts.length : 0;
+}
+
+// Fine-grained scenario tags eligible for "weakest categories" targeting.
+// We restrict to specific hand-vs-upcard-ish tags (not the 3 broad umbrella tags)
+// so the Focus Areas panel surfaces actionable, specific scenarios.
+function specificTags(state){
+  return Object.keys(state.categoryStats).filter(t => !['hard','soft','pairs'].includes(t));
+}
+
+function weakestCategories(state, minAttempts = 5, n = 3){
+  const candidates = specificTags(state)
+    .map(tag => ({ tag, acc: accuracyFor(state, tag), n: attemptCountFor(state, tag) }))
+    .filter(c => c.n >= minAttempts)
+    .sort((a,b) => a.acc - b.acc);
+  return candidates.slice(0, n);
+}
+
+function overallAccuracy(state, sinceN = null){
+  const allTags = specificTags(state);
+  let correct = 0, total = 0;
+  for (const tag of allTags){
+    const atts = state.categoryStats[tag].attempts;
+    correct += atts.filter(a=>a.correct).length;
+    total += atts.length;
+  }
+  return total > 0 ? correct/total : null;
+}
+
+function milestoneFor(state){
+  // Table Ready requires 90%+ over 3 consecutive test sessions
+  const sessions = state.testSessions;
+  if (sessions.length >= 3){
+    const last3 = sessions.slice(-3);
+    if (last3.every(s => s.accuracy >= 0.90)) return 'Table Ready';
+  }
+  if (sessions.length > 0){
+    const lastAcc = sessions[sessions.length-1].accuracy;
+    if (lastAcc >= 0.90) return 'Competent'; // met bar once, but not yet 3x consecutive
+    if (lastAcc >= 0.80) return 'Competent';
+  }
+  return 'Novice';
+}
+// ============================================================================
+// MODULE 1 — LESSON CONTENT
+// Each lesson: id, title, body (array of paragraph strings), example (card
+// spec for rendering), check: {question, options, correctIndex, explain}
+// ============================================================================
+var LESSONS = [
+  {
+    id: 'objective',
+    title: '1. The Objective',
+    body: [
+      "Blackjack looks complicated at the table, but the goal is simple: get a hand total closer to 21 than the dealer's, without going over 21.",
+      "You're not trying to hit exactly 21 every time — you're trying to beat the dealer's hand. If the dealer busts (goes over 21), every player still standing wins automatically, regardless of their total.",
+      "You never play against other players at the table. Every hand is a private contest between you and the dealer."
+    ],
+    example: { cards: [{rank:'K',suit:'♠'},{rank:'9',suit:'♥'}], caption: 'K + 9 = 19. A strong hand — now it comes down to what the dealer shows.' },
+    check: {
+      question: "If you have 19 and the dealer busts, what happens?",
+      options: ["You lose automatically", "You win, regardless of your total", "It's a push (tie)", "You must hit again"],
+      correctIndex: 1,
+      explain: "Any dealer bust is an automatic win for every player still in the hand — your exact total doesn't matter once the dealer goes over 21."
+    }
+  },
+  {
+    id: 'card-values',
+    title: '2. Card Values',
+    body: [
+      "Number cards 2 through 10 are worth their face value. A 7 is worth 7, a 4 is worth 4.",
+      "Face cards — Jack, Queen, King — are all worth 10, same as a 10.",
+      "The Ace is special: it's worth either 1 or 11, whichever helps your hand more. A hand is called 'soft' when an Ace is counted as 11 without busting; it's 'hard' otherwise (no ace, or an ace forced down to count as 1)."
+    ],
+    example: { cards: [{rank:'A',suit:'♦'},{rank:'6',suit:'♣'}], caption: "A + 6 = 'soft 17' (Ace = 11). If you draw a card that would bust the 17, the Ace quietly drops to 1 instead." },
+    check: {
+      question: "You have Ace + 6 (soft 17) and draw a 9. What's your new total?",
+      options: ["Bust — over 21", "16 (Ace now counts as 1)", "25", "You must stand immediately"],
+      correctIndex: 1,
+      explain: "Ace(11) + 6 + 9 = 26, which busts — so the Ace automatically drops to counting as 1: 1 + 6 + 9 = 16. That's the whole point of a 'soft' hand: it can't bust on the very next card."
+    }
+  },
+  {
+    id: 'natural-blackjack',
+    title: '3. Natural Blackjack',
+    body: [
+      "If your first two cards are an Ace plus any 10-value card (10, J, Q, or K), you have a 'natural' or 'blackjack' — the best possible hand.",
+      "A natural blackjack beats any other hand totaling 21 that took more than two cards to make.",
+      "Blackjack pays 3:2 — bet $10, win $15 — better than the standard 1:1 payout for a regular win. This is one of the most important edges you have as a player, so always double-check your two-card total for it."
+    ],
+    example: { cards: [{rank:'A',suit:'♠'},{rank:'Q',suit:'♥'}], caption: "A + Q = Natural Blackjack. Pays 3:2 instead of the usual 1:1." },
+    check: {
+      question: "You bet $20 and are dealt a natural blackjack. How much do you win?",
+      options: ["$20", "$30", "$40", "Nothing, it's a push"],
+      correctIndex: 1,
+      explain: "Blackjack pays 3:2. On a $20 bet, that's $30 in winnings (plus your original $20 back)."
+    }
+  },
+  {
+    id: 'flow-of-hand',
+    title: '4. Flow of a Hand',
+    body: [
+      "Every hand follows the same sequence: (1) you place your bet, (2) the dealer deals two cards to each player and two to themselves — one dealer card face up (the 'upcard'), one face down (the 'hole card'), (3) players act on their hands one at a time, in turn, (4) once all players are done, the dealer reveals their hole card and plays out their own hand by fixed rules, (5) bets are settled.",
+      "The dealer's upcard is the single most important piece of information you have — basic strategy is built entirely around 'my total vs. their upcard.'",
+      "The dealer has no choices to make. They must hit until reaching at least 17, then must stand. There's no strategy on the dealer's side — which is exactly why player strategy can be solved mathematically."
+    ],
+    example: { cards: [{rank:'7',suit:'♣'}], caption: "Dealer's upcard — the one visible card you make every decision against." },
+    check: {
+      question: "Does the dealer ever get to choose whether to hit or stand?",
+      options: ["Yes, same as players", "No — fixed rules force the dealer's play", "Only on soft hands", "Only if a player asks"],
+      correctIndex: 1,
+      explain: "The dealer's play is entirely mechanical: hit until 17 or more, then stand. This fixed behavior is what makes it possible to calculate a mathematically optimal strategy for the player."
+    }
+  },
+  {
+    id: 'action-hit-stand',
+    title: '5. Hit & Stand',
+    body: [
+      "Hit means take another card. You can hit as many times as you like, as long as you don't go over 21.",
+      "Stand means keep your current total and end your turn — no more cards.",
+      "Going over 21 on any hit is a 'bust,' and you lose immediately, even before the dealer plays their hand."
+    ],
+    example: { cards: [{rank:'9',suit:'♠'},{rank:'8',suit:'♦'}], caption: "9 + 8 = 17. Standard basic strategy says stand here against most dealer upcards." },
+    check: {
+      question: "You have 12 and hit, drawing a 10. What happens?",
+      options: ["You now have 22 — bust, you lose immediately", "You now have 22 but can still stand", "The 10 doesn't count", "You automatically win"],
+      correctIndex: 0,
+      explain: "12 + 10 = 22, which is over 21. Busting ends your hand as an immediate loss, regardless of what the dealer ends up with."
+    }
+  },
+  {
+    id: 'action-double',
+    title: '6. Double Down',
+    body: [
+      "Doubling down lets you double your original bet in exchange for exactly one more card — then you must stand, no matter what you draw.",
+      "You can only double down on your first two cards (before taking any other action), and in this app's ruleset, you're free to double after a split as well.",
+      "Basic strategy calls for doubling in specific, favorable spots — usually strong two-card totals like 10 or 11 against a weak dealer upcard, where the odds strongly favor you."
+    ],
+    example: { cards: [{rank:'6',suit:'♥'},{rank:'5',suit:'♣'}], caption: "6 + 5 = 11 vs. a weak dealer card is a classic double-down spot." },
+    check: {
+      question: "After doubling down and drawing your one extra card, what must you do?",
+      options: ["Hit again if you want", "Stand — no more decisions", "Split if possible", "Surrender"],
+      correctIndex: 1,
+      explain: "Doubling down is a one-card-only commitment: once that card is dealt, your turn ends automatically. That's the trade-off for the bigger bet."
+    }
+  },
+  {
+    id: 'action-split',
+    title: '7. Split',
+    body: [
+      "If your first two cards are the same rank (two 8s, two Kings, etc.), you can split them into two separate hands, each getting its own additional bet equal to your original wager.",
+      "Each new hand is then played independently, starting with one more card dealt to each.",
+      "Not all pairs should be split — basic strategy has precise rules for which pairs to split against which dealer upcards. Some pairs (like two 5s or two 10s) should almost never be split."
+    ],
+    example: { cards: [{rank:'8',suit:'♠'},{rank:'8',suit:'♣'}], caption: "8 + 8 = one of the clearest 'always split' hands in basic strategy." },
+    check: {
+      question: "You split a pair of 8s. How many hands are you now playing, and what's the bet situation?",
+      options: ["One hand, same bet", "Two hands, each with its own equal bet", "Two hands, but only one bet total", "Three hands"],
+      correctIndex: 1,
+      explain: "Splitting creates two independent hands, and you place a second bet equal to your original wager to cover the new hand — so your total risk doubles, but so does your opportunity."
+    }
+  },
+  {
+    id: 'action-surrender',
+    title: '8. Surrender',
+    body: [
+      "Surrender lets you give up your hand immediately after seeing your first two cards and the dealer's upcard, forfeiting only half your bet instead of playing the hand out.",
+      "This app uses 'late surrender,' meaning the dealer first checks for their own blackjack — if the dealer has blackjack, you lose your full bet with no surrender option; otherwise, you may surrender before acting further.",
+      "Surrender only applies to a small number of genuinely bad spots — mainly hard 15 and 16 against strong dealer upcards, where you're a significant underdog even before drawing another card."
+    ],
+    example: { cards: [{rank:'10',suit:'♦'},{rank:'6',suit:'♠'}], caption: "10 + 6 = 16 vs. a dealer 10 is the textbook surrender spot — you're a statistical underdog either way." },
+    check: {
+      question: "You bet $20 and surrender. How much do you lose?",
+      options: ["Nothing", "$10 (half your bet)", "$20 (your full bet)", "$30"],
+      correctIndex: 1,
+      explain: "Surrender costs exactly half your original bet — $10 on a $20 bet — which is why it only makes sense in spots where you'd expect to lose more than half the time anyway."
+    }
+  },
+  {
+    id: 'payouts',
+    title: '9. Push, Bust & Payouts',
+    body: [
+      "A 'push' is a tie — your total exactly matches the dealer's — and your original bet is simply returned, no win or loss.",
+      "A regular win (you beat the dealer's total, or the dealer busts) pays 1:1 — bet $10, win $10.",
+      "A natural blackjack pays 3:2, as covered earlier. Busting is an automatic loss, decided the moment your total exceeds 21 — you don't even wait for the dealer to finish their hand."
+    ],
+    example: { cards: [{rank:'K',suit:'♣'},{rank:'7',suit:'♦'}], caption: "17 vs. a dealer 17 = push. Your bet comes right back to you." },
+    check: {
+      question: "Your 18 beats the dealer's 15 (no blackjack involved). What's the payout on a $10 bet?",
+      options: ["$10 (1:1)", "$15 (3:2)", "$20", "Push — bet returned only"],
+      correctIndex: 0,
+      explain: "A standard win — not a natural blackjack — pays 1:1. You win $10 on a $10 bet."
+    }
+  },
+  {
+    id: 'etiquette',
+    title: '10. Table Etiquette',
+    body: [
+      "At physical tables, decisions are communicated with hand signals, not just words — this keeps the game clear for security cameras and prevents disputes. Waving your hand over your cards (palm down, side to side) means stand; tapping the table means hit.",
+      "For splits and doubles, place your additional chips beside your original bet — never touch chips already in the betting circle once the hand has started, and never touch the cards with your hands in a face-up game.",
+      "This is informational only — the trainer itself uses on-screen buttons, but knowing the signals will make you look like you belong the first time you sit at a real table."
+    ],
+    example: { cards: [{rank:'2',suit:'♥'},{rank:'2',suit:'♠'}], caption: "To split, cards are turned face up and a matching bet is placed beside the original — the dealer handles the physical split." },
+    check: {
+      question: "Why do physical casinos use hand signals instead of just verbal calls?",
+      options: ["Tradition only, no real reason", "For clarity on camera and to avoid disputes", "Dealers can't hear well", "It's required by law in all states"],
+      correctIndex: 1,
+      explain: "Casinos record every table, and hand signals create an unambiguous visual record of your decision — protecting both you and the house from any dispute about what you called."
+    }
+  },
+];
+// ============================================================================
+// CARD RENDERING (pure functions returning HTML strings)
+// ============================================================================
+function renderCard(card){
+  if (!card) return '';
+  const isRed = card.suit === '♥' || card.suit === '♦';
+  const cls = isRed ? 'card red' : 'card';
+  return `<div class="${cls}">
+    <div class="corner"><span>${card.rank}</span><span class="pip-suit">${card.suit}</span></div>
+    <div class="center-suit">${card.suit}</div>
+    <div class="corner bottom"><span>${card.rank}</span><span class="pip-suit">${card.suit}</span></div>
+  </div>`;
+}
+
+function renderCardBack(){
+  return `<div class="card-back"></div>`;
+}
+
+function renderHand(cards, opts={}){
+  const { hideSecond=false } = opts;
+  return cards.map((c,i) => (hideSecond && i===1) ? renderCardBack() : renderCard(c)).join('');
+}
+// ============================================================================
+// APP STATE & ROUTER
+// ============================================================================
+var STATE = loadState();
+var ROUTE = 'dashboard'; // dashboard | lessons | lesson-detail | coach | test | chart
+var ROUTE_PARAMS = {};
+
+function navigate(route, params={}){
+  ROUTE = route;
+  ROUTE_PARAMS = params;
+  render();
+  window.scrollTo(0,0);
+}
+
+function persist(){ saveState(STATE); }
+
+// ---- milestone badge helper ----
+function milestoneBadgeHtml(m){
+  const cls = m === 'Table Ready' ? 'badge-tableready' : (m === 'Competent' ? 'badge-competent' : 'badge-novice');
+  return `<span class="badge ${cls}">${m}</span>`;
+}
+
+function vegasReadinessScore(state){
+  // Weighted toward harder/high-stakes decision points: pair splits, soft doubles, surrender calls.
+  const weights = { pairs: 1.3, soft: 1.2, hard: 1.0 };
+  const sessions = state.testSessions.slice(-5); // recent trend
+  if (sessions.length === 0){
+    // fall back to category stats if no test sessions yet
+    const acc = overallAccuracy(state);
+    return acc === null ? 0 : Math.round(acc * 100);
+  }
+  let weightedSum = 0, weightTotal = 0;
+  sessions.forEach((s, idx) => {
+    const recencyWeight = idx + 1; // later sessions weighted more
+    let sessionScore = s.accuracy;
+    if (s.categoryBreakdown){
+      let catSum = 0, catW = 0;
+      for (const [cat, acc] of Object.entries(s.categoryBreakdown)){
+        const w = weights[cat] || 1.0;
+        catSum += acc * w; catW += w;
+      }
+      if (catW > 0) sessionScore = (s.accuracy * 0.5) + ((catSum/catW) * 0.5);
+    }
+    weightedSum += sessionScore * recencyWeight;
+    weightTotal += recencyWeight;
+  });
+  return Math.round((weightedSum / weightTotal) * 100);
+}
+
+// ============================================================================
+// DASHBOARD
+// ============================================================================
+function renderDashboard(){
+  const milestone = milestoneFor(STATE);
+  const vegasScore = vegasReadinessScore(STATE);
+  const weak = weakestCategories(STATE, 5, 3);
+  const lessonsComplete = LESSONS.filter(l => STATE.lessons[l.id]?.completed).length;
+  const daysActive = STATE.daysActive.length;
+
+  return `
+  <div class="panel">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;">
+      <div>
+        <h1>Blackjack Bootcamp</h1>
+        <p style="margin-bottom:0;">Zero to table-ready in about two weeks.</p>
+      </div>
+      <div>${milestoneBadgeHtml(milestone)}</div>
+    </div>
+    <hr class="divider">
+    <div class="stat-row">
+      <div class="stat"><div class="num">${vegasScore}</div><div class="label">Vegas Readiness Score</div></div>
+      <div class="stat"><div class="num">${lessonsComplete}/${LESSONS.length}</div><div class="label">Lessons complete</div></div>
+      <div class="stat"><div class="num">${STATE.totalHandsPracticed}</div><div class="label">Hands practiced</div></div>
+      <div class="stat"><div class="num">${daysActive}</div><div class="label">Days active</div></div>
+    </div>
+  </div>
+
+  <div class="grid-3">
+    <div class="panel panel-tight" style="cursor:pointer;" onclick="navigate('lessons')">
+      <h3>📘 Rules Trainer</h3>
+      <p class="muted">Learn the fundamentals, step by step, with quick checks along the way.</p>
+      <div class="btn btn-outline btn-sm">Open lessons →</div>
+    </div>
+    <div class="panel panel-tight" style="cursor:pointer;" onclick="navigate('coach')">
+      <h3>🎯 Adaptive Coach</h3>
+      <p class="muted">Practice real hands with instant feedback, biased toward your weak spots.</p>
+      <div class="btn btn-outline btn-sm">Start practice →</div>
+    </div>
+    <div class="panel panel-tight" style="cursor:pointer;" onclick="navigate('test-setup')">
+      <h3>🏆 Test Mode</h3>
+      <p class="muted">Timed sessions, no hints — see exactly where you stand.</p>
+      <div class="btn btn-outline btn-sm">Take a test →</div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="panel">
+      <h3>Focus Areas</h3>
+      ${weak.length === 0 ? `<p class="muted">Practice a few hands in the Adaptive Coach and we'll identify your weakest spots here.</p>` :
+        weak.map(w => `
+          <div class="focus-item">
+            <div style="flex:1;">
+              <div>${humanCategoryLabel(w.tag)}</div>
+              <div class="acc-bar-track"><div class="acc-bar-fill" style="width:${Math.round(w.acc*100)}%"></div></div>
+            </div>
+            <div style="font-family:var(--font-num);font-weight:800;color:var(--brass-bright);margin-left:14px;">${Math.round(w.acc*100)}%</div>
+          </div>
+        `).join('')
+      }
+    </div>
+    <div class="panel">
+      <h3>Strategy Chart</h3>
+      <p class="muted">Look up any hand, any time — with your personal accuracy heat-mapped right onto the chart.</p>
+      <div class="btn btn-outline btn-sm" onclick="navigate('chart')">View chart →</div>
+    </div>
+  </div>
+  `;
+}
+
+// ============================================================================
+// TOP-LEVEL RENDER
+// ============================================================================
+function render(){
+  const app = document.getElementById('app');
+  let body = '';
+  if (ROUTE === 'dashboard') body = renderDashboard();
+  else if (ROUTE === 'lessons') body = renderLessonMenu();
+  else if (ROUTE === 'lesson-detail') body = renderLessonDetail(ROUTE_PARAMS.lessonId);
+  else if (ROUTE === 'coach') body = renderCoach();
+  else if (ROUTE === 'chart') body = renderStrategyChart();
+  else if (ROUTE === 'test-setup') body = renderTestSetup();
+  else if (ROUTE === 'test-play') body = renderTestPlay();
+  else if (ROUTE === 'test-results') body = renderTestResults(ROUTE_PARAMS.session);
+  else body = renderDashboard();
+
+  app.innerHTML = `
+    <div class="topbar">
+      <div class="brand">
+        <svg class="brand-mark" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="4" width="20" height="26" rx="2.5" fill="#F5F1E6" stroke="#C9A227" stroke-width="1.2" transform="rotate(-8 12 17)"/>
+          <rect x="9" y="2" width="20" height="26" rx="2.5" fill="#0B3D2E" stroke="#C9A227" stroke-width="1.2"/>
+          <text x="19" y="15" font-family="Georgia,serif" font-size="9" fill="#C9A227" text-anchor="middle" font-weight="700">A</text>
+          <text x="19" y="24" font-family="Georgia,serif" font-size="8" fill="#C9A227" text-anchor="middle">♠</text>
+        </svg>
+        <span class="brand-text">Blackjack <em>Bootcamp</em></span>
+      </div>
+      <nav class="tabs">
+        <button class="tab-btn ${ROUTE==='dashboard'?'active':''}" onclick="navigate('dashboard')">Home</button>
+        <button class="tab-btn ${ROUTE==='lessons'||ROUTE==='lesson-detail'?'active':''}" onclick="navigate('lessons')">Lessons</button>
+        <button class="tab-btn ${ROUTE==='coach'?'active':''}" onclick="navigate('coach')">Coach</button>
+        <button class="tab-btn ${ROUTE==='test-setup'||ROUTE==='test-play'||ROUTE==='test-results'?'active':''}" onclick="navigate('test-setup')">Test Mode</button>
+        <button class="tab-btn ${ROUTE==='chart'?'active':''}" onclick="navigate('chart')">Chart</button>
+      </nav>
+    </div>
+    ${body}
+    <div style="text-align:center;margin-top:24px;">
+      <a class="link muted" onclick="confirmResetProgress()">Reset my progress</a>
+    </div>
+  `;
+  // post-render hooks some views need (e.g. canvas chart, timers)
+  if (ROUTE === 'test-play' && window._testPlayPostRender) window._testPlayPostRender();
+  if (ROUTE === 'dashboard' && window._dashboardPostRender) window._dashboardPostRender();
+}
+
+function confirmResetProgress(){
+  if (confirm('This will permanently erase all lessons, practice history, and test scores. This cannot be undone. Continue?')){
+    STATE = defaultState();
+    persist();
+    navigate('dashboard');
+  }
+}
+// ============================================================================
+// MODULE 1 — RULES TRAINER UI
+// ============================================================================
+function renderLessonMenu(){
+  const items = LESSONS.map((l, idx) => {
+    const done = STATE.lessons[l.id]?.completed;
+    return `
+      <div class="lesson-item ${done?'done':''}" onclick="navigate('lesson-detail', {lessonId:'${l.id}'})">
+        <div class="lesson-num">${done ? '✓' : idx+1}</div>
+        <div class="lesson-title">${l.title}</div>
+        ${done ? '<span class="lesson-check">Completed</span>' : ''}
+      </div>
+    `;
+  }).join('');
+  const doneCount = LESSONS.filter(l => STATE.lessons[l.id]?.completed).length;
+  return `
+    <div class="panel">
+      <h2>Rules Trainer</h2>
+      <p class="muted">${doneCount} of ${LESSONS.length} lessons complete. Revisit any lesson any time.</p>
+      <div class="progress-track"><div class="progress-fill" style="width:${Math.round(doneCount/LESSONS.length*100)}%"></div></div>
+    </div>
+    <div class="panel">
+      ${items}
+    </div>
+  `;
+}
+
+var _lessonQuizState = { selected: null, checked: false };
+
+function renderLessonDetail(lessonId){
+  const idx = LESSONS.findIndex(l => l.id === lessonId);
+  const lesson = LESSONS[idx];
+  if (!lesson) return renderLessonMenu();
+  _lessonQuizState = { selected: null, checked: false };
+
+  const cardsHtml = lesson.example.cards.map(renderCard).join('');
+
+  return `
+    <div class="panel">
+      <div class="muted" style="margin-bottom:6px;">Lesson ${idx+1} of ${LESSONS.length}</div>
+      <h2>${lesson.title}</h2>
+      ${lesson.body.map(p => `<p>${p}</p>`).join('')}
+
+      <div class="panel-tight" style="background:rgba(0,0,0,0.18);border-radius:6px;margin:18px 0;">
+        <div class="center-col">
+          <div class="hand-row" style="justify-content:center;">${cardsHtml}</div>
+          <p class="muted" style="margin-top:12px;margin-bottom:0;max-width:440px;">${lesson.example.caption}</p>
+        </div>
+      </div>
+
+      <div id="quiz-area">${renderLessonQuiz(lesson)}</div>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-outline" onclick="navigate('lessons')">← Back to lessons</button>
+      ${idx > 0 ? `<button class="btn btn-outline" onclick="navigate('lesson-detail',{lessonId:'${LESSONS[idx-1].id}'})">Previous lesson</button>` : ''}
+    </div>
+  `;
+}
+
+function renderLessonQuiz(lesson){
+  const q = lesson.check;
+  const state = _lessonQuizState;
+  const optsHtml = q.options.map((opt, i) => {
+    let cls = 'q-option';
+    if (state.checked){
+      if (i === q.correctIndex) cls += ' correct-choice';
+      else if (i === state.selected) cls += ' wrong-choice';
+    }
+    return `<button class="${cls}" ${state.checked?'disabled':''} onclick="selectLessonAnswer(${i}, '${lesson.id}')">${opt}</button>`;
+  }).join('');
+
+  const idx = LESSONS.findIndex(l => l.id === lesson.id);
+  const isLast = idx === LESSONS.length - 1;
+  const nextLesson = !isLast ? LESSONS[idx+1] : null;
+
+  return `
+    <div class="q-check">
+      <strong>Quick check:</strong>
+      <p style="margin-top:8px;">${q.question}</p>
+      ${optsHtml}
+      ${state.checked ? `
+        <div class="feedback ${state.selected === q.correctIndex ? 'correct' : 'incorrect'}">
+          <strong>${state.selected === q.correctIndex ? 'Correct.' : 'Not quite.'}</strong> ${q.explain}
+        </div>
+        <div class="btn-row" style="margin-top:10px;">
+          ${nextLesson ? `<button class="btn btn-primary" onclick="navigate('lesson-detail',{lessonId:'${nextLesson.id}'})">Next lesson →</button>`
+            : `<button class="btn btn-primary" onclick="navigate('lessons')">Back to lesson menu</button>`}
+        </div>
+      ` : ''}
+    </div>
+  `;
+}
+
+function selectLessonAnswer(i, lessonId){
+  _lessonQuizState.selected = i;
+  _lessonQuizState.checked = true;
+  const lesson = LESSONS.find(l => l.id === lessonId);
+  if (i === lesson.check.correctIndex){
+    STATE.lessons[lessonId] = { completed: true, completedAt: Date.now() };
+    markDayActive(STATE);
+    persist();
+  }
+  document.getElementById('quiz-area').innerHTML = renderLessonQuiz(lesson);
+}
+// ============================================================================
+// MODULE 2 — ADAPTIVE COACH
+//
+// Each dealt hand is played to completion: a Hit continues the same hand and
+// prompts again (re-evaluated against the strategy chart at the new total);
+// a Split creates two independent sub-hands, each played out in turn, with
+// double-after-split honored; Stand / Double / Surrender / a bust ends that
+// hand (or sub-hand). Every individual decision point is scored and tagged
+// independently against the category system, matching "prompt them for a
+// decision at each point in the hand" from the spec.
+// ============================================================================
+var coachShoe = new Shoe(6);
+var coachTable = null; // { dealerUpcard, dealerHoleCard, subhands: [subhand,...], activeIndex }
+var coachFeedback = null;
+
+// A subhand: { playerCards, isPair, pairRank, isSoft, total, cardsCount, splitDepth,
+//              busted, finished, lastCorrect, lastCorrectAction, chosenAction }
+
+function pickTargetScenario(){
+  const weak = weakestCategories(STATE, 5, 3);
+  if (weak.length === 0) return null;
+  if (Math.random() > 0.70) return null; // 30% fully random even when weak spots exist
+  const weights = weak.map((w,i) => weak.length - i);
+  const totalW = weights.reduce((a,b)=>a+b,0);
+  let r = Math.random() * totalW;
+  for (let i=0;i<weak.length;i++){
+    r -= weights[i];
+    if (r <= 0) return weak[i].tag;
+  }
+  return weak[0].tag;
+}
+
+function dealTowardTag(tag){
+  const dealerFromBucket = (b) => b === 'A' ? 'A' : parseInt(b,10);
+  let m;
+  if ((m = tag.match(/^hard(\d+)_v(.+)$/)) || (m = tag.match(/^(\d+)v(\d+)$/))) {
+    const total = parseInt(m[1],10);
+    const up = tag.includes('v2-6') ? [2,3,4,5,6][Math.floor(Math.random()*5)] : dealerFromBucket(m[2].split('-')[0]);
+    return constructHardHand(total, up);
+  }
+  if ((m = tag.match(/^soft(\d+)_v(.+)$/))) {
+    const total = parseInt(m[1],10);
+    const bucket = m[2];
+    let up;
+    if (bucket.includes('-')){ const opts = bucket.split('-').map(dealerFromBucket); up = opts[Math.floor(Math.random()*opts.length)]; }
+    else up = dealerFromBucket(bucket);
+    return constructSoftHand(total, up);
+  }
+  if (tag === 'soft18v9-10-A'){
+    const opts = [9,10,'A']; const up = opts[Math.floor(Math.random()*opts.length)];
+    return constructSoftHand(18, up);
+  }
+  if (tag === '12v2-6'){
+    const opts=[2,3,4,5,6]; const up = opts[Math.floor(Math.random()*opts.length)];
+    return constructHardHand(12, up);
+  }
+  if (tag === '16v10') return constructHardHand(16, 10);
+  if ((m = tag.match(/^split(\w+?)s_v(.+)$/)) || tag === 'splitting9s') {
+    const rank = tag === 'splitting9s' ? '9' : m[1];
+    let up;
+    if (m && m[2].includes('-')){ const opts = m[2].split('-').map(dealerFromBucket); up = opts[Math.floor(Math.random()*opts.length)]; }
+    else up = m ? dealerFromBucket(m[2]) : [2,3,4,5,6,7,8,9][Math.floor(Math.random()*8)];
+    return constructPairHand(rank, up);
+  }
+  return null;
+}
+
+function cardForValue(val){
+  if (val === 10){ const opts=['10','J','Q','K']; return opts[Math.floor(Math.random()*4)]; }
+  return String(val);
+}
+function suitRandom(){ return SUITS[Math.floor(Math.random()*4)]; }
+
+function constructHardHand(total, up){
+  if (total < 5 || total > 20) return null;
+  let a = Math.max(2, total - 10);
+  let bmax = Math.min(10, total - 2);
+  if (a > bmax) return null;
+  for (let attempt = 0; attempt < 15; attempt++){
+    const aVal = a + Math.floor(Math.random() * (bmax - a + 1));
+    const bVal = total - aVal;
+    if (bVal < 2 || bVal > 10) continue;
+    if (aVal === bVal) continue; // would form a pair -- reject and retry, keep this a pure hard-total drill
+    const s1 = suitRandom(), s2 = suitRandom();
+    const c1 = { rank: cardForValue(aVal), suit: s1.sym, color: s1.color };
+    const c2 = { rank: cardForValue(bVal), suit: s2.sym, color: s2.color };
+    return { playerCards: [c1,c2], up };
+  }
+  return null;
+}
+function constructSoftHand(total, up){
+  const other = total - 11;
+  if (other < 2 || other > 9) return null;
+  const s1 = suitRandom(), s2 = suitRandom();
+  const c1 = { rank:'A', suit:s1.sym, color:s1.color };
+  const c2 = { rank: cardForValue(other), suit:s2.sym, color:s2.color };
+  return { playerCards: Math.random()<0.5?[c1,c2]:[c2,c1], up };
+}
+function constructPairHand(rank, up){
+  const s1 = suitRandom(), s2 = suitRandom();
+  let r1 = rank === '10' ? cardForValue(10) : (rank === 'A' ? 'A' : rank);
+  let r2 = rank === '10' ? cardForValue(10) : (rank === 'A' ? 'A' : rank);
+  const c1 = { rank:r1, suit:s1.sym, color:s1.color };
+  const c2 = { rank:r2, suit:s2.sym, color:s2.color };
+  return { playerCards: [c1,c2], up };
+}
+
+function makeUpcard(up){
+  return up === 'A' ? {rank:'A', suit: suitRandom().sym} : {rank: cardForValue(up), suit: suitRandom().sym};
+}
+function makeHoleCard(){
+  const s = suitRandom();
+  return { rank: RANKS[Math.floor(Math.random()*13)], suit: s.sym, color: s.color };
+}
+
+function buildSubhand(playerCards, splitDepth){
+  const hv = handValue(playerCards);
+  const isPair = isPairHand(playerCards);
+  return {
+    playerCards,
+    isPair, pairRank: isPair ? pairRankOf(playerCards) : null,
+    isSoft: hv.isSoft, total: hv.total, cardsCount: playerCards.length,
+    splitDepth: splitDepth || 0,
+    busted: hv.total > 21, finished: false,
+    lastCorrect: null, lastCorrectAction: null, chosenAction: null,
+  };
+}
+
+function dealNewCoachHand(){
+  coachShoe.maybeReshuffle();
+  const tag = pickTargetScenario();
+  let constructed = tag ? dealTowardTag(tag) : null;
+
+  let playerCards, up;
+  if (constructed){
+    playerCards = constructed.playerCards;
+    up = constructed.up;
+  } else {
+    playerCards = [coachShoe.draw(), coachShoe.draw()];
+    up = null; // use shoe's own dealt upcard below
+  }
+
+  const dealerUpcard = up !== null ? makeUpcard(up) : coachShoe.draw();
+  const dealerHoleCard = coachShoe.draw();
+
+  coachTable = {
+    dealerUpcard, dealerHoleCard,
+    subhands: [ buildSubhand(playerCards, 0) ],
+    activeIndex: 0,
+  };
+  coachFeedback = null;
+}
+
+function activeCoachSubhand(){
+  return coachTable.subhands[coachTable.activeIndex];
+}
+function coachDealerUpNorm(){
+  return normRank(coachTable.dealerUpcard.rank);
+}
+
+function advanceToNextSubhandOrFinish(){
+  for (let i=0;i<coachTable.subhands.length;i++){
+    if (!coachTable.subhands[i].finished){
+      coachTable.activeIndex = i;
+      return true;
+    }
+  }
+  return false;
+}
+
+function renderCoach(){
+  if (!coachTable) dealNewCoachHand();
+  const weak = weakestCategories(STATE, 5, 3);
+  const t = coachTable;
+  const allDone = t.subhands.every(sh => sh.finished);
+  const sh = allDone ? null : activeCoachSubhand();
+
+  let decisionButtons = '';
+  let handDisplays = '';
+
+  if (sh){
+    const canDouble = sh.cardsCount === 2;
+    const canSplit = sh.isPair && sh.splitDepth < 3;
+    const canSurrender = sh.cardsCount === 2 && !sh.isPair && sh.splitDepth === 0;
+    const justAnswered = sh.lastCorrect !== null;
+
+    decisionButtons = `
+      <div class="decision-row">
+        <button class="dbtn" ${justAnswered?'disabled':''} onclick="makeCoachDecision('H')">Hit</button>
+        <button class="dbtn" ${justAnswered?'disabled':''} onclick="makeCoachDecision('S')">Stand</button>
+        <button class="dbtn" ${justAnswered||!canDouble?'disabled':''} onclick="makeCoachDecision('D')">Double</button>
+        <button class="dbtn" ${justAnswered||!canSplit?'disabled':''} onclick="makeCoachDecision('P')">Split</button>
+        <button class="dbtn" ${justAnswered||!canSurrender?'disabled':''} onclick="makeCoachDecision('R')">Surrender</button>
+      </div>
+    `;
+  }
+
+  handDisplays = t.subhands.map((s, i) => {
+    const isActive = !allDone && i === t.activeIndex;
+    const label = t.subhands.length > 1 ? `HAND ${i+1}${isActive?' (current)':''}` : 'YOU';
+    return `
+      <div style="${t.subhands.length>1 ? 'border:1px solid var(--line);border-radius:6px;padding:12px;margin-bottom:10px;'+(isActive?'border-color:var(--brass);':'') : ''}">
+        <div class="seat-label">${label} <span class="total-pill">${s.busted?'BUST ':''}${s.isSoft&&!s.busted?'Soft ':''}${s.total}${s.isPair && !s.finished ? ` (pair of ${s.pairRank}s)`:''}</span></div>
+        <div class="hand-row">${renderHand(s.playerCards)}</div>
+      </div>
+    `;
+  }).join('');
+
+  const feedbackHtml = coachFeedback ? `
+    <div class="feedback ${coachFeedback.correct ? 'correct' : 'incorrect'}">
+      <strong>${coachFeedback.correct ? 'Correct!' : 'Not quite.'}</strong>
+      ${coachFeedback.correct ? '' : ` Basic strategy says <strong>${actionLabel(coachFeedback.correctAction)}</strong>. `}
+      ${coachFeedback.explain}
+      <div class="btn-row" style="margin-top:12px;">
+        <button class="btn btn-primary btn-sm" onclick="advanceCoachAfterFeedback()">Continue →</button>
+      </div>
+    </div>
+  ` : (allDone ? `
+    <div class="btn-row" style="margin-top:16px;">
+      <button class="btn btn-primary btn-sm" onclick="dealNewCoachHand(); render();">Deal next hand →</button>
+    </div>
+  ` : '');
+
+  return `
+    <div class="grid-2">
+      <div class="panel" style="grid-column: 1 / -1;">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+          <h2 style="margin-bottom:0;">Adaptive Coach</h2>
+          <span class="muted">Hands practiced: ${STATE.totalHandsPracticed}</span>
+        </div>
+        <hr class="divider">
+
+        <div class="seat-label">DEALER ${allDone ? '' : `<span class="total-pill">shows ${t.dealerUpcard.rank}</span>`}</div>
+        <div class="hand-row">${renderHand([t.dealerUpcard, t.dealerHoleCard], {hideSecond: !allDone})}</div>
+
+        <div style="height:20px;"></div>
+
+        ${handDisplays}
+
+        ${decisionButtons}
+        ${feedbackHtml}
+      </div>
+
+      <div class="panel">
+        <h3>Focus Areas</h3>
+        <p class="muted" style="margin-bottom:10px;">Hands are weighted toward these based on your last ${ROLLING_WINDOW} attempts per category — not exclusively, so you keep sharp everywhere.</p>
+        ${weak.length === 0 ? `<p class="muted">Not enough data yet — keep practicing and weak spots will surface here.</p>` :
+          weak.map(w => `
+            <div class="focus-item">
+              <div style="flex:1;">
+                <div>${humanCategoryLabel(w.tag)}</div>
+                <div class="acc-bar-track"><div class="acc-bar-fill" style="width:${Math.round(w.acc*100)}%"></div></div>
+              </div>
+              <div style="font-family:var(--font-num);font-weight:800;color:var(--brass-bright);margin-left:14px;">${Math.round(w.acc*100)}%</div>
+            </div>
+          `).join('')
+        }
+      </div>
+
+      <div class="panel">
+        <h3>Category Accuracy</h3>
+        ${['hard','soft','pairs'].map(cat => {
+          const acc = accuracyFor(STATE, cat);
+          const n = attemptCountFor(STATE, cat);
+          return `<div class="focus-item">
+            <div style="flex:1;">
+              <div>${humanCategoryLabel(cat)} <span class="muted">(${n} attempts)</span></div>
+              <div class="acc-bar-track"><div class="acc-bar-fill" style="width:${acc===null?0:Math.round(acc*100)}%"></div></div>
+            </div>
+            <div style="font-family:var(--font-num);font-weight:800;color:var(--brass-bright);margin-left:14px;">${acc===null?'—':Math.round(acc*100)+'%'}</div>
+          </div>`;
+        }).join('')}
+      </div>
+    </div>
+  `;
+}
+
+// Executes one decision on the active subhand: scores it against basic strategy and
+// stores feedback for display. The actual game consequence (draw a card / split /
+// lock the subhand) is applied afterward in advanceCoachAfterFeedback, once the user
+// has read the feedback and clicks Continue.
+function makeCoachDecision(action){
+  const t = coachTable;
+  const sh = activeCoachSubhand();
+  if (sh.lastCorrect !== null) return; // already answered this decision point, awaiting "Continue"
+
+  const up = coachDealerUpNorm();
+  const correctAction = getCorrectAction(sh, up);
+  const correct = action === correctAction;
+  const tags = categoryTagsFor(sh, up);
+
+  recordAttempt(STATE, tags, correct);
+  STATE.totalHandsPracticed += 1;
+  markDayActive(STATE);
+  persist();
+
+  sh.lastCorrect = correct;
+  sh.lastCorrectAction = correctAction;
+  sh.chosenAction = action;
+
+  coachFeedback = {
+    correct,
+    correctAction,
+    explain: explainAction(sh, up, correctAction),
+  };
+  render();
+}
+
+// Called when the user clicks "Continue" after seeing feedback — applies the actual
+// game consequence of the decision just scored, then either re-prompts on the same
+// subhand (after a non-terminal Hit), moves to the next subhand (after a split or a
+// finished subhand), or reveals the "Deal next hand" control once every subhand is done.
+function advanceCoachAfterFeedback(){
+  const t = coachTable;
+  const sh = activeCoachSubhand();
+  const action = sh.chosenAction;
+
+  if (action === 'H'){
+    coachShoe.maybeReshuffle();
+    sh.playerCards.push(coachShoe.draw());
+    const hv = handValue(sh.playerCards);
+    sh.total = hv.total; sh.isSoft = hv.isSoft; sh.cardsCount = sh.playerCards.length;
+    sh.isPair = false; sh.pairRank = null; // no longer a fresh pair once hit
+    sh.busted = hv.total > 21;
+    sh.lastCorrect = null; sh.lastCorrectAction = null; sh.chosenAction = null;
+    if (sh.busted || hv.total === 21){
+      sh.finished = true;
+      advanceToNextSubhandOrFinish();
+    }
+    coachFeedback = null; // either re-prompt on this subhand, or the "Deal next" control shows once allDone
+  } else if (action === 'S' || action === 'D' || action === 'R'){
+    sh.finished = true;
+    coachFeedback = null;
+    advanceToNextSubhandOrFinish();
+  } else if (action === 'P'){
+    // split: two new subhands, each gets one more card; DAS allowed per ruleset
+    const card1 = sh.playerCards[0], card2 = sh.playerCards[1];
+    coachShoe.maybeReshuffle();
+    const newCard1 = coachShoe.draw();
+    coachShoe.maybeReshuffle();
+    const newCard2 = coachShoe.draw();
+    const subA = buildSubhand([card1, newCard1], sh.splitDepth + 1);
+    const subB = buildSubhand([card2, newCard2], sh.splitDepth + 1);
+    const idx = t.activeIndex;
+    t.subhands.splice(idx, 1, subA, subB);
+    t.activeIndex = idx; // continue on the first of the two new subhands
+    coachFeedback = null;
+  }
+  render();
+}
+// ============================================================================
+// STRATEGY CHART REFERENCE (with personal heat-map overlay)
+// ============================================================================
+function actionClass(code){
+  return { H:'act-H', S:'act-S', D:'act-D', P:'act-P', R:'act-R' }[code] || '';
+}
+
+function heatClassFor(tag){
+  const acc = accuracyFor(STATE, tag);
+  const n = attemptCountFor(STATE, tag);
+  if (acc === null || n < 3) return 'heat-0';
+  if (acc >= 0.85) return 'heat-0';
+  if (acc >= 0.65) return 'heat-1';
+  if (acc >= 0.45) return 'heat-2';
+  return 'heat-3';
+}
+
+function buildHardRows(){
+  const rows = [];
+  for (let t = 20; t >= 5; t--){
+    const cells = DEALER_COLS.map((colLabel, i) => {
+      const up = colLabel === 'A' ? 'A' : parseInt(colLabel,10);
+      const canDouble = true;
+      const raw = HARD_TOTALS[t][i];
+      const resolved = resolveAction(raw, {canDouble, canSplit:false});
+      const tag = `hard${t}_v${colLabel}`;
+      return `<td class="${actionClass(resolved)} ${heatClassFor(tag)}" title="Hard ${t} vs ${colLabel}: ${actionLabel(resolved)}">${resolved}</td>`;
+    }).join('');
+    rows.push(`<tr><td class="hdr">${t}</td>${cells}</tr>`);
+  }
+  return rows.join('');
+}
+function buildSoftRows(){
+  const rows = [];
+  for (let t = 20; t >= 13; t--){
+    const cells = DEALER_COLS.map((colLabel, i) => {
+      const raw = SOFT_TOTALS[t][i];
+      const resolved = resolveAction(raw, {canDouble:true, canSplit:false});
+      const tag = `soft${t}_v${colLabel}`;
+      const otherCard = t - 11;
+      return `<td class="${actionClass(resolved)} ${heatClassFor(tag)}" title="Soft ${t} (A,${otherCard}) vs ${colLabel}: ${actionLabel(resolved)}">${resolved}</td>`;
+    }).join('');
+    const otherCard = t - 11;
+    rows.push(`<tr><td class="hdr">A,${otherCard}</td>${cells}</tr>`);
+  }
+  return rows.join('');
+}
+function buildPairRows(){
+  const order = ['A','10','9','8','7','6','5','4','3','2'];
+  const rows = order.map(rank => {
+    const cells = DEALER_COLS.map((colLabel, i) => {
+      const up = colLabel === 'A' ? 'A' : parseInt(colLabel,10);
+      const raw = PAIRS[rank][i];
+      const resolved = resolveAction(raw, {canDouble:true, canSplit:true, dasAllowed:true, surrenderAllowed:true});
+      const tag = `split${rank}s_v${colLabel}`;
+      const label = rank === 'A' ? 'A,A' : `${rank},${rank}`;
+      return `<td class="${actionClass(resolved)} ${heatClassFor(tag)}" title="${label} vs ${colLabel}: ${actionLabel(resolved)}">${resolved}</td>`;
+    }).join('');
+    const label = rank === 'A' ? 'A,A' : `${rank},${rank}`;
+    return `<tr><td class="hdr">${label}</td>${cells}</tr>`;
+  }).join('');
+  return rows;
+}
+
+function renderStrategyChart(){
+  const headerCells = DEALER_COLS.map(c => `<th>${c}</th>`).join('');
+  return `
+    <div class="panel">
+      <h2>Strategy Chart Reference</h2>
+      <p class="muted">6-deck shoe · Dealer stands on soft 17 · Double after split allowed · Late surrender allowed. Cells outlined in orange/red show where your personal accuracy is lagging — practice those in the Coach.</p>
+
+      <h3 style="margin-top:20px;">Hard Totals</h3>
+      <div class="chart-scroll">
+        <table class="strategy-table">
+          <tr><td class="hdr">You / Dealer</td>${headerCells}</tr>
+          ${buildHardRows()}
+        </table>
+      </div>
+
+      <h3 style="margin-top:24px;">Soft Totals</h3>
+      <div class="chart-scroll">
+        <table class="strategy-table">
+          <tr><td class="hdr">You / Dealer</td>${headerCells}</tr>
+          ${buildSoftRows()}
+        </table>
+      </div>
+
+      <h3 style="margin-top:24px;">Pairs</h3>
+      <div class="chart-scroll">
+        <table class="strategy-table">
+          <tr><td class="hdr">You / Dealer</td>${headerCells}</tr>
+          ${buildPairRows()}
+        </table>
+      </div>
+
+      <div class="legend-row">
+        <span class="legend-swatch"><span class="sw act-H"></span>Hit</span>
+        <span class="legend-swatch"><span class="sw act-S"></span>Stand</span>
+        <span class="legend-swatch"><span class="sw act-D"></span>Double</span>
+        <span class="legend-swatch"><span class="sw act-P"></span>Split</span>
+        <span class="legend-swatch"><span class="sw act-R"></span>Surrender</span>
+      </div>
+      <div class="legend-row">
+        <span class="legend-swatch">Your accuracy: </span>
+        <span class="legend-swatch"><span class="sw" style="background:var(--cream);box-shadow: inset 0 0 0 2px rgba(224,160,90,0.5);"></span>65–84%</span>
+        <span class="legend-swatch"><span class="sw" style="background:var(--cream);box-shadow: inset 0 0 0 2px rgba(224,120,60,0.75);"></span>45–64%</span>
+        <span class="legend-swatch"><span class="sw" style="background:#E9B0B0;"></span>Under 45%</span>
+        <span class="muted">(needs 3+ attempts to show)</span>
+      </div>
+    </div>
+  `;
+}
+// ============================================================================
+// MODULE 3 — CHALLENGE & SCORING MODE (Test Mode)
+//
+// A "hand" here means one dealt table setup (matching the 25/50-hand session
+// length in the spec); within that hand, every decision point (including
+// follow-up hits and any split subhands) is scored individually against
+// basic strategy, same as the Coach — but with no hints and no immediate
+// correction. The overall accuracy is decisions-correct / decisions-made,
+// which is the standard way these training tools grade a session.
+// ============================================================================
+var testConfig = { handCount: 25 };
+var testSession = null; // { handCount, handsDealt, decisions:[{correct,tags}], table:{...like coachTable}, streak, bestStreak }
+var testShoe = null;
+
+function renderTestSetup(){
+  return `
+    <div class="panel">
+      <h2>Test Mode</h2>
+      <p class="muted">Play a fixed number of hands against the full basic strategy standard. No hints, no corrections along the way — your score is revealed only at the end.</p>
+      <h3 style="margin-top:20px;">Choose session length</h3>
+      <div class="btn-row">
+        <button class="btn ${testConfig.handCount===25?'btn-primary':'btn-outline'}" onclick="setTestLength(25)">25 hands</button>
+        <button class="btn ${testConfig.handCount===50?'btn-primary':'btn-outline'}" onclick="setTestLength(50)">50 hands</button>
+      </div>
+      <div style="margin-top:24px;">
+        <button class="btn btn-primary" onclick="startTestSession()">Begin test →</button>
+      </div>
+    </div>
+
+    ${STATE.testSessions.length > 0 ? renderTestHistory() : ''}
+  `;
+}
+
+function setTestLength(n){ testConfig.handCount = n; render(); }
+
+function renderTestHistory(){
+  const sessions = STATE.testSessions.slice(-10).reverse();
+  return `
+    <div class="panel">
+      <h3>Session History</h3>
+      ${sessions.map(s => `
+        <div class="session-summary-row">
+          <span class="muted">${new Date(s.date).toLocaleDateString()}</span>
+          <span>${s.handsPlayed} hands</span>
+          <span style="font-weight:800;color:var(--brass-bright);">${Math.round(s.accuracy*100)}%</span>
+        </div>
+      `).join('')}
+      <div style="margin-top:16px;">
+        <canvas id="progressChart" height="140"></canvas>
+      </div>
+    </div>
+  `;
+}
+
+window._dashboardPostRender = null;
+
+function startTestSession(){
+  testShoe = new Shoe(6);
+  testSession = {
+    handCount: testConfig.handCount,
+    handsDealt: 0,
+    decisions: [], // {correct, tags}
+    streak: 0,
+    bestStreak: 0,
+    startedAt: Date.now(),
+  };
+  dealNextTestHand();
+  navigate('test-play');
+}
+
+function dealNextTestHand(){
+  testShoe.maybeReshuffle();
+  const playerCards = [testShoe.draw(), testShoe.draw()];
+  const dealerUpcard = testShoe.draw();
+  const dealerHoleCard = testShoe.draw();
+  testSession.table = {
+    dealerUpcard, dealerHoleCard,
+    subhands: [ buildSubhand(playerCards, 0) ],
+    activeIndex: 0,
+  };
+  testSession.handsDealt += 1;
+}
+
+function activeTestSubhand(){
+  return testSession.table.subhands[testSession.table.activeIndex];
+}
+function testDealerUpNorm(){
+  return normRank(testSession.table.dealerUpcard.rank);
+}
+function advanceToNextTestSubhandOrFinish(){
+  const subs = testSession.table.subhands;
+  for (let i=0;i<subs.length;i++){
+    if (!subs[i].finished){ testSession.table.activeIndex = i; return true; }
+  }
+  return false;
+}
+
+function renderTestPlay(){
+  const s = testSession;
+  const t = s.table;
+  const sh = activeTestSubhand();
+  const canDouble = sh.cardsCount === 2;
+  const canSplit = sh.isPair && sh.splitDepth < 3;
+  const canSurrender = sh.cardsCount === 2 && !sh.isPair && sh.splitDepth === 0;
+
+  const handDisplays = t.subhands.map((sub, i) => {
+    const isActive = i === t.activeIndex;
+    const label = t.subhands.length > 1 ? `HAND ${i+1}${isActive?' (current)':''}` : 'YOU';
+    return `
+      <div style="${t.subhands.length>1 ? 'border:1px solid var(--line);border-radius:6px;padding:12px;margin-bottom:10px;'+(isActive?'border-color:var(--brass);':'') : ''}">
+        <div class="seat-label">${label} <span class="total-pill">${sub.busted?'BUST ':''}${sub.isSoft&&!sub.busted?'Soft ':''}${sub.total}${sub.isPair?` (pair of ${sub.pairRank}s)`:''}</span></div>
+        <div class="hand-row">${renderHand(sub.playerCards)}</div>
+      </div>
+    `;
+  }).join('');
+
+  return `
+    <div class="panel">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+        <h2 style="margin-bottom:0;">Test in progress</h2>
+        <span class="badge badge-competent">Hand ${s.handsDealt} / ${s.handCount}</span>
+      </div>
+      <div class="progress-track"><div class="progress-fill" style="width:${Math.round((s.handsDealt-1)/s.handCount*100)}%"></div></div>
+      <p class="muted">No hints this round — your score is revealed at the end.</p>
+      <hr class="divider">
+
+      <div class="seat-label">DEALER <span class="total-pill">shows ${t.dealerUpcard.rank}</span></div>
+      <div class="hand-row">${renderHand([t.dealerUpcard, t.dealerHoleCard], {hideSecond:true})}</div>
+
+      <div style="height:20px;"></div>
+
+      ${handDisplays}
+
+      <div class="decision-row">
+        <button class="dbtn" onclick="makeTestDecision('H')">Hit</button>
+        <button class="dbtn" onclick="makeTestDecision('S')">Stand</button>
+        <button class="dbtn" ${!canDouble?'disabled':''} onclick="makeTestDecision('D')">Double</button>
+        <button class="dbtn" ${!canSplit?'disabled':''} onclick="makeTestDecision('P')">Split</button>
+        <button class="dbtn" ${!canSurrender?'disabled':''} onclick="makeTestDecision('R')">Surrender</button>
+      </div>
+    </div>
+  `;
+}
+
+function makeTestDecision(action){
+  const s = testSession;
+  const t = s.table;
+  const sh = activeTestSubhand();
+  const up = testDealerUpNorm();
+  const correctAction = getCorrectAction(sh, up);
+  const correct = action === correctAction;
+  const tags = categoryTagsFor(sh, up);
+
+  s.decisions.push({ correct, tags });
+  recordAttempt(STATE, tags, correct);
+  STATE.totalHandsPracticed += 1;
+
+  if (correct){ s.streak++; s.bestStreak = Math.max(s.bestStreak, s.streak); }
+  else { s.streak = 0; }
+
+  markDayActive(STATE);
+  persist();
+
+  // Apply the consequence immediately (no hint/feedback shown in Test Mode).
+  if (action === 'H'){
+    testShoe.maybeReshuffle();
+    sh.playerCards.push(testShoe.draw());
+    const hv = handValue(sh.playerCards);
+    sh.total = hv.total; sh.isSoft = hv.isSoft; sh.cardsCount = sh.playerCards.length;
+    sh.isPair = false; sh.pairRank = null;
+    sh.busted = hv.total > 21;
+    if (sh.busted || hv.total === 21){
+      sh.finished = true;
+      advanceToNextTestSubhandOrFinish();
+    }
+  } else if (action === 'S' || action === 'D' || action === 'R'){
+    sh.finished = true;
+    advanceToNextTestSubhandOrFinish();
+  } else if (action === 'P'){
+    testShoe.maybeReshuffle();
+    const newCard1 = testShoe.draw();
+    testShoe.maybeReshuffle();
+    const newCard2 = testShoe.draw();
+    const card1 = sh.playerCards[0], card2 = sh.playerCards[1];
+    const subA = buildSubhand([card1, newCard1], sh.splitDepth + 1);
+    const subB = buildSubhand([card2, newCard2], sh.splitDepth + 1);
+    const idx = t.activeIndex;
+    t.subhands.splice(idx, 1, subA, subB);
+    t.activeIndex = idx;
+  }
+
+  const allDone = t.subhands.every(x => x.finished);
+  if (allDone){
+    if (s.handsDealt >= s.handCount){
+      finishTestSession();
+      return;
+    } else {
+      dealNextTestHand();
+    }
+  }
+  render();
+}
+
+function finishTestSession(){
+  const s = testSession;
+  const totalCorrect = s.decisions.filter(d => d.correct).length;
+  const accuracy = s.decisions.length > 0 ? totalCorrect / s.decisions.length : 0;
+
+  const catTotals = { hard:{c:0,t:0}, soft:{c:0,t:0}, pairs:{c:0,t:0} };
+  s.decisions.forEach(d => {
+    const broad = d.tags.find(t => ['hard','soft','pairs'].includes(t));
+    if (broad){ catTotals[broad].t++; if (d.correct) catTotals[broad].c++; }
+  });
+  const categoryBreakdown = {};
+  for (const [cat, v] of Object.entries(catTotals)){
+    if (v.t > 0) categoryBreakdown[cat] = v.c / v.t;
+  }
+
+  const session = {
+    date: Date.now(),
+    handsPlayed: s.handsDealt,
+    decisionsCount: s.decisions.length,
+    correct: totalCorrect,
+    accuracy,
+    categoryBreakdown,
+    bestStreak: s.bestStreak,
+  };
+
+  STATE.testSessions.push(session);
+  STATE.totalPracticeSessions += 1;
+  session.vegasScore = vegasReadinessScore(STATE);
+  session.milestoneAtTime = milestoneFor(STATE);
+  STATE.lastSeenMilestone = session.milestoneAtTime;
+  persist();
+
+  navigate('test-results', { session });
+}
+
+function renderTestResults(session){
+  if (!session) return renderTestSetup();
+  const milestone = session.milestoneAtTime;
+  const catRows = Object.entries(session.categoryBreakdown).map(([cat, acc]) => `
+    <div class="focus-item">
+      <div style="flex:1;">
+        <div>${humanCategoryLabel(cat)}</div>
+        <div class="acc-bar-track"><div class="acc-bar-fill" style="width:${Math.round(acc*100)}%"></div></div>
+      </div>
+      <div style="font-family:var(--font-num);font-weight:800;color:var(--brass-bright);margin-left:14px;">${Math.round(acc*100)}%</div>
+    </div>
+  `).join('');
+
+  return `
+    <div class="panel center-col">
+      <h2>Session Complete</h2>
+      ${milestoneBadgeHtml(milestone)}
+      <div class="stat-row" style="justify-content:center;margin-top:20px;">
+        <div class="stat"><div class="num">${Math.round(session.accuracy*100)}%</div><div class="label">Overall accuracy</div></div>
+        <div class="stat"><div class="num">${session.vegasScore}</div><div class="label">Vegas Readiness Score</div></div>
+        <div class="stat"><div class="num">${session.bestStreak}</div><div class="label">Best streak</div></div>
+      </div>
+      <p class="muted" style="margin-top:10px;">${session.handsPlayed} hands dealt, ${session.decisionsCount} total decisions scored.</p>
+    </div>
+    <div class="panel">
+      <h3>Category Breakdown</h3>
+      ${catRows || '<p class="muted">No category data for this session.</p>'}
+    </div>
+    <div class="panel">
+      <h3>Progress Over Time</h3>
+      <canvas id="progressChart" height="140"></canvas>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="navigate('test-setup')">Take another test</button>
+      <button class="btn btn-outline" onclick="navigate('dashboard')">Back to dashboard</button>
+    </div>
+  `;
+}
+
+window._testPlayPostRender = null;
+// ============================================================================
+// LIGHTWEIGHT CANVAS PROGRESS CHART (no external library)
+// ============================================================================
+function drawProgressChart(){
+  const canvas = document.getElementById('progressChart');
+  if (!canvas) return;
+  const sessions = STATE.testSessions.slice(-20);
+  if (sessions.length === 0) return;
+
+  // handle high-DPI screens
+  const dpr = window.devicePixelRatio || 1;
+  const cssWidth = canvas.parentElement.clientWidth;
+  const cssHeight = 140;
+  canvas.width = cssWidth * dpr;
+  canvas.height = cssHeight * dpr;
+  canvas.style.width = cssWidth + 'px';
+  canvas.style.height = cssHeight + 'px';
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return; // defensive: some embed contexts may not support canvas 2d
+  ctx.scale(dpr, dpr);
+  ctx.clearRect(0,0,cssWidth,cssHeight);
+
+  const padL = 34, padR = 12, padT = 14, padB = 22;
+  const plotW = cssWidth - padL - padR;
+  const plotH = cssHeight - padT - padB;
+
+  // gridlines at 0/50/80/90/100%
+  const gridVals = [0, 50, 80, 90, 100];
+  ctx.strokeStyle = 'rgba(245,241,230,0.12)';
+  ctx.fillStyle = 'rgba(245,241,230,0.5)';
+  ctx.font = '10px Manrope, sans-serif';
+  ctx.lineWidth = 1;
+  gridVals.forEach(v => {
+    const y = padT + plotH - (v/100)*plotH;
+    ctx.beginPath();
+    ctx.moveTo(padL, y); ctx.lineTo(padL+plotW, y);
+    ctx.stroke();
+    ctx.fillText(v+'%', 2, y+3);
+  });
+
+  // points
+  const n = sessions.length;
+  const stepX = n > 1 ? plotW / (n-1) : 0;
+  const points = sessions.map((s,i) => ({
+    x: padL + (n>1 ? i*stepX : plotW/2),
+    y: padT + plotH - (s.accuracy)*plotH,
+  }));
+
+  // line
+  ctx.strokeStyle = '#C9A227';
+  ctx.lineWidth = 2.5;
+  ctx.beginPath();
+  points.forEach((p,i) => { if (i===0) ctx.moveTo(p.x,p.y); else ctx.lineTo(p.x,p.y); });
+  ctx.stroke();
+
+  // fill under line
+  ctx.lineTo(points[points.length-1].x, padT+plotH);
+  ctx.lineTo(points[0].x, padT+plotH);
+  ctx.closePath();
+  ctx.fillStyle = 'rgba(201,162,39,0.12)';
+  ctx.fill();
+
+  // points
+  points.forEach((p) => {
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, 3.5, 0, Math.PI*2);
+    ctx.fillStyle = '#E0B93A';
+    ctx.fill();
+  });
+}
+
+// Hook chart drawing into render cycle for views that include the canvas.
+const _origRender = render;
+render = function(){
+  _origRender();
+  requestAnimationFrame(() => drawProgressChart());
+};
+
+// ============================================================================
+// INIT
+// ============================================================================
+document.addEventListener('DOMContentLoaded', () => {
+  markDayActive(STATE);
+  persist();
+  render();
+});
+
+</script>
+</body>
+</html>

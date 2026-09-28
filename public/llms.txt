@@ -54,8 +54,9 @@ with curated content and settings that a caretaker or the elder can manage.
 Dyuti: a private family AI running on Puneet's own computer, with linked family
 members and persistent memory.
 
-Blackjack Bootcamp: a trainer for making the mathematically correct decision
-under known odds.
+Blackjack Bootcamp (puneetsrivastava.com/blackjack/): a basic-strategy trainer
+with lessons, an adaptive coach that targets weak spots, timed tests, and a
+personal strategy heat map.
 
 Markets Lab: personal research using AI to study and backtest investment and
 trading strategies. Not financial advice; Puneet is not a licensed advisor.
