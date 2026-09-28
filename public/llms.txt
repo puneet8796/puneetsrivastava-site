@@ -44,8 +44,15 @@ Kairos (kairos.puneetsrivastava.com): a self-inquiry tool that applies the
 Knowledge Quadrant Framework to a person's own description of their work. Runs
 on Claude via Anthropic's API, with a local-model fallback. No login. In beta.
 
-Factwala (newindia.puneetsrivastava.com): a myth-busting quiz about India built
-on verified facts rather than political rhetoric.
+Do you know your India? (newindia.puneetsrivastava.com): a tap-only, bilingual
+(English/Hindi) quiz show on India in the 2020s. 500 questions, each answer backed
+by a real source.
+
+Talk to Nina: a private journaling and reflection companion that runs fully
+locally (Llama 3.2 via Ollama) on a home computer. Not public.
+
+Markets Lab: personal research using AI to study and backtest investment and
+trading strategies. Not financial advice; Puneet is not a licensed advisor.
 
 Runway (runway.puneetsrivastava.com): a daily startup-guessing game.
 
