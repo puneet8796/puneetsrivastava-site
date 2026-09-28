@@ -396,6 +396,23 @@ strong { font-weight: 600; color: var(--text); }
   .reveal { opacity: 0; transform: translateY(12px); transition: opacity 0.6s ease, transform 0.6s ease; }
   .reveal.in { opacity: 1; transform: none; }
 }
+
+/* ─── HERO PORTRAIT: CIRCLE ─────── */
+.hero { padding: 128px 0 84px; }
+.hero-grid { grid-template-columns: 1.6fr 1fr; gap: 56px; }
+.hero-portrait { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.portrait-frame { margin: 0; padding: 8px; border: 1px solid var(--accent-line); border-radius: 50%; flex-shrink: 0; line-height: 0; }
+.portrait-frame::before { display: none; }
+.hero-portrait img { width: 300px; height: 300px; aspect-ratio: 1 / 1; border-radius: 50%; object-fit: cover; object-position: center; }
+.hero-creds { text-align: center; }
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 28px; }
+  .hero-portrait { order: -1; flex-direction: row; align-items: center; text-align: left; gap: 18px; max-width: none; }
+  .portrait-frame { padding: 5px; }
+  .hero-portrait img { width: 120px; height: 120px; }
+  .hero-creds { margin-top: 0; text-align: left; }
+}
+@media (max-width: 720px) { .hero { padding: 120px 0 64px; } }
 </style>
 </head>
 
@@ -442,7 +459,7 @@ strong { font-weight: 600; color: var(--text); }
       </div>
     </div>
     <div class="hero-portrait">
-      <div class="portrait-frame"><img src="/portrait.jpg" alt="Portrait of Puneet Srivastava"></div>
+      <div class="portrait-frame"><img src="/portrait-face.jpg" alt="Portrait of Puneet Srivastava" width="300" height="300"></div>
       <div class="hero-creds">IIT Kanpur · IIM Ahmedabad<br>Dell · Cohesity · 20 years in pricing</div>
     </div>
   </div>
