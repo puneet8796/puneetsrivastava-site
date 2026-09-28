@@ -48,8 +48,14 @@ Do you know your India? (newindia.puneetsrivastava.com): a tap-only, bilingual
 (English/Hindi) quiz show on India in the 2020s. 500 questions, each answer backed
 by a real source.
 
-Talk to Nina: a private journaling and reflection companion that runs fully
-locally (Llama 3.2 via Ollama) on a home computer. Not public.
+Talk to Nina: a concept for a phone-first companion ecosystem for elderly people,
+with curated content and settings that a caretaker or the elder can manage.
+
+Dyuti: a private family AI running on Puneet's own computer, with linked family
+members and persistent memory.
+
+Blackjack Bootcamp: a trainer for making the mathematically correct decision
+under known odds.
 
 Markets Lab: personal research using AI to study and backtest investment and
 trading strategies. Not financial advice; Puneet is not a licensed advisor.
@@ -83,6 +89,11 @@ WRITING (selected)
 - Knowledge Is Free. Judgment Will Cost You 25 Years. (LinkedIn, 2026)
 - Your Team of Ten Is Becoming Three. Are You One of Them? (LinkedIn, 2026)
 Older essays: medium.com/@punsri
+
+EARTH & ESSENCE
+
+His wife Madhumita's small-batch, handmade, vegan soap brand from Austin, Texas:
+earthandessence.me
 
 CONTACT
 

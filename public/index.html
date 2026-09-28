@@ -425,6 +425,12 @@ strong { font-weight: 600; color: var(--text); }
 .nav-monogram .brand-mark { width: 30px; height: 30px; flex-shrink: 0; transition: transform 0.4s ease; }
 .nav-monogram:hover .brand-mark { transform: rotate(-12deg); }
 @media (max-width: 720px) { .nav-monogram { font-size: 1.05rem; } .nav-monogram .brand-mark { width: 26px; height: 26px; } }
+
+/* ─── PLUG ──────────────────────── */
+.plug { margin-top: 18px; display: grid; grid-template-columns: 1fr auto; gap: 28px; align-items: center; background: var(--surface-2); border: 1px dashed var(--line-strong); border-radius: 8px; padding: 26px 30px; }
+.plug h3 { font-family: var(--serif); font-weight: 600; font-size: 1.5rem; margin: 6px 0 8px; color: var(--text); }
+.plug p { color: var(--body); font-size: 1rem; max-width: 640px; }
+@media (max-width: 720px) { .plug { grid-template-columns: 1fr; padding: 22px; } }
 </style>
 </head>
 
@@ -615,12 +621,22 @@ strong { font-weight: 600; color: var(--text); }
         </div>
       </article>
       <article class="project reveal">
-        <div class="project-head"><h3>Talk to Nina</h3><span class="status notes">Private build</span></div>
-        <div class="kicker">A journal that listens, and never leaves home.</div>
-        <p>A private journaling and reflection companion that runs entirely on a small computer in my home. The model, the memory, and every word stay on that machine; nothing goes to the cloud.</p>
-        <p class="why">Why I built it: the most personal conversations deserve the strictest privacy. It is also my test bed for how far local AI can go.</p>
+        <div class="project-head"><h3>Talk to Nina</h3><span class="status notes">Concept</span></div>
+        <div class="kicker">A phone-first companion for elderly parents.</div>
+        <p>An ecosystem for older people, built around the phone they already carry: a companion to talk to, carefully curated and composed content, and a setup that either a caretaker or the elder can manage on their own.</p>
+        <p class="why">Why I keep coming back to it: ageing parents are the users technology most often forgets, and they deserve something designed with patience.</p>
         <div class="project-foot">
-          <span class="stack">Llama 3.2 via Ollama · Fully local</span>
+          <span class="stack">Phone-first · Curated content · Caretaker mode</span>
+          <a href="#contact" class="text-link">Talk to me about it</a>
+        </div>
+      </article>
+      <article class="project reveal">
+        <div class="project-head"><h3>Dyuti</h3><span class="status notes">Private build</span></div>
+        <div class="kicker">A private AI for one family.</div>
+        <p>A family AI that runs on my own computer. Each family member is linked to it, and it keeps a persistent memory, so it carries our context from one conversation to the next. Dyuti means light.</p>
+        <p class="why">Why I built it: the most useful AI is one that knows you, and I only trust that when the memory lives at home.</p>
+        <div class="project-foot">
+          <span class="stack">Runs on my own machine · Persistent memory</span>
           <a href="#contact" class="text-link">Ask me about it</a>
         </div>
       </article>
@@ -632,6 +648,16 @@ strong { font-weight: 600; color: var(--text); }
         <div class="project-foot">
           <span class="stack">AI-assisted research · Backtesting</span>
           <a href="#subscribe" class="text-link">Follow the notes</a>
+        </div>
+      </article>
+      <article class="project reveal">
+        <div class="project-head"><h3>Blackjack Bootcamp</h3><span class="status live">Built</span></div>
+        <div class="kicker">Judgment under known odds.</div>
+        <p>A trainer that drills the mathematically correct play for every hand until it becomes instinct, and shows you exactly where your gut disagrees with the numbers.</p>
+        <p class="why">Why I built it: blackjack is the cleanest classroom for judgment I know. The math is settled; the discipline to follow it is the hard part.</p>
+        <div class="project-foot">
+          <span class="stack">Probability · Decision drills</span>
+          <a href="#contact" class="text-link">Ask for a demo</a>
         </div>
       </article>
       <article class="project reveal">
@@ -647,7 +673,7 @@ strong { font-weight: 600; color: var(--text); }
       <article class="project reveal">
         <div class="project-head"><h3>Model bake-offs</h3><span class="status notes">Field notes</span></div>
         <div class="kicker">Same brief. Different minds.</div>
-        <p>I give Claude, Gemini, Kimi, GLM, and local open models the identical one-shot brief (a game, a trainer app, a full role-playing story) and compare what each one actually ships.</p>
+        <p>I give Claude, Gemini, Kimi, GLM, and local open models the identical one-shot brief and compare what each one actually ships: the code, the design choices, and the bugs.</p>
         <p class="why">Why I run them: an executive's opinion on AI should come from using it, not reading about it.</p>
         <div class="project-foot">
           <span class="stack">Ongoing experiments</span>
@@ -655,6 +681,14 @@ strong { font-weight: 600; color: var(--text); }
         </div>
       </article>
     </div>
+    <aside class="plug reveal">
+      <div>
+        <span class="eyebrow">Shameless plug</span>
+        <h3>Earth &amp; Essence</h3>
+        <p>My wife, Madhumita, makes small-batch, handmade, vegan cold-process soap in Austin, and she is building the website for it herself. I help where I can.</p>
+      </div>
+      <a href="https://earthandessence.me" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Visit Earth &amp; Essence</a>
+    </aside>
   </div>
 </section>
 
