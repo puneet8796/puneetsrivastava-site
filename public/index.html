@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Puneet Srivastava: Pricing Strategist, Builder, Creator</title>
-<meta name="description" content="Puneet Srivastava is a pricing strategist, builder, and creator with 20 years across Infosys, Coca-Cola, Dell, and Cohesity. Creator of the Knowledge Quadrant Framework and Kairos. IIT Kanpur and IIM Ahmedabad alumnus.">
+<title>Puneet Srivastava: Pricing, Judgment, and What Things Are Worth</title>
+<meta name="description" content="Puneet Srivastava is a pricing strategist, student of history, and builder with AI. Creator of the Knowledge Quadrant Framework, Kairos, and Factwala. Speaker on AI, judgment, and the future of knowledge work.">
 <meta property="og:title" content="Puneet Srivastava">
-<meta property="og:description" content="Twenty years of asking why things are worth what they're worth. Building tools to find better answers.">
+<meta property="og:description" content="Knowledge is getting cheaper. Judgment isn't. Pricing strategist, student of history, builder with AI.">
 <meta property="og:url" content="https://puneetsrivastava.com">
 <meta property="og:type" content="website">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400;1,8..60,600&display=swap" rel="stylesheet">
+<script>try{var t=localStorage.getItem("ps-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);}catch(e){}</script>
 
 <script type="application/ld+json">
 {
@@ -21,21 +22,16 @@
   "name": "Puneet Srivastava",
   "url": "https://puneetsrivastava.com",
   "jobTitle": "Senior Director, Pricing Strategy and Intelligence",
-  "worksFor": {
-    "@type": "Organization",
-    "name": "Cohesity"
-  },
+  "worksFor": {"@type": "Organization", "name": "Cohesity"},
   "alumniOf": [
     {"@type": "CollegeOrUniversity", "name": "IIT Kanpur"},
     {"@type": "CollegeOrUniversity", "name": "IIM Ahmedabad"},
     {"@type": "CollegeOrUniversity", "name": "HHL Leipzig"}
   ],
   "knowsAbout": [
-    "Pricing Strategy",
-    "SaaS Monetization",
-    "Knowledge Quadrant Framework",
-    "AI Displacement",
-    "B2B Pricing"
+    "Pricing Strategy", "SaaS Monetization", "B2B Pricing",
+    "Knowledge Quadrant Framework", "AI and the Future of Work",
+    "Indian History", "Building Products with AI", "Public Speaking"
   ],
   "sameAs": [
     "https://www.linkedin.com/in/puneet-srivastava-2b46203/",
@@ -46,916 +42,866 @@
 </script>
 
 <style>
-
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+/* ─── THEME TOKENS ──────────────── */
+:root, :root[data-theme="light"] {
+  --bg: #f7f4ee;
+  --bg-deep: #efebe3;
+  --surface: #ffffff;
+  --surface-2: #f3efe7;
+  --line: #e3ddd1;
+  --line-strong: #cfc7b8;
+  --text: #1c1b19;
+  --body: #34322e;
+  --muted: #5b574f;
+  --faint: #6f6a61;
+  --accent: #8a6a1c;
+  --accent-hover: #6f5412;
+  --accent-wash: rgba(138, 106, 28, 0.08);
+  --accent-line: rgba(138, 106, 28, 0.35);
+  --on-accent: #ffffff;
+  --nav-bg: rgba(247, 244, 238, 0.92);
+  --feature-bg: #fbf5e6;
+  --shadow: 0 1px 2px rgba(28, 27, 25, 0.04), 0 4px 16px rgba(28, 27, 25, 0.04);
+  --risk-high: #a3461d; --risk-high-bg: rgba(163, 70, 29, 0.08);
+  --risk-mid: #7d5f16;  --risk-mid-bg: rgba(138, 106, 28, 0.1);
+  --risk-low: #3c7336;  --risk-low-bg: rgba(60, 115, 54, 0.09);
+  color-scheme: light;
+}
+:root[data-theme="dark"] {
+  --bg: #1c1d20;
+  --bg-deep: #17181a;
+  --surface: #242529;
+  --surface-2: #2a2b2f;
+  --line: #34353a;
+  --line-strong: #4a4a4f;
+  --text: #eeeae3;
+  --body: #d9d5cd;
+  --muted: #b0aba1;
+  --faint: #938e84;
+  --accent: #d4b466;
+  --accent-hover: #e6c983;
+  --accent-wash: rgba(212, 180, 102, 0.1);
+  --accent-line: rgba(212, 180, 102, 0.4);
+  --on-accent: #1c1d20;
+  --nav-bg: rgba(28, 29, 32, 0.92);
+  --feature-bg: #29261f;
+  --shadow: none;
+  --risk-high: #eaa77e; --risk-high-bg: rgba(234, 167, 126, 0.12);
+  --risk-mid: #dcc27e;  --risk-mid-bg: rgba(220, 194, 126, 0.12);
+  --risk-low: #a3cc9e;  --risk-low-bg: rgba(163, 204, 158, 0.12);
+  color-scheme: dark;
+}
+:root {
+  --serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 64px; }
 body {
-  background-color: #0d0d0d;
-  color: #f0ede8;
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-  font-weight: 300;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 17px;
   line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  transition: background 0.3s, color 0.3s;
 }
+img { max-width: 100%; display: block; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-hover); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
 
-a {
-  color: #c9a84c;
-  text-decoration: none;
-}
+p { color: var(--body); font-size: 1.06rem; line-height: 1.75; margin-bottom: 18px; }
+p:last-child { margin-bottom: 0; }
+strong { font-weight: 600; color: var(--text); }
 
-a:hover {
-  text-decoration: underline;
-}
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 32px; }
 
-h1 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-weight: 300;
-  font-size: clamp(2.6rem, 7vw, 4.2rem);
-  color: #f0ede8;
-  letter-spacing: 0.02em;
-  line-height: 1.05;
-}
-
-h2 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-weight: 300;
-  font-size: clamp(1.7rem, 4vw, 2.6rem);
-  color: #c9a84c;
-  letter-spacing: 0.06em;
-  margin-bottom: 32px;
-}
-
-h3 {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+.eyebrow {
+  font-family: var(--sans);
+  font-size: 0.78rem;
   font-weight: 600;
-  font-size: 0.82rem;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #c9a84c;
-  margin-bottom: 8px;
+  color: var(--accent);
 }
-
-h4 {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+.section { padding: 104px 0; border-top: 1px solid var(--line); }
+.section-head { margin-bottom: 48px; max-width: 720px; }
+.section-head h2 {
+  font-family: var(--serif);
   font-weight: 600;
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #666;
-  margin-bottom: 16px;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  line-height: 1.15;
+  color: var(--text);
+  margin: 12px 0 16px;
+  letter-spacing: -0.01em;
 }
+.section-head p { color: var(--muted); font-size: 1.12rem; }
 
-p {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 300;
-  font-size: 1rem;
-  line-height: 1.85;
-  color: #c8c4bc;
-  margin-bottom: 20px;
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--sans); font-size: 0.95rem; font-weight: 600;
+  padding: 14px 24px; border-radius: 6px;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  cursor: pointer;
 }
+.btn-primary { background: var(--accent); color: var(--on-accent); border: 1px solid var(--accent); }
+.btn-primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); color: var(--on-accent); }
+.btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--line-strong); }
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+.text-link { font-size: 0.95rem; font-weight: 600; }
+.text-link::after { content: ' \2192'; }
 
-p:last-child {
-  margin-bottom: 0;
-}
-
-/* ─── STICKY NAV ─────────────────── */
-
+/* ─── NAV ───────────────────────── */
 .site-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  background: rgba(10, 10, 10, 0.92);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid #1a1a1a;
-  padding: 0 40px;
-  height: 52px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: var(--nav-bg);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.nav-inner { position: relative; height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.nav-monogram { font-family: var(--serif); font-weight: 600; font-size: 1.3rem; color: var(--text); letter-spacing: 0.02em; flex-shrink: 0; }
+.nav-monogram:hover { color: var(--accent); }
+.nav-right { display: flex; align-items: center; gap: 22px; min-width: 0; }
+.nav-links { display: flex; align-items: center; gap: 26px; }
+.nav-links a { font-size: 0.92rem; font-weight: 500; color: var(--muted); white-space: nowrap; transition: color 0.2s; }
+.nav-links a:hover { color: var(--accent); }
+.nav-links a.nav-cta { color: var(--on-accent); background: var(--accent); padding: 8px 16px; border-radius: 6px; font-weight: 600; }
+.nav-links a.nav-cta:hover { background: var(--accent-hover); color: var(--on-accent); }
+.theme-toggle {
+  flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%;
+  border: 1px solid var(--line-strong); background: transparent; color: var(--muted);
+  display: inline-flex; align-items: center; justify-content: center; cursor: pointer;
+}
+.theme-toggle:hover { color: var(--accent); border-color: var(--accent); }
+.theme-toggle svg { width: 16px; height: 16px; }
+.theme-toggle .sun { display: none; }
+:root[data-theme="dark"] .theme-toggle .sun { display: block; }
+:root[data-theme="dark"] .theme-toggle .moon { display: none; }
+
+/* ─── HERO ──────────────────────── */
+.hero { padding: 148px 0 100px; }
+.hero-grid { display: grid; grid-template-columns: 1.35fr 1fr; gap: 72px; align-items: center; }
+.hero-roles { display: flex; flex-wrap: wrap; gap: 4px 0; }
+.hero-roles span { white-space: nowrap; }
+.hero-roles span:not(:last-child)::after { content: '·'; margin: 0 12px; color: var(--faint); }
+.hero h1 {
+  font-family: var(--sans); font-weight: 500;
+  font-size: 1.25rem; color: var(--muted); margin: 16px 0 18px;
+}
+.hero-statement {
+  font-family: var(--serif); font-weight: 600;
+  font-size: clamp(2.6rem, 5.6vw, 4.2rem);
+  line-height: 1.06; color: var(--text); letter-spacing: -0.02em;
+  margin-bottom: 28px;
+}
+.hero-statement em { font-style: italic; color: var(--accent); font-weight: 600; }
+.hero-lede { font-size: 1.18rem; color: var(--body); max-width: 560px; margin-bottom: 36px; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+
+.hero-portrait { position: relative; }
+.portrait-frame { position: relative; margin: 14px 14px 0 0; }
+.portrait-frame::before {
+  content: ''; position: absolute; top: -14px; right: -14px; bottom: 14px; left: 14px;
+  border: 1px solid var(--accent-line); border-radius: 6px; z-index: 0;
+}
+.portrait-frame img { position: relative; z-index: 1; }
+.hero-portrait img {
+  width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 30%;
+  border-radius: 6px; box-shadow: var(--shadow);
+}
+.hero-creds { margin-top: 18px; font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
+
+/* ─── LENSES ────────────────────── */
+.lenses { padding: 0 0 104px; }
+.lens-intro { font-family: var(--serif); font-size: 1.5rem; font-style: italic; color: var(--muted); margin-bottom: 26px; }
+.lens-intro strong { font-weight: 600; }
+.lens-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); }
+.lens { padding: 30px 30px 8px 0; }
+.lens + .lens { padding-left: 30px; border-left: 1px solid var(--line); }
+.lens-num { font-family: var(--serif); font-weight: 600; font-size: 1rem; color: var(--accent); }
+.lens h3 { font-family: var(--serif); font-weight: 600; font-size: 1.6rem; margin: 4px 0 10px; color: var(--text); }
+.lens p { font-size: 1rem; color: var(--muted); margin-bottom: 14px; }
+
+/* ─── FRAMEWORK ─────────────────── */
+.fw-top { display: grid; grid-template-columns: 220px 1fr; gap: 56px; align-items: start; margin-bottom: 52px; }
+.fw-emblem { width: 220px; height: 220px; border-radius: 50%; overflow: hidden; box-shadow: var(--shadow); }
+.fw-emblem img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.35); }
+.fw-quote {
+  font-family: var(--serif); font-style: italic; font-weight: 400;
+  font-size: clamp(1.3rem, 2.3vw, 1.6rem); line-height: 1.45; color: var(--accent);
+  margin-bottom: 22px;
 }
 
-.nav-monogram {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.3rem;
-  font-weight: 300;
-  color: #c9a84c;
-  letter-spacing: 0.12em;
-  flex-shrink: 0;
+.quad-wrap { display: grid; grid-template-columns: 42px 1fr; grid-template-rows: auto 1fr; gap: 10px; }
+.axis-top { grid-column: 2; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.axis-top span, .axis-left span { font-size: 0.76rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--faint); }
+.axis-top span { text-align: center; padding-bottom: 4px; }
+.axis-left { display: grid; grid-template-rows: 1fr 1fr; gap: 12px; }
+.axis-left span { writing-mode: vertical-rl; transform: rotate(180deg); text-align: center; align-self: center; justify-self: center; }
+.quad-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.quad {
+  background: var(--surface); padding: 26px; border-radius: 6px;
+  border: 1px solid var(--line); border-top: 3px solid var(--accent); box-shadow: var(--shadow);
 }
+.quad.tacit { background: var(--surface-2); }
+.quad h3 { font-family: var(--serif); font-size: 1.35rem; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+.quad .combo { font-size: 0.8rem; font-weight: 500; color: var(--faint); margin-bottom: 12px; }
+.quad p { font-size: 0.98rem; color: var(--body); line-height: 1.65; }
+.risk { display: inline-block; margin-top: 14px; font-size: 0.78rem; font-weight: 600; padding: 4px 10px; border-radius: 4px; }
+.risk.high { color: var(--risk-high); background: var(--risk-high-bg); }
+.risk.mid { color: var(--risk-mid); background: var(--risk-mid-bg); }
+.risk.low { color: var(--risk-low); background: var(--risk-low-bg); }
 
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 32px;
+.fw-after { margin-top: 44px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: start; }
+.series { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 26px 28px; box-shadow: var(--shadow); }
+.series h4 { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--faint); margin-bottom: 14px; }
+.series ol { list-style: none; counter-reset: part; }
+.series li { counter-increment: part; padding: 12px 0; border-top: 1px solid var(--line); display: grid; grid-template-columns: 28px 1fr; }
+.series li:first-child { border-top: 0; padding-top: 0; }
+.series li::before { content: counter(part); font-family: var(--serif); font-weight: 600; color: var(--accent); font-size: 1.1rem; line-height: 1.45; }
+.series a, .series .pending { font-family: var(--serif); font-weight: 600; font-size: 1.1rem; line-height: 1.4; }
+.series .pending { color: var(--muted); }
+.series .note { display: block; font-size: 0.86rem; color: var(--faint); margin-top: 3px; font-family: var(--sans); }
+.series .note a { font-family: var(--sans); font-size: inherit; font-weight: 600; }
+
+/* ─── LAB ───────────────────────── */
+.lab-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.project {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 8px;
+  padding: 30px; display: flex; flex-direction: column; box-shadow: var(--shadow); transition: border-color 0.2s;
 }
+.project:hover { border-color: var(--line-strong); }
+.project-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 2px; }
+.project h3 { font-family: var(--serif); font-weight: 600; font-size: 1.7rem; color: var(--text); }
+.status { font-size: 0.74rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 10px; border-radius: 4px; white-space: nowrap; }
+.status.live { color: var(--risk-low); background: var(--risk-low-bg); }
+.status.beta { color: var(--accent); background: var(--accent-wash); }
+.status.new { color: var(--on-accent); background: var(--accent); }
+.status.notes { color: var(--muted); background: var(--surface-2); }
+.project .kicker { font-family: var(--serif); font-style: italic; font-size: 1.15rem; color: var(--accent); margin-bottom: 14px; }
+.project p { font-size: 1rem; color: var(--body); }
+.project .why { border-left: 3px solid var(--line); padding-left: 14px; font-size: 0.95rem; color: var(--muted); margin-top: 4px; }
+.project-foot { margin-top: auto; padding-top: 22px; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.stack { font-size: 0.85rem; color: var(--faint); }
 
-.nav-links a {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #666;
-  text-decoration: none;
-  transition: color 0.2s;
+/* ─── WRITING ───────────────────── */
+.featured {
+  display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center;
+  background: var(--feature-bg); border: 1px solid var(--accent-line); border-radius: 8px; padding: 36px 40px; margin-bottom: 56px;
 }
+.featured .eyebrow { margin-bottom: 10px; display: block; }
+.featured h3 { font-family: var(--serif); font-weight: 600; font-size: clamp(1.6rem, 3vw, 2.1rem); line-height: 1.2; margin-bottom: 12px; }
+.featured h3 a { color: var(--text); }
+.featured h3 a:hover { color: var(--accent); }
+.featured p { color: var(--body); max-width: 640px; }
 
-.nav-links a:hover {
-  color: #c9a84c;
-  text-decoration: none;
+.shelves { display: grid; grid-template-columns: repeat(2, 1fr); gap: 56px; }
+.shelf h3 {
+  font-size: 0.8rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--accent); padding-bottom: 12px; border-bottom: 2px solid var(--line); margin-bottom: 4px;
 }
+.shelf ul { list-style: none; }
+.shelf li { padding: 16px 0; border-bottom: 1px solid var(--line); }
+.shelf li .title { font-family: var(--serif); font-weight: 600; font-size: 1.14rem; line-height: 1.4; color: var(--text); display: block; }
+.shelf li a.title:hover { color: var(--accent); }
+.shelf .meta { font-size: 0.82rem; color: var(--faint); margin-top: 4px; }
+.shelf .desc { font-size: 0.95rem; color: var(--muted); margin-top: 4px; line-height: 1.6; }
+.tag-new { color: var(--accent); font-weight: 600; }
 
-@media (max-width: 600px) {
-  .site-nav {
-    padding: 0 20px;
-  }
-  .nav-links {
-    gap: 16px;
-  }
-  .nav-links a {
-    font-size: 0.6rem;
-  }
+/* ─── SPEAKING ──────────────────── */
+.talks { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-bottom: 44px; }
+.talk { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 6px; padding: 30px; box-shadow: var(--shadow); }
+.talk .num { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+.talk h3 { font-family: var(--serif); font-weight: 600; font-size: 1.45rem; line-height: 1.25; margin: 8px 0 12px; color: var(--text); }
+.talk p { font-size: 1rem; color: var(--body); }
+.talk .for { margin-top: 14px; font-size: 0.86rem; color: var(--faint); }
+.formats { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin-bottom: 44px; }
+.format { padding: 26px 26px 26px 0; }
+.format + .format { padding-left: 26px; border-left: 1px solid var(--line); }
+.format h4 { font-family: var(--serif); font-weight: 600; font-size: 1.25rem; color: var(--text); margin-bottom: 6px; }
+.format p { font-size: 0.98rem; color: var(--muted); }
+.speak-cta { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+.speak-cta p { color: var(--body); max-width: 560px; margin: 0; }
+
+/* ─── ABOUT ─────────────────────── */
+.about-grid { display: grid; grid-template-columns: 1fr 300px; gap: 64px; align-items: start; }
+.about-text p.about-lead { font-family: var(--serif); font-weight: 400; font-size: 1.55rem; line-height: 1.45; color: var(--text); margin-bottom: 26px; }
+.now { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 28px; position: sticky; top: 90px; box-shadow: var(--shadow); }
+.now h3 { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 2px; }
+.now .date { font-size: 0.85rem; color: var(--faint); margin-bottom: 14px; }
+.now ul { list-style: none; }
+.now li { font-size: 0.97rem; color: var(--body); padding: 10px 0; border-top: 1px solid var(--line); line-height: 1.55; }
+.creds-list { margin-top: 34px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px 32px; }
+.creds-list div { font-size: 0.92rem; color: var(--muted); border-top: 1px solid var(--line); padding-top: 10px; }
+.creds-list strong { display: block; font-size: 1rem; }
+
+/* ─── NEWSLETTER ────────────────── */
+.subscribe { background: var(--bg-deep); border-top: 1px solid var(--line); padding: 92px 0; text-align: center; }
+.subscribe h2 { font-family: var(--serif); font-weight: 600; font-size: clamp(1.8rem, 3.6vw, 2.5rem); line-height: 1.2; margin: 12px auto 14px; max-width: 700px; }
+.subscribe p { color: var(--muted); max-width: 560px; margin: 0 auto 28px; }
+
+/* ─── CONTACT / FOOTER ──────────── */
+.contact-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 64px; }
+.contact-links { display: flex; flex-direction: column; }
+.contact-links a { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 16px 0; border-bottom: 1px solid var(--line); color: var(--text); font-size: 1.05rem; font-weight: 500; }
+.contact-links a:first-child { border-top: 1px solid var(--line); }
+.contact-links a span { color: var(--faint); font-size: 0.85rem; font-weight: 400; }
+.contact-links a:hover { color: var(--accent); }
+.ask-ai { margin-top: 28px; }
+.ask-ai small { display: block; color: var(--faint); font-size: 0.85rem; margin-top: 10px; }
+
+.site-footer { border-top: 1px solid var(--line); padding: 32px 0; }
+.footer-inner { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 0.86rem; color: var(--faint); }
+
+/* ─── RESPONSIVE ────────────────── */
+@media (max-width: 960px) {
+  .nav-links { gap: 18px; }
+  .nav-links a { font-size: 0.86rem; }
 }
-
-/* ─── SECTIONS ───────────────────── */
-
-.section {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 80px 24px;
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+  .hero-portrait { max-width: 360px; }
+  .lens-grid, .formats { grid-template-columns: 1fr; }
+  .lens, .lens + .lens, .format, .format + .format { padding: 24px 0; border-left: 0; border-top: 1px solid var(--line); }
+  .lens:first-child, .format:first-child { border-top: 0; }
+  .fw-top { grid-template-columns: 1fr; gap: 32px; }
+  .fw-emblem { width: 170px; height: 170px; }
+  .fw-after, .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  .lab-grid, .talks, .shelves { grid-template-columns: 1fr; }
+  .now { position: static; }
 }
-
-.section-divider {
-  border: none;
-  border-top: 1px solid #1a1a1a;
-  margin: 0;
+@media (max-width: 720px) {
+  body { font-size: 16px; }
+  .wrap { padding: 0 18px; }
+  .section { padding: 76px 0; }
+  .nav-inner { height: auto; padding-top: 10px; padding-bottom: 8px; flex-wrap: wrap; row-gap: 6px; }
+  .nav-right { order: 3; width: 100%; }
+  .nav-links { gap: 18px; overflow-x: auto; width: 100%; padding-bottom: 4px; scrollbar-width: none; }
+  .nav-links::-webkit-scrollbar { display: none; }
+  .nav-links a.nav-cta { order: -1; padding: 6px 12px; }
+  .theme-toggle { position: absolute; right: 18px; top: 10px; }
+  .hero { padding: 132px 0 76px; }
+  .quad-wrap { grid-template-columns: 1fr; }
+  .axis-top, .axis-left { display: none; }
+  .quad-grid { grid-template-columns: 1fr; }
+  .featured { grid-template-columns: 1fr; padding: 28px 22px; }
+  .project, .talk { padding: 24px; }
+  .creds-list { grid-template-columns: 1fr; }
 }
-
-/* ─── HERO ───────────────────────── */
-
-.hero-section {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 52px 24px 60px;
-  position: relative;
-  overflow: hidden;
+@media (prefers-reduced-motion: no-preference) {
+  .reveal { opacity: 0; transform: translateY(12px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.in { opacity: 1; transform: none; }
 }
-
-.hero-section::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: min(680px, 100vw);
-  height: min(680px, 100vw);
-  background-image: url('/threshold.jpg');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  opacity: 0.07;
-  z-index: 0;
-  pointer-events: none;
-}
-
-.hero-inner {
-  position: relative;
-  z-index: 1;
-  max-width: 680px;
-}
-
-.hero-subhead {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.72rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #555;
-  margin: 12px 0 24px;
-}
-
-.hero-tagline {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 300;
-  font-size: 1.05rem;
-  color: #888;
-  max-width: 460px;
-  margin: 0 auto;
-  line-height: 1.75;
-}
-
-/* ─── ABOUT ──────────────────────── */
-
-.about-layout {
-  display: flex;
-  align-items: flex-start;
-  gap: 48px;
-  margin-top: 8px;
-}
-
-.about-portrait {
-  width: 260px;
-  flex-shrink: 0;
-  position: sticky;
-  top: 72px;
-}
-
-.about-portrait img {
-  width: 100%;
-  border-radius: 6px;
-  display: block;
-  filter: contrast(1.05) saturate(0.9);
-}
-
-.about-portrait-caption {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.7rem;
-  color: #444;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  text-align: center;
-  margin-top: 10px;
-}
-
-.about-text {
-  flex: 1;
-  min-width: 0;
-}
-
-@media (max-width: 700px) {
-  .about-layout {
-    flex-direction: column;
-    align-items: center;
-  }
-  .about-portrait {
-    width: 200px;
-    position: static;
-  }
-}
-
-/* ─── FRAMEWORK ──────────────────── */
-
-.framework-layout {
-  display: flex;
-  align-items: flex-start;
-  gap: 48px;
-  margin-top: 8px;
-}
-
-.framework-image {
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  overflow: hidden;
-  flex-shrink: 0;
-  opacity: 0.82;
-}
-
-.framework-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  filter: contrast(1.1);
-}
-
-.framework-content {
-  flex: 1;
-  min-width: 0;
-}
-
-.framework-opening {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.25rem;
-  font-style: italic;
-  font-weight: 300;
-  color: #c9a84c;
-  line-height: 1.6;
-  margin-bottom: 24px;
-}
-
-.quadrant-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin: 32px 0;
-}
-
-.quadrant-card {
-  background: #1a1a1a;
-  border-top: 3px solid #c9a84c;
-  padding: 20px;
-  border-radius: 4px;
-}
-
-.quadrant-card h3 {
-  margin-bottom: 6px;
-}
-
-.quadrant-card p {
-  font-size: 0.88rem;
-  color: #777;
-  margin-bottom: 0;
-  line-height: 1.6;
-}
-
-.quadrant-axes {
-  font-size: 0.72rem;
-  color: #555;
-  letter-spacing: 0.05em;
-  margin-bottom: 8px;
-  text-transform: uppercase;
-}
-
-@media (max-width: 600px) {
-  .quadrant-grid {
-    grid-template-columns: 1fr;
-  }
-  .framework-layout {
-    flex-direction: column;
-    align-items: center;
-  }
-  .framework-image {
-    width: 160px;
-    height: 160px;
-  }
-}
-
-/* ─── KAIROS ─────────────────────── */
-
-.kairos-intro {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.1rem;
-  font-style: italic;
-  color: #888;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  margin-bottom: 24px;
-}
-
-/* ─── WRITING ────────────────────── */
-
-.writing-intro {
-  color: #888;
-  margin-bottom: 40px;
-}
-
-.articles-featured {
-  margin-bottom: 40px;
-}
-
-.article-card {
-  background: #1a1a1a;
-  border-left: 3px solid #c9a84c;
-  padding: 20px 24px;
-  margin-bottom: 12px;
-  border-radius: 0 4px 4px 0;
-}
-
-.article-card.muted {
-  border-left-color: #2a2a2a;
-  opacity: 0.5;
-}
-
-.article-tag {
-  font-size: 0.68rem;
-  color: #555;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-bottom: 6px;
-}
-
-.article-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.15rem;
-  font-weight: 400;
-  color: #c9a84c;
-  margin-bottom: 6px;
-  line-height: 1.4;
-}
-
-.article-title.muted {
-  color: #444;
-}
-
-.article-desc {
-  font-size: 0.88rem;
-  color: #666;
-  line-height: 1.6;
-  margin-bottom: 0;
-}
-
-.writing-category {
-  font-size: 0.7rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #444;
-  margin: 32px 0 16px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid #1a1a1a;
-}
-
-.callout-card {
-  background: #1a1510;
-  border: 1px solid #c9a84c;
-  border-radius: 4px;
-  padding: 24px;
-  margin-top: 40px;
-}
-
-.callout-card .article-title {
-  font-size: 1.3rem;
-}
-
-/* ─── ADVISORY ───────────────────── */
-
-.advisory-links {
-  margin-top: 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.advisory-links a {
-  font-size: 1rem;
-  color: #c9a84c;
-  font-weight: 400;
-}
-
-/* ─── FOOTER ─────────────────────── */
-
-.site-footer {
-  background: #0a0a0a;
-  border-top: 1px solid #1a1a1a;
-  padding: 64px 24px;
-  text-align: center;
-}
-
-.footer-label {
-  font-size: 0.7rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #333;
-  margin-bottom: 24px;
-}
-
-.footer-btn {
-  display: inline-block;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #0d0d0d;
-  background: #c9a84c;
-  padding: 12px 28px;
-  border-radius: 6px;
-  text-decoration: none;
-}
-
-.footer-caption {
-  font-size: 0.72rem;
-  color: #333;
-  margin-top: 12px;
-  display: block;
-}
-
-.footer-copy {
-  font-size: 0.72rem;
-  color: #2a2a2a;
-  margin-top: 48px;
-}
-
 </style>
 </head>
 
 <body>
 
-<!-- STICKY NAV -->
-<nav class="site-nav">
-  <div class="nav-monogram">PS</div>
-  <div class="nav-links">
-    <a href="#framework">Knowledge Quadrant</a>
-    <a href="#kairos">Kairos</a>
-    <a href="#writing">My Thinking</a>
-    <a href="#about">About Me</a>
-    <a href="#advisory">Advisory</a>
+<!-- NAV -->
+<nav class="site-nav" aria-label="Main">
+  <div class="wrap nav-inner">
+    <a href="#top" class="nav-monogram" aria-label="Puneet Srivastava, home">PS</a>
+    <div class="nav-right">
+      <div class="nav-links">
+      <a href="#framework">Framework</a>
+      <a href="#lab">Lab</a>
+      <a href="#writing">Writing</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a href="#speaking" class="nav-cta">Speaking</a>
+    </div>
+      <button class="theme-toggle" type="button" aria-label="Switch light or dark theme">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+    </div>
   </div>
 </nav>
 
+<main id="top">
+
 <!-- HERO -->
-<section class="hero-section">
-  <div class="hero-inner">
-    <h1>Puneet Srivastava</h1>
-    <p class="hero-subhead">Scientist · Builder · Pricing Strategist</p>
-    <p class="hero-tagline">
-      Twenty years of asking why things are worth what they're worth.
-      Building tools to find better answers.
-    </p>
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow hero-roles"><span>Pricing Strategist</span><span>Student of History</span><span>Builder with AI</span></div>
+      <h1>Puneet Srivastava</h1>
+      <p class="hero-statement">Knowledge is getting cheaper. <em>Judgment isn't.</em></p>
+      <p class="hero-lede">
+        For twenty years I have asked one question: what is this actually worth?
+        I ask it of products as a pricing strategist, of people's work as AI
+        rewrites it, and of history, where most of our answers were tested first.
+      </p>
+      <div class="hero-actions">
+        <a href="#framework" class="btn btn-primary">Explore the framework</a>
+        <a href="#speaking" class="btn btn-ghost">Invite me to speak</a>
+      </div>
+    </div>
+    <div class="hero-portrait">
+      <div class="portrait-frame"><img src="/portrait.jpg" alt="Portrait of Puneet Srivastava"></div>
+      <div class="hero-creds">IIT Kanpur · IIM Ahmedabad<br>Dell · Cohesity · 20 years in pricing</div>
+    </div>
+  </div>
+</header>
+
+<!-- THREE LENSES -->
+<section class="lenses" aria-label="Three lenses">
+  <div class="wrap">
+    <p class="lens-intro reveal">One question, <strong>three lenses.</strong></p>
+    <div class="lens-grid">
+      <div class="lens reveal">
+        <div class="lens-num">I</div>
+        <h3>Markets</h3>
+        <p>What a product is worth, and why most companies leave that answer to habit. Twenty years of pricing at Dell and Cohesity.</p>
+        <a href="#writing" class="text-link">Pricing writing</a>
+      </div>
+      <div class="lens reveal">
+        <div class="lens-num">II</div>
+        <h3>Work</h3>
+        <p>What a person's work is worth once knowledge is free. The Knowledge Quadrant Framework, and the tools I build around it.</p>
+        <a href="#framework" class="text-link">The framework</a>
+      </div>
+      <div class="lens reveal">
+        <div class="lens-num">III</div>
+        <h3>History</h3>
+        <p>How people decided what mattered long before us. From Akbar's revenue reform to Lucknow and Mauryan India.</p>
+        <a href="#history" class="text-link">History &amp; India</a>
+      </div>
+    </div>
   </div>
 </section>
 
-<hr class="section-divider">
-
-<!-- KNOWLEDGE QUADRANT FRAMEWORK -->
-<section id="framework">
-  <div class="section">
-    <h2>The Knowledge Quadrant Framework</h2>
-
-    <div class="framework-layout">
-      <div class="framework-image">
-        <img src="/threshold.jpg" alt="Standing at the threshold" loading="lazy">
-      </div>
-      <div class="framework-content">
-        <p class="framework-opening">
-          "The question nobody is asking clearly enough is not whether
-          AI will take your job. It is which part of what you do is
-          actually yours."
-        </p>
+<!-- FRAMEWORK -->
+<section id="framework" class="section">
+  <div class="wrap">
+    <div class="fw-top">
+      <div class="fw-emblem reveal"><img src="/threshold.jpg" alt="A figure standing on the line between light and dark" loading="lazy"></div>
+      <div class="reveal">
+        <div class="eyebrow">Signature idea</div>
+        <div class="section-head" style="margin-bottom:22px">
+          <h2>The Knowledge Quadrant Framework</h2>
+        </div>
+        <p class="fw-quote">"The question nobody is asking clearly enough is not whether AI will take your job. It is which part of what you do is actually yours."</p>
         <p>
-          The Knowledge Quadrant Framework maps how people create value at
-          work, showing how exposed that value is to AI displacement.
-          Two axes. The first is the nature of your knowledge: Explicit
-          knowledge is documented, trainable, searchable, the kind AI can
-          replicate at scale. Tacit knowledge is judgment, pattern
-          recognition, contextual instinct earned by living through real
-          situations. You cannot Google it or prompt for it. The second
-          axis is your output: Accuracy means there is a right answer and
-          being wrong has real consequences. Originality means there is no
-          right answer. The value lives entirely in the freshness of what
-          you produce.
+          The framework maps how people create value at work, and how exposed
+          that value is to AI. Two axes. <strong>Knowledge</strong>:
+          explicit knowledge is documented and searchable, the kind AI replicates
+          at scale; tacit knowledge is judgment earned by living through real
+          situations. <strong>Output</strong>:
+          accuracy means there is a right answer and being wrong costs something;
+          originality means there is no right answer, only a fresh one.
         </p>
       </div>
     </div>
 
-    <div class="quadrant-grid">
-      <div class="quadrant-card">
-        <h3>The Doctors</h3>
-        <div class="quadrant-axes">Explicit knowledge + Accuracy</div>
-        <p>Surgeons, lawyers, analysts, engineers writing production code.
-          High stakes, verifiable output. AI is entering this room
-          fastest.</p>
-      </div>
-      <div class="quadrant-card">
-        <h3>The Builders</h3>
-        <div class="quadrant-axes">Explicit knowledge + Originality</div>
-        <p>Marketers, designers, copywriters, product communicators.
-          Pattern-based creativity at scale. AI is displacing the volume
-          tier first.</p>
-      </div>
-      <div class="quadrant-card">
-        <h3>The Generals</h3>
-        <div class="quadrant-axes">Tacit knowledge + Accuracy</div>
-        <p>Strategists, senior leaders, negotiators, advisors.
-          Consequential calls on incomplete information. The human premium
-          zone, and it is growing.</p>
-      </div>
-      <div class="quadrant-card">
-        <h3>The Creators</h3>
-        <div class="quadrant-axes">Tacit knowledge + Originality</div>
-        <p>This quadrant creates history. AI can assist but cannot
-          originate.</p>
+    <div class="quad-wrap reveal" role="group" aria-label="The four quadrants">
+      <div class="axis-top"><span>Accuracy</span><span>Originality</span></div>
+      <div class="axis-left"><span>Explicit</span><span>Tacit</span></div>
+      <div class="quad-grid">
+        <div class="quad">
+          <h3>The Doctors</h3>
+          <div class="combo">Explicit + Accuracy</div>
+          <p>Surgeons, lawyers, analysts, engineers writing production code. High stakes, verifiable output. AI is entering this room fastest.</p>
+          <span class="risk high">Exposure: highest</span>
+        </div>
+        <div class="quad">
+          <h3>The Builders</h3>
+          <div class="combo">Explicit + Originality</div>
+          <p>Marketers, designers, copywriters, product communicators. Pattern-based creativity at scale. AI is displacing the volume tier first.</p>
+          <span class="risk high">Exposure: high</span>
+        </div>
+        <div class="quad tacit">
+          <h3>The Generals</h3>
+          <div class="combo">Tacit + Accuracy</div>
+          <p>Strategists, senior leaders, negotiators, advisors. Consequential calls on incomplete information. The human premium zone, and it is growing.</p>
+          <span class="risk mid">Exposure: lower</span>
+        </div>
+        <div class="quad tacit">
+          <h3>The Creators</h3>
+          <div class="combo">Tacit + Originality</div>
+          <p>Work that comes from lived judgment and a point of view no one else holds. This quadrant creates history. AI can assist but cannot originate.</p>
+          <span class="risk low">Exposure: lowest</span>
+        </div>
       </div>
     </div>
 
-    <p>Within these four quadrants live eight personas, from The Doer
-      (highest displacement risk) to The Oracle (minimal). Most people
-      are not where they think they are. Kairos is built to close that
-      gap.</p>
+    <div class="fw-after">
+      <div class="reveal">
+        <p>
+          Inside the four quadrants live eight personas, from <strong>The Doer</strong>
+          (highest displacement risk) to <strong>The Oracle</strong> (minimal).
+          Most people are not where they think they are. I built Kairos to close that gap.
+        </p>
+        <div class="hero-actions" style="margin-top:28px">
+          <a href="https://kairos.puneetsrivastava.com" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Find where you stand</a>
+          <a href="#speaking" class="btn btn-ghost">Bring it to your team</a>
+        </div>
+      </div>
+      <div class="series reveal">
+        <h4>The series</h4>
+        <ol>
+          <li><div><a href="https://www.linkedin.com/pulse/knowledge-free-judgment-cost-you-25-years-puneet-srivastava-yd7yc/" target="_blank" rel="noopener noreferrer">Knowledge Is Free. Judgment Will Cost You 25 Years.</a><span class="note">The opening argument</span></div></li>
+          <li><div><a href="https://www.linkedin.com/pulse/your-team-ten-becoming-three-you-one-them-puneet-srivastava-lpnec/" target="_blank" rel="noopener noreferrer">Your Team of Ten Is Becoming Three. Are You One of Them?</a><span class="note">Eight personas, mapped</span></div></li>
+          <li><div><span class="pending">The Judgment Paradox</span><span class="note">In progress. <a href="#subscribe">Subscribe</a> to read it first.</span></div></li>
+        </ol>
+      </div>
+    </div>
   </div>
 </section>
 
-<hr class="section-divider">
-
-<!-- KAIROS -->
-<section id="kairos">
-  <div class="section">
-    <h2>Kairos</h2>
-    <p class="kairos-intro">The moment of reckoning. Know where you stand.</p>
-    <p>
-      I built Kairos because the conversation about AI and jobs is
-      happening at the wrong altitude. Everyone is debating which
-      industries will survive. Almost nobody is asking the harder
-      question: within your specific day, within your specific work,
-      how much of what you do is actually irreplaceable?
-    </p>
-    <p>
-      Kairos is a self-inquiry tool. You describe your day freely, no
-      forms, no quizzes, no judgment about how you should have spent your
-      time. A local AI model reads your words through the Knowledge
-      Quadrant Framework and sends you back an honest picture: your
-      quadrant blend, your dominant persona, the displacement signals
-      hiding in how you described your own work, and one question to
-      sit with.
-    </p>
-    <p>
-      No login. No account. Your words never leave the machine. This is a
-      mirror, not a test. Currently in private beta with a trusted network
-      of peers.
-    </p>
-    <p style="margin-top:32px;">
-      <a href="mailto:kairos@puneetsrivastava.com?subject=Kairos%20Beta%20Request&body=Hi%20Puneet%2C%0A%0AI%20would%20love%20to%20be%20a%20beta%20tester.%0A%0AWhat%20I%20do%3A%20%0AWhy%20I%27m%20curious%3A%20" class="footer-btn">
-        Request Beta Access
-      </a>
-    </p>
-    <p style="margin-top:12px;font-size:0.78rem;color:#555;">
-      Built on Llama 3.2. Runs entirely locally. Private by design.
-    </p>
+<!-- LAB -->
+<section id="lab" class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">The Lab</div>
+      <h2>I don't just write about AI. I build with it.</h2>
+      <p>Nights-and-weekends products, each one testing an idea I care about. Some are polished. All are real.</p>
+    </div>
+    <div class="lab-grid">
+      <article class="project reveal">
+        <div class="project-head"><h3>Kairos</h3><span class="status beta">Beta</span></div>
+        <div class="kicker">Know where you stand.</div>
+        <p>A self-inquiry tool built on the Knowledge Quadrant Framework. Describe your actual work in your own words, and get back your quadrant blend, your dominant persona, and one question to sit with.</p>
+        <p class="why">Why I built it: the AI-and-jobs debate happens at the level of industries. The real answer lives inside your own day.</p>
+        <div class="project-foot">
+          <span class="stack">Runs on Claude (Anthropic API) · No login</span>
+          <a href="https://kairos.puneetsrivastava.com" class="text-link" target="_blank" rel="noopener noreferrer">Try Kairos</a>
+        </div>
+      </article>
+      <article class="project reveal">
+        <div class="project-head"><h3>Factwala</h3><span class="status new">New</span></div>
+        <div class="kicker">India, beyond the rhetoric.</div>
+        <p>A myth-busting quiz for people tired of being told what to think by the left and the right. Verified facts, state-versus-state duels, unsung heroes, and a difficulty ladder you can walk away from at any rung.</p>
+        <p class="why">Why I built it: love of country should come with the real numbers attached.</p>
+        <div class="project-foot">
+          <span class="stack">History · Civics · Play</span>
+          <a href="https://newindia.puneetsrivastava.com" class="text-link" target="_blank" rel="noopener noreferrer">Play Factwala</a>
+        </div>
+      </article>
+      <article class="project reveal">
+        <div class="project-head"><h3>Runway</h3><span class="status live">Live</span></div>
+        <div class="kicker">One startup a day. Can you guess it?</div>
+        <p>A daily startup-guessing game for operators, investors, and anyone who likes reading a business from its outline.</p>
+        <p class="why">Why I built it: pattern recognition is a tacit skill. A daily game is the cheapest way I know to practise it.</p>
+        <div class="project-foot">
+          <span class="stack">Daily game</span>
+          <a href="https://runway.puneetsrivastava.com" class="text-link" target="_blank" rel="noopener noreferrer">Play today's puzzle</a>
+        </div>
+      </article>
+      <article class="project reveal">
+        <div class="project-head"><h3>Model bake-offs</h3><span class="status notes">Field notes</span></div>
+        <div class="kicker">Same brief. Different minds.</div>
+        <p>I give Claude, Gemini, Kimi, GLM, and local open models the identical one-shot brief (a game, a trainer app, a full role-playing story) and compare what each one actually ships.</p>
+        <p class="why">Why I run them: an executive's opinion on AI should come from using it, not reading about it.</p>
+        <div class="project-foot">
+          <span class="stack">Ongoing experiments</span>
+          <a href="#subscribe" class="text-link">Get the notes</a>
+        </div>
+      </article>
+    </div>
   </div>
 </section>
-
-<hr class="section-divider">
 
 <!-- WRITING -->
-<section id="writing">
-  <div class="section">
-    <h2>Writing</h2>
-    <p class="writing-intro">
-      I write about three things: the future of work and what AI is
-      actually doing to human value, pricing as a strategic discipline
-      rather than a finance function, and the quieter questions about
-      leadership, trust, and what it means to build a life that holds
-      together.
-    </p>
-
-    <h4>Knowledge Quadrant Series</h4>
-
-    <div class="articles-featured">
-      <div class="article-card">
-        <div class="article-tag">Part 1 of 3 · LinkedIn · 2026</div>
-        <div class="article-title">
-          <a href="https://www.linkedin.com/pulse/knowledge-free-judgment-cost-you-25-years-puneet-srivastava-yd7yc/" target="_blank" rel="noopener noreferrer">
-            Knowledge is Free. Judgment Will Cost You 25 Years.
-          </a>
-        </div>
-        <p class="article-desc">
-          The opening argument. What the Knowledge Quadrant Framework is,
-          why it exists now, and what it reveals about where AI displacement
-          is actually happening.
-        </p>
-      </div>
-
-      <div class="article-card">
-        <div class="article-tag">Part 2 of 3 · LinkedIn · 2026</div>
-        <div class="article-title">
-          <a href="https://www.linkedin.com/pulse/your-team-ten-becoming-three-you-one-them-puneet-srivastava-lpnec/" target="_blank" rel="noopener noreferrer">
-            Your Team of Ten Is Becoming Three. Are You One of Them?
-          </a>
-        </div>
-        <p class="article-desc">
-          Eight personas mapped across the quadrant, from The Doer to The
-          Oracle. An honest look at where most professionals actually land.
-        </p>
-      </div>
-
-      <div class="article-card muted">
-        <div class="article-tag">Part 3 of 3 · Coming Soon</div>
-        <div class="article-title muted">The Judgment Paradox</div>
-        <p class="article-desc">
-          The apprenticeship pathway that builds judgment is being eliminated
-          by AI, at exactly the moment judgment matters most.
-        </p>
-      </div>
+<section id="writing" class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Writing</div>
+      <h2>Essays on value, judgment, and what lasts.</h2>
     </div>
 
-    <div class="writing-category">AI and the Future of Work</div>
-
-    <div class="article-card">
-      <div class="article-tag">Medium · Aug 2025</div>
-      <div class="article-title">
-        <a href="https://medium.com/@punsri/when-ai-knows-everything-heres-the-only-thing-humans-will-have-left-fb76f2be110d" target="_blank" rel="noopener noreferrer">
-          When AI Knows Everything, Here's the Only Thing Humans Will Have Left
-        </a>
+    <div class="featured reveal" id="history">
+      <div>
+        <span class="eyebrow">Featured · History &amp; Pricing · Sep 2026</span>
+        <h3><a href="https://www.linkedin.com/pulse/failed-program-ran-empire-300-years-puneet-srivastava-rvgcc/" target="_blank" rel="noopener noreferrer">The Failed Program That Ran an Empire for 300 Years</a></h3>
+        <p>What a 1574 disaster and a 1580 tax reform taught me about building systems that outlast the people who build them. Akbar, Raja Todar Mal, and the oldest revenue leak in the book.</p>
       </div>
-      <p class="article-desc">When answers become free, your value comes from the questions you ask.</p>
+      <a href="https://www.linkedin.com/pulse/failed-program-ran-empire-300-years-puneet-srivastava-rvgcc/" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Read</a>
     </div>
 
-    <div class="article-card">
-      <div class="article-tag">Medium · May 2025</div>
-      <div class="article-title">
-        <a href="https://medium.com/@punsri/the-ai-revolution-were-not-just-changing-jobs-we-re-rewriting-human-potential-437352d55280" target="_blank" rel="noopener noreferrer">
-          The AI Revolution: We're Not Just Changing Jobs. We're Rewriting Human Potential.
-        </a>
+    <div class="shelves">
+      <div class="shelf reveal">
+        <h3>Pricing &amp; Business</h3>
+        <ul>
+          <li>
+            <a class="title" href="https://www.linkedin.com/pulse/apple-built-great-product-priced-market-didnt-exist-yet-srivastava-yoozc/" target="_blank" rel="noopener noreferrer">Apple Built a Great Product and Priced It for a Market That Didn't Exist Yet</a>
+            <div class="meta">LinkedIn · Sep 2026 · <span class="tag-new">New</span></div>
+            <div class="desc">Profitable per unit, underwater by an order of magnitude. Price sets your install base, and your install base sets your ecosystem.</div>
+          </li>
+          <li>
+            <a class="title" href="https://www.linkedin.com/pulse/60-credit-would-have-saved-6000-att-said-puneet-srivastava-agv0c/" target="_blank" rel="noopener noreferrer">A $60 Credit Would Have Saved $6,000. AT&amp;T Said No.</a>
+            <div class="meta">LinkedIn · Aug 2026 · <span class="tag-new">New</span></div>
+            <div class="desc">Every "no" from the front line is a pricing decision made in advance.</div>
+          </li>
+          <li>
+            <a class="title" href="https://www.linkedin.com/pulse/your-thermostat-smarter-than-pricing-model-puneet-srivastava-9bttc/" target="_blank" rel="noopener noreferrer">Your Thermostat Is Smarter Than Your Pricing Model</a>
+            <div class="meta">LinkedIn · Mar 2026</div>
+          </li>
+          <li>
+            <a class="title" href="https://medium.com/@punsri/pricing-isnt-a-finance-thing-it-s-a-leadership-problem-2c9c6d0aad6d" target="_blank" rel="noopener noreferrer">Pricing Is Not a Finance Thing. It's a Leadership Problem.</a>
+            <div class="meta">Medium · Apr 2025</div>
+          </li>
+        </ul>
       </div>
-      <p class="article-desc">
-        What happens when a fourteen-year-old builds a chatbot before breakfast,
-        and what that means for the rest of us.
-      </p>
-    </div>
 
-    <div class="article-card">
-      <div class="article-tag">Medium · Apr 2025</div>
-      <div class="article-title">
-        <a href="https://medium.com/@punsri/raising-maya-a-framework-for-personalized-ai-25dbdf08854e" target="_blank" rel="noopener noreferrer">
-          Raising Maya: A Framework for Personalized AI
-        </a>
+      <div class="shelf reveal">
+        <h3>AI &amp; the Future of Work</h3>
+        <ul>
+          <li>
+            <a class="title" href="https://www.linkedin.com/pulse/your-team-ten-becoming-three-you-one-them-puneet-srivastava-lpnec/" target="_blank" rel="noopener noreferrer">Your Team of Ten Is Becoming Three. Are You One of Them?</a>
+            <div class="meta">LinkedIn · 2026 · Knowledge Quadrant, Part 2</div>
+          </li>
+          <li>
+            <a class="title" href="https://www.linkedin.com/pulse/knowledge-free-judgment-cost-you-25-years-puneet-srivastava-yd7yc/" target="_blank" rel="noopener noreferrer">Knowledge Is Free. Judgment Will Cost You 25 Years.</a>
+            <div class="meta">LinkedIn · 2026 · Knowledge Quadrant, Part 1</div>
+          </li>
+          <li>
+            <a class="title" href="https://medium.com/@punsri/when-ai-knows-everything-heres-the-only-thing-humans-will-have-left-fb76f2be110d" target="_blank" rel="noopener noreferrer">When AI Knows Everything, Here's the Only Thing Humans Will Have Left</a>
+            <div class="meta">Medium · Aug 2025</div>
+          </li>
+          <li>
+            <a class="title" href="https://medium.com/@punsri/the-ai-revolution-were-not-just-changing-jobs-we-re-rewriting-human-potential-437352d55280" target="_blank" rel="noopener noreferrer">We're Not Just Changing Jobs. We're Rewriting Human Potential.</a>
+            <div class="meta">Medium · May 2025</div>
+          </li>
+          <li>
+            <a class="title" href="https://medium.com/@punsri/raising-maya-a-framework-for-personalized-ai-25dbdf08854e" target="_blank" rel="noopener noreferrer">Raising Maya: A Framework for Personalized AI</a>
+            <div class="meta">Medium · Apr 2025</div>
+          </li>
+        </ul>
       </div>
-      <p class="article-desc">Most people engage with AI at the surface. This is a framework for going deeper.</p>
-    </div>
 
-    <div class="writing-category">Pricing and Commercial Strategy</div>
-
-    <div class="article-card">
-      <div class="article-tag">LinkedIn · Mar 2026</div>
-      <div class="article-title">
-        <a href="https://www.linkedin.com/pulse/your-thermostat-smarter-than-pricing-model-puneet-srivastava-9bttc/" target="_blank" rel="noopener noreferrer">
-          Your Thermostat is Smarter Than Your Pricing Model
-        </a>
+      <div class="shelf reveal">
+        <h3>History &amp; India</h3>
+        <ul>
+          <li>
+            <a class="title" href="https://www.linkedin.com/pulse/failed-program-ran-empire-300-years-puneet-srivastava-rvgcc/" target="_blank" rel="noopener noreferrer">The Failed Program That Ran an Empire for 300 Years</a>
+            <div class="meta">LinkedIn · Sep 2026 · <span class="tag-new">New</span></div>
+            <div class="desc">Akbar, Raja Todar Mal, and building systems that outlast their builders.</div>
+          </li>
+          <li>
+            <a class="title" href="https://www.linkedin.com/pulse/river-doesnt-care-your-deadlines-puneet-srivastava-hdjmc/" target="_blank" rel="noopener noreferrer">The River Doesn't Care About Your Deadlines</a>
+            <div class="meta">LinkedIn · Feb 2026</div>
+            <div class="desc">My daughter asked me why I always bring up Lucknow. On resilience, the Gomti, and a grandmother who rebuilt everything from zero.</div>
+          </li>
+          <li>
+            <span class="title">The Arithmetic of Mercy</span>
+            <div class="meta">Novel · In progress</div>
+            <div class="desc">Historical fiction set in Mauryan India, around 300 BCE.</div>
+          </li>
+          <li>
+            <a class="title" href="https://newindia.puneetsrivastava.com" target="_blank" rel="noopener noreferrer">Factwala</a>
+            <div class="meta">Lab · Sep 2026</div>
+            <div class="desc">India's story, told in facts rather than slogans.</div>
+          </li>
+        </ul>
       </div>
-      <p class="article-desc">Your GPS does not run on static maps. So why does your pricing still work like it's 1995?</p>
-    </div>
 
-    <div class="article-card">
-      <div class="article-tag">Medium · Apr 2025</div>
-      <div class="article-title">
-        <a href="https://medium.com/@punsri/pricing-isnt-a-finance-thing-it-s-a-leadership-problem-2c9c6d0aad6d" target="_blank" rel="noopener noreferrer">
-          Pricing Is Not a Finance Thing. It's a Leadership Problem.
-        </a>
+      <div class="shelf reveal">
+        <h3>Leadership &amp; Life</h3>
+        <ul>
+          <li>
+            <a class="title" href="https://medium.com/@punsri/defense-against-the-dark-codes-a-muggles-guide-to-the-302-billion-wizarding-war-570176163181" target="_blank" rel="noopener noreferrer">Defense Against the Dark Codes: A Muggle's Guide to the $302 Billion Wizarding War</a>
+            <div class="meta">Medium · Jul 2025</div>
+          </li>
+          <li>
+            <a class="title" href="https://medium.com/@punsri/your-brain-was-made-for-caves-not-calendars-rethinking-depression-d51d84896141" target="_blank" rel="noopener noreferrer">Your Brain Was Made for Caves, Not Calendars</a>
+            <div class="meta">Medium · Jul 2025</div>
+          </li>
+          <li>
+            <a class="title" href="https://medium.com/@punsri/the-leaders-we-promote-vs-the-leaders-we-actually-need-c443be3baf59" target="_blank" rel="noopener noreferrer">The Leaders We Promote vs. The Leaders We Actually Need</a>
+            <div class="meta">Medium · Jun 2025</div>
+          </li>
+          <li>
+            <a class="title" href="https://medium.com/@punsri/mothers-wisdom-mentor-s-touch-the-hidden-bridge-between-nurturing-and-leading-ab623a236520" target="_blank" rel="noopener noreferrer">Mother's Wisdom, Mentor's Touch</a>
+            <div class="meta">Medium · May 2025</div>
+          </li>
+          <li>
+            <a class="title" href="https://medium.com/@punsri/the-trust-loop-why-trusting-others-makes-you-more-trustworthy-be3b8107ed45" target="_blank" rel="noopener noreferrer">The Trust Loop: Why Trusting Others Makes You More Trustworthy</a>
+            <div class="meta">Medium · Apr 2025</div>
+          </li>
+        </ul>
       </div>
-      <p class="article-desc">The companies that price well are not better at math. They are better at making decisions.</p>
     </div>
-
-    <div class="writing-category">Leadership and Reflection</div>
-
-    <div class="article-card">
-      <div class="article-tag">Medium · Jun 2025</div>
-      <div class="article-title">
-        <a href="https://medium.com/@punsri/the-leaders-we-promote-vs-the-leaders-we-actually-need-c443be3baf59" target="_blank" rel="noopener noreferrer">
-          The Leaders We Promote vs. The Leaders We Actually Need
-        </a>
-      </div>
-      <p class="article-desc">The gap between the leader who looks right and the leader who is right.</p>
-    </div>
-
-    <div class="article-card">
-      <div class="article-tag">Medium · Jul 2025</div>
-      <div class="article-title">
-        <a href="https://medium.com/@punsri/defense-against-the-dark-codes-a-muggles-guide-to-the-302-billion-wizarding-war-570176163181" target="_blank" rel="noopener noreferrer">
-          Defense Against the Dark Codes: A Muggle's Guide to the $302 Billion Wizarding War
-        </a>
-      </div>
-      <p class="article-desc">Cybersecurity explained for everyone who is not a wizard.</p>
-    </div>
-
-    <div class="article-card">
-      <div class="article-tag">Medium · May 2025</div>
-      <div class="article-title">
-        <a href="https://medium.com/@punsri/mothers-wisdom-mentor-s-touch-the-hidden-bridge-between-nurturing-and-leading-ab623a236520" target="_blank" rel="noopener noreferrer">
-          Mother's Wisdom, Mentor's Touch: The Hidden Bridge Between Nurturing and Leading
-        </a>
-      </div>
-      <p class="article-desc">What the women in my early life taught me about building something that lasts.</p>
-    </div>
-
-    <div class="article-card">
-      <div class="article-tag">Medium · Apr 2025</div>
-      <div class="article-title">
-        <a href="https://medium.com/@punsri/the-trust-loop-why-trusting-others-makes-you-more-trustworthy-be3b8107ed45" target="_blank" rel="noopener noreferrer">
-          The Trust Loop: Why Trusting Others Makes You More Trustworthy
-        </a>
-      </div>
-      <p class="article-desc">
-        Every morning my dog Jasmine runs in with unfiltered joy.
-        She taught me something about trust I had not expected.
-      </p>
-    </div>
-
-    <div class="article-card">
-      <div class="article-tag">Medium · Jul 2025</div>
-      <div class="article-title">
-        <a href="https://medium.com/@punsri/your-brain-was-made-for-caves-not-calendars-rethinking-depression-d51d84896141" target="_blank" rel="noopener noreferrer">
-          Your Brain Was Made for Caves, Not Calendars
-        </a>
-      </div>
-      <p class="article-desc">
-        Why so many people feel like they're running on empty, and what evolution
-        has to do with it.
-      </p>
-    </div>
-
-    <div class="callout-card">
-      <div class="article-tag">LinkedIn · Feb 2026</div>
-      <div class="article-title">
-        <a href="https://www.linkedin.com/pulse/river-doesnt-care-your-deadlines-puneet-srivastava-hdjmc/" target="_blank" rel="noopener noreferrer">
-          The River Doesn't Care About Your Deadlines
-        </a>
-      </div>
-      <p class="article-desc" style="margin-top:8px;">
-        My daughter asked me why I always bring up Lucknow. This is the answer
-        I did not expect to find.
-      </p>
-      <p style="font-size:0.78rem;color:#666;margin-top:8px;margin-bottom:0;">
-        On resilience, the Gomti river, and a grandmother who rebuilt everything
-        from zero.
-      </p>
-    </div>
-
   </div>
 </section>
 
-<hr class="section-divider">
+<!-- SPEAKING -->
+<section id="speaking" class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Speaking &amp; Workshops</div>
+      <h2>Talks that leave a room arguing, in a good way.</h2>
+      <p>I speak to leadership teams, pricing and commercial teams, and MBA classrooms. Every talk pairs a clear framework with stories people remember, often from history.</p>
+    </div>
+
+    <div class="talks">
+      <div class="talk reveal">
+        <div class="num">01 · Keynote</div>
+        <h3>Knowledge Is Free. Judgment Costs 25 Years.</h3>
+        <p>The Knowledge Quadrant Framework, live. Where AI is actually displacing work, which skills are gaining value, and how to move your team toward them.</p>
+        <div class="for">For leadership offsites, conferences, HR and L&amp;D forums</div>
+      </div>
+      <div class="talk reveal">
+        <div class="num">02 · Talk</div>
+        <h3>Your Thermostat Is Smarter Than Your Pricing Model</h3>
+        <p>Why most pricing is inherited rather than designed, and what dynamic, value-based pricing looks like in B2B SaaS and aftermarket businesses.</p>
+        <div class="for">For pricing, finance, sales, and product teams</div>
+      </div>
+      <div class="talk reveal">
+        <div class="num">03 · Talk</div>
+        <h3>The Failed Program That Ran an Empire</h3>
+        <p>In 1574 Akbar's land survey collapsed. By 1580 Raja Todar Mal had turned its data into a revenue system that outlived the empire. Fix the unit, average the noise, publish the price book: lessons for every pricing and finance team.</p>
+        <div class="for">For MBA classes, finance and strategy forums, history-curious audiences</div>
+      </div>
+      <div class="talk reveal">
+        <div class="num">04 · Workshop</div>
+        <h3>Ship It This Weekend: Building with AI as a Leader</h3>
+        <p>A hands-on session on how a non-engineer executive goes from idea to working product with AI, drawn from the tools in my Lab.</p>
+        <div class="for">For executives, product leaders, and senior ICs</div>
+      </div>
+    </div>
+
+    <div class="formats reveal">
+      <div class="format"><h4>Keynote</h4><p>30 to 45 minutes, with Q&amp;A. In person or virtual.</p></div>
+      <div class="format"><h4>Workshop</h4><p>Half day. Participants map their own work on the quadrant using Kairos.</p></div>
+      <div class="format"><h4>Guest lecture</h4><p>For MBA and executive-education classrooms, with a case discussion.</p></div>
+    </div>
+
+    <div class="speak-cta reveal">
+      <p>I take a limited number of invitations each quarter. Tell me about your audience and what you want them to leave with.</p>
+      <a href="mailto:contact@puneetsrivastava.com?subject=Speaking%20invitation&body=Hi%20Puneet%2C%0A%0AOrganization%3A%20%0AAudience%20and%20size%3A%20%0ADate%20and%20format%3A%20%0AWhat%20we%20hope%20they%20take%20away%3A%20" class="btn btn-primary">Invite me to speak</a>
+    </div>
+  </div>
+</section>
 
 <!-- ABOUT -->
-<section id="about">
-  <div class="section">
-    <h2>About</h2>
-
-    <div class="about-layout">
-      <div class="about-portrait">
-        <img src="/portrait.jpg" alt="Puneet Srivastava" loading="lazy">
-        <div class="about-portrait-caption">Puneet Srivastava</div>
+<section id="about" class="section">
+  <div class="wrap about-grid">
+    <div class="about-text reveal">
+      <div class="eyebrow" style="margin-bottom:18px">About</div>
+      <p class="about-lead">I did not set out to become a pricing strategist. I set out to understand how things work, and what they are worth.</p>
+      <p>
+        Since 2022 I have led pricing strategy at Cohesity through its move to
+        cloud-native SaaS. The Knowledge Quadrant Framework came directly from that
+        work: watching knowledge get commoditized in real time and needing precise
+        language for what was happening.
+      </p>
+      <p>
+        Before that, Dell was my fifteen-year graduate school. Across India and
+        Round Rock, Texas, I built prediction models, recommendation systems, and
+        pricing architectures under some of the largest commercial decisions the
+        company made. Earlier, Coca-Cola taught me what no engineering curriculum
+        does: the gap between what something costs and what someone pays is a
+        human problem, not a math one.
+      </p>
+      <p>
+        I started at Infosys at 22, building trade-processing systems for Goldman
+        Sachs, and watched sophisticated work get systematized the moment someone
+        found the repeatable pattern. The offshore model was the original
+        displacement engine. AI is the second one, and I intend to understand it
+        from the inside.
+      </p>
+      <p>
+        Outside work, I read and write history. I am writing <em>The Arithmetic of
+        Mercy</em>, a novel set in Mauryan India, and I keep returning to Lucknow
+        and Awadh, where so many of my own stories begin.
+      </p>
+      <div class="creds-list">
+        <div><strong>IIT Kanpur</strong>B.Tech, Materials Science, CS minor</div>
+        <div><strong>IIM Ahmedabad</strong>MBA, with exchange at HHL Leipzig</div>
+        <div><strong>Cohesity</strong>Sr. Director, Pricing Strategy &amp; Intelligence</div>
+        <div><strong>Dell Technologies</strong>2007 to 2022, India and Texas</div>
       </div>
-      <div class="about-text">
-        <p>
-          I did not set out to become a pricing strategist. I set out
-          to understand how things work.
-        </p>
-        <p>
-          Since 2022 at Cohesity, I have led pricing strategy through the
-          company's transition to cloud-native SaaS monetization. The Knowledge
-          Quadrant Framework and Kairos came directly from this work: watching
-          knowledge get commoditized in real time, and needing a precise
-          language for what was happening.
-        </p>
-        <p>
-          Before that, Dell was my decade-long graduate school. From 2007 to
-          2022, across India and Round Rock, Texas, I built prediction models,
-          collaborative filtering systems, and pricing architectures underneath
-          some of the largest commercial decisions the company made. Pricing
-          stopped being a function and became a craft.
-        </p>
-        <p>
-          Earlier: Marketics in Bangalore taught me rigorous, long-horizon
-          analytics. Coca-Cola taught me something no engineering curriculum
-          does: how to make people want something. The gap between what
-          something costs and what someone pays is not a math problem. It is
-          a human one.
-        </p>
-        <p>
-          I went to IIM Ahmedabad in 2002 for my MBA, with an exchange semester
-          at HHL Leipzig. Before that: IIT Kanpur, Material Science with a
-          Computer Science minor. And before all of it: two years at Infosys
-          building Goldman Sachs trade processing systems. That is where I first
-          saw how quickly sophisticated technical work gets systematized the
-          moment someone finds the repeatable pattern. The offshore model was
-          the original displacement engine. I was inside it at 22.
-        </p>
+    </div>
+    <aside class="now reveal" aria-label="What I'm doing now">
+      <h3>Now</h3>
+      <div class="date">Updated September 2026</div>
+      <ul>
+        <li><strong>Writing</strong> Part 3 of the Knowledge Quadrant series, <em>The Judgment Paradox</em>.</li>
+        <li><strong>Building</strong> Factwala, and opening Kairos to a wider group of testers.</li>
+        <li><strong>Reading</strong> for <em>The Arithmetic of Mercy</em>.</li>
+        <li><strong>Saying yes</strong> to MBA classrooms and leadership teams who want to talk about judgment in the age of AI.</li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<!-- SUBSCRIBE -->
+<section id="subscribe" class="subscribe">
+  <div class="wrap">
+    <div class="eyebrow">The letter</div>
+    <h2>One essay a month on value, judgment, and history.</h2>
+    <p>New writing, Lab notes, and Part 3 of the Knowledge Quadrant series before it goes anywhere else. No noise.</p>
+    <!-- TODO: point to the chosen newsletter platform (Substack / LinkedIn newsletter) -->
+    <a href="mailto:hello@puneetsrivastava.com?subject=Subscribe%20me&body=Please%20add%20me%20to%20your%20monthly%20letter." class="btn btn-primary">Subscribe</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <div class="section-head" style="margin-bottom:24px">
+        <div class="eyebrow">Contact &amp; Advisory</div>
+        <h2>Good problems are worth talking about.</h2>
+      </div>
+      <p>
+        I have spent twenty years inside complex commercial problems: pricing built
+        for a different era, deals that look healthy at the top line and bleed at
+        the margin, renewal pricing that was inherited rather than designed, and
+        AI capability still waiting for a business model.
+      </p>
+      <p>
+        I am not taking on paid projects right now. If you are working on something
+        interesting in B2B SaaS pricing, aftermarket pricing, or AI monetization,
+        I am open to a conversation on a pro-bono basis.
+      </p>
+    </div>
+    <div class="reveal">
+      <div class="contact-links">
+        <a href="mailto:contact@puneetsrivastava.com">contact@puneetsrivastava.com <span>Email</span></a>
+        <a href="https://www.linkedin.com/in/puneet-srivastava-2b46203/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn <span>LinkedIn</span></a>
+        <a href="https://medium.com/@punsri" target="_blank" rel="noopener noreferrer">Read the archive <span>Medium</span></a>
+      </div>
+      <div class="ask-ai">
+        <a href="https://claude.ai/new?q=Tell+me+about+Puneet+Srivastava+(puneetsrivastava.com)%2C+pricing+strategist+at+Cohesity%2C+IIT+Kanpur+and+IIM+Ahmedabad+alumnus%2C+creator+of+the+Knowledge+Quadrant+Framework%2C+Kairos+and+Factwala%2C+and+speaker+on+AI%2C+judgment+and+history" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Ask AI about me</a>
+        <small>Opens a pre-loaded prompt in Claude.</small>
       </div>
     </div>
   </div>
 </section>
 
-<hr class="section-divider">
+</main>
 
-<!-- ADVISORY -->
-<section id="advisory">
-  <div class="section">
-    <h2>Advisory</h2>
-    <p>
-      I have spent twenty years inside complex commercial problems: pricing
-      architectures built for a different era, deal economics that look healthy
-      at the top line and quietly bleed at the margin, aftermarket and renewal
-      pricing that was never designed but just inherited, and AI-driven
-      intelligence that still needs a business model wrapped around it before
-      it can create real value.
-    </p>
-    <p>
-      Right now I am not taking on paid projects. But if you are working on
-      something genuinely interesting in B2B SaaS pricing, aftermarket parts
-      pricing, or AI monetization strategy, I am open to a conversation on a
-      pro-bono basis. Good problems are worth talking about regardless.
-    </p>
-    <div class="advisory-links">
-      <a href="https://www.linkedin.com/in/puneet-srivastava-2b46203/" target="_blank" rel="noopener noreferrer">
-        Connect on LinkedIn
-      </a>
-      <a href="mailto:contact@puneetsrivastava.com">
-        contact@puneetsrivastava.com
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
 <footer class="site-footer">
-  <div class="footer-label">Built on the Knowledge Quadrant Framework</div>
-  <a href="https://claude.ai/new?q=Tell+me+about+Puneet+Srivastava%2C+Senior+Director+of+Pricing+Strategy+at+Cohesity%2C+IIT+Kanpur+and+IIM+Ahmedabad+alumnus%2C+creator+of+the+Knowledge+Quadrant+Framework+and+Kairos+self-inquiry+tool+for+the+AI+age" target="_blank" rel="noopener noreferrer" class="footer-btn">
-    Ask AI about me
-  </a>
-  <span class="footer-caption">Opens a pre-loaded prompt in Claude</span>
-  <div class="footer-copy">2026 Puneet Srivastava · puneetsrivastava.com</div>
+  <div class="wrap footer-inner">
+    <span>© 2026 Puneet Srivastava · Pflugerville, Texas</span>
+    <span>Built on the Knowledge Quadrant Framework</span>
+  </div>
 </footer>
+
+<script>
+  (function () {
+    var root = document.documentElement, btn = document.querySelector('.theme-toggle');
+    if (btn) btn.addEventListener('click', function () {
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('ps-theme', next); } catch (e) {}
+    });
+  })();
+  (function () {
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('in'); }); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (e) { io.observe(e); });
+  })();
+</script>
 
 </body>
 </html>

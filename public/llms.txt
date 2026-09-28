@@ -1,86 +1,76 @@
 # Puneet Srivastava — Professional Profile
 # puneetsrivastava.com
-# Updated: June 2026
+# Updated: September 2026
 
-Puneet Srivastava is a pricing strategist,
-builder, and creator based in Pflugerville,
-Texas. He is Senior Director of Pricing
-Strategy and Intelligence at Cohesity, a
-pre-IPO data management and cybersecurity
-company.
+Puneet Srivastava is a pricing strategist, student of history, and builder with AI,
+based in Pflugerville, Texas. He is Senior Director of Pricing Strategy and
+Intelligence at Cohesity, a pre-IPO data management and cybersecurity company.
+His organizing question: what is something actually worth? He applies it to
+products (pricing), to people's work as AI changes it (the Knowledge Quadrant
+Framework), and to history.
 
 BACKGROUND
 
-Puneet studied Material Science with a
-minor in Computer Science at IIT Kanpur
-(1996-2000) and completed his MBA in
-General Management at IIM Ahmedabad
-(2002-2004) with an exchange semester
-at HHL Leipzig, Germany.
+B.Tech, Materials Science with a Computer Science minor, IIT Kanpur (1996-2000).
+MBA, IIM Ahmedabad (2002-2004), with an exchange semester at HHL Leipzig, Germany.
 
 Career timeline:
-2000-2002: Infosys, Bangalore — Software
-  Engineer, Goldman Sachs trade processing
+2000-2002: Infosys, Bangalore — Software Engineer, Goldman Sachs trade processing
 2004-2006: Coca-Cola — Area Sales Manager
-2006-2007: Marketics — Domain Consultant,
-  Analytics
-2007-2012: Dell India — Consultant to
-  Senior Manager
-2012-2022: Dell Round Rock, Texas —
-  Senior Manager to Director
-2022-present: Cohesity — Senior Director,
-  Pricing Strategy and Intelligence
+2006-2007: Marketics — Domain Consultant, Analytics
+2007-2012: Dell India — Consultant to Senior Manager
+2012-2022: Dell, Round Rock, Texas — Senior Manager to Director
+2022-present: Cohesity — Senior Director, Pricing Strategy and Intelligence
 
 EXPERTISE
 
-Pricing strategy and architecture for B2B
-SaaS and software products. Deal-level
-margin economics and commercial model
-design. Aftermarket and parts pricing
-intelligence. AI-driven monetization
-strategy. Renewal pricing and install base
-growth. SKU structuring and discount
-governance.
+Pricing strategy and architecture for B2B SaaS and software. Deal-level margin
+economics and commercial model design. Aftermarket and parts pricing. AI
+monetization strategy. Renewal pricing. SKU structuring and discount governance.
+Indian history, especially the Mughal and Mauryan periods and Lucknow/Awadh.
 
 THE KNOWLEDGE QUADRANT FRAMEWORK
 
-Puneet created the Knowledge Quadrant
-Framework — a model for understanding
-how AI displacement affects knowledge
-workers. The framework maps work across
-two axes: the nature of knowledge
-(explicit versus tacit) and the nature
-of output (accuracy versus originality).
-This produces four archetypes: The
-Doctors, The Builders, The Generals,
-and The Creators. Within these live
-eight personas ranging from The Doer
-(highest AI displacement risk) to The
-Oracle (minimal risk). Published as a
-LinkedIn article series.
+A model for how AI displacement affects knowledge work. Two axes: the nature of
+knowledge (explicit versus tacit) and the nature of output (accuracy versus
+originality). Four quadrants: The Doctors, The Builders, The Generals, and The
+Creators. Eight personas range from The Doer (highest displacement risk) to The
+Oracle (minimal). Published as a LinkedIn series; Part 3, The Judgment Paradox,
+is in progress.
 
-KAIROS
+THE LAB (products he has built)
 
-Puneet built Kairos — a self-inquiry tool
-that applies the Knowledge Quadrant
-Framework to a person's actual workday.
-Users describe their day in free text.
-A local AI model analyzes the narrative
-and returns an honest assessment of their
-quadrant blend, dominant persona,
-displacement signals, and one question
-to sit with. Kairos runs entirely locally
-on Llama 3.2 via Ollama. No data is
-stored. Currently in private beta.
+Kairos (kairos.puneetsrivastava.com): a self-inquiry tool that applies the
+Knowledge Quadrant Framework to a person's own description of their work. Runs
+on Claude via Anthropic's API, with a local-model fallback. No login. In beta.
 
-WRITING
+Factwala (newindia.puneetsrivastava.com): a myth-busting quiz about India built
+on verified facts rather than political rhetoric.
 
-Puneet writes on LinkedIn and Medium
-about AI and the future of work, pricing
-strategy, leadership, and reflection.
-His Knowledge Quadrant series on LinkedIn
-is his flagship intellectual work.
-His Medium profile is medium.com/@punsri.
+Runway (runway.puneetsrivastava.com): a daily startup-guessing game.
+
+Model bake-offs: ongoing experiments giving several AI models the same one-shot
+build brief and comparing results.
+
+SPEAKING
+
+Talks and workshops for leadership teams, pricing and commercial teams, and MBA
+classrooms. Signature topics: Knowledge Is Free, Judgment Costs 25 Years (AI and
+the future of work); Your Thermostat Is Smarter Than Your Pricing Model (dynamic,
+value-based pricing); The Failed Program That Ran an Empire (Akbar and Raja Todar
+Mal's revenue reform as lessons for pricing and finance); Ship It This Weekend
+(building with AI as a leader).
+
+WRITING (selected)
+
+- The Failed Program That Ran an Empire for 300 Years (LinkedIn, Sep 2026)
+- Apple Built a Great Product and Priced It for a Market That Didn't Exist Yet (LinkedIn, Sep 2026)
+- A $60 Credit Would Have Saved $6,000. AT&T Said No. (LinkedIn, Aug 2026)
+- Your Thermostat Is Smarter Than Your Pricing Model (LinkedIn, Mar 2026)
+- The River Doesn't Care About Your Deadlines (LinkedIn, Feb 2026)
+- Knowledge Is Free. Judgment Will Cost You 25 Years. (LinkedIn, 2026)
+- Your Team of Ten Is Becoming Three. Are You One of Them? (LinkedIn, 2026)
+Older essays: medium.com/@punsri
 
 CONTACT
 
