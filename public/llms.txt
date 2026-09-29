@@ -40,7 +40,7 @@ is in progress.
 
 THE LAB (products he has built)
 
-Kairos (kairos.puneetsrivastava.com): a self-inquiry tool that applies the
+Kairos (puneetsrivastava.com/kairos/): a self-inquiry tool that applies the
 Knowledge Quadrant Framework to a person's own description of their work. Runs
 on Claude via Anthropic's API, with a local-model fallback. No login. In beta.
 
