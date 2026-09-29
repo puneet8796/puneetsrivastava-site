@@ -14,7 +14,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
 
 <style>
   :root {
@@ -32,7 +32,7 @@
   body {
     background: var(--bg);
     color: var(--text);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     font-size: 17px;
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
@@ -49,7 +49,7 @@
     padding: 28px 0;
   }
   header a {
-    font-family: "IBM Plex Mono", monospace;
+    font-family: "Inter", -apple-system, sans-serif;
     font-size: 12px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
@@ -63,7 +63,7 @@
 
   .status {
     display: inline-block;
-    font-family: "IBM Plex Mono", monospace;
+    font-family: "Inter", -apple-system, sans-serif;
     font-size: 12px;
     letter-spacing: 0.12em;
     color: var(--gold);
@@ -74,7 +74,7 @@
   }
 
   h1 {
-    font-family: "Fraunces", serif;
+    font-family: "Source Serif 4", Georgia, serif;
     font-weight: 600;
     font-size: clamp(52px, 10vw, 84px);
     line-height: 1.02;
@@ -89,7 +89,7 @@
     max-width: 34ch;
   }
   .lede em {
-    font-family: "Fraunces", serif;
+    font-family: "Source Serif 4", Georgia, serif;
     font-style: italic;
     color: var(--gold);
   }
@@ -120,26 +120,20 @@
     top: -14px;
     left: 38%;
     transform: translateX(-50%);
-    font-family: "IBM Plex Mono", monospace;
+    font-family: "Inter", -apple-system, sans-serif;
     font-size: 11px;
     letter-spacing: 0.1em;
     color: var(--muted);
     white-space: nowrap;
   }
-  @media (prefers-reduced-motion: no-preference) {
-    .moment .node { animation: settle 1.4s cubic-bezier(.2,.8,.2,1) both; }
-    @keyframes settle {
-      from { left: 8%; opacity: 0; }
-      to   { left: 38%; opacity: 1; }
-    }
-  }
+  
 
   /* ---------- launch ---------- */
   .launch { padding: 40px 0 8px; }
 
   .btn {
     display: inline-block;
-    font-family: "IBM Plex Mono", monospace;
+    font-family: "Inter", -apple-system, sans-serif;
     font-size: 15px;
     letter-spacing: 0.04em;
     color: var(--bg);
@@ -161,7 +155,7 @@
   .how { padding: 56px 0; }
 
   .how h2, .honest h2 {
-    font-family: "IBM Plex Mono", monospace;
+    font-family: "Inter", -apple-system, sans-serif;
     font-size: 12px;
     font-weight: 500;
     letter-spacing: 0.16em;
@@ -178,7 +172,7 @@
     padding: 18px 20px;
   }
   .step strong {
-    font-family: "Fraunces", serif;
+    font-family: "Source Serif 4", Georgia, serif;
     font-weight: 600;
     font-size: 19px;
     display: block;
@@ -203,7 +197,7 @@
     gap: 12px;
   }
   footer p, footer a {
-    font-family: "IBM Plex Mono", monospace;
+    font-family: "Inter", -apple-system, sans-serif;
     font-size: 12.5px;
     color: var(--muted);
     text-decoration: none;

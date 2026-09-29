@@ -397,10 +397,7 @@ strong { font-weight: 600; color: var(--text); }
   .project, .talk { padding: 24px; }
   .creds-list { grid-template-columns: 1fr; }
 }
-@media (prefers-reduced-motion: no-preference) {
-  .reveal { opacity: 0; transform: translateY(12px); transition: opacity 0.6s ease, transform 0.6s ease; }
-  .reveal.in { opacity: 1; transform: none; }
-}
+
 
 /* ─── HERO PORTRAIT: CIRCLE ─────── */
 .hero { padding: 128px 0 84px; }
@@ -423,7 +420,7 @@ strong { font-weight: 600; color: var(--text); }
 .nav-monogram { display: inline-flex; align-items: center; gap: 10px; font-size: 1.12rem; letter-spacing: 0.005em; color: var(--text); }
 .nav-monogram:hover { color: var(--text); }
 .nav-monogram .brand-mark { width: 30px; height: 30px; flex-shrink: 0; transition: transform 0.4s ease; }
-.nav-monogram:hover .brand-mark { transform: rotate(-12deg); }
+
 @media (max-width: 720px) { .nav-monogram { font-size: 1.05rem; } .nav-monogram .brand-mark { width: 26px; height: 26px; } }
 
 /* ─── PLUG ──────────────────────── */
@@ -431,6 +428,25 @@ strong { font-weight: 600; color: var(--text); }
 .plug h3 { font-family: var(--serif); font-weight: 600; font-size: 1.5rem; margin: 6px 0 8px; color: var(--text); }
 .plug p { color: var(--body); font-size: 1rem; max-width: 640px; }
 @media (max-width: 720px) { .plug { grid-template-columns: 1fr; padding: 22px; } }
+
+/* ─── v4 FEEDBACK FIXES ─────────── */
+.section { padding: 80px 0; }
+.hero { padding: 120px 0 64px; }
+.lenses { padding: 0 0 80px; }
+.hero-id { margin-top: 18px; }
+.hero-roles { margin-bottom: 18px; }
+.hero-id h1 { font-family: var(--serif); font-weight: 600; font-size: 1.45rem; color: var(--text); margin: 0 0 4px; }
+.hero-id .hero-creds { margin-top: 0; }
+.purpose { border-top: 1px solid var(--line); padding-top: 44px; margin-bottom: 8px; max-width: 820px; }
+.purpose h2 { font-family: var(--serif); font-weight: 600; font-size: clamp(1.6rem, 3vw, 2.1rem); line-height: 1.25; margin: 10px 0 12px; color: var(--text); }
+.purpose p { color: var(--muted); }
+.lens-grid { border-top: 0; margin-top: 18px; }
+.lens p strong { display: block; margin-bottom: 6px; }
+.sub-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+@media (max-width: 900px) {
+  .hero-id { margin-top: 0; }
+  .hero-id h1 { font-size: 1.2rem; }
+}
 </style>
 </head>
 
@@ -467,21 +483,22 @@ strong { font-weight: 600; color: var(--text); }
   <div class="wrap hero-grid">
     <div>
       <div class="eyebrow hero-roles"><span>Pricing Strategist</span><span>Student of History</span><span>Builder with AI</span></div>
-      <h1>Puneet Srivastava</h1>
       <p class="hero-statement">Knowledge is getting cheaper. <em>Judgment isn't.</em></p>
       <p class="hero-lede">
-        For twenty years I have asked one question: what is this actually worth?
-        I ask it of products as a pricing strategist, of people's work as AI
-        rewrites it, and of history, where most of our answers were tested first.
+        I help leaders and professionals answer the question AI is making urgent:
+        <strong>what is our work actually worth?</strong> I have spent twenty years
+        pricing products at Dell and Cohesity. Now I speak, write, and build tools
+        on how judgment, not knowledge, will set the value of people and businesses.
       </p>
       <div class="hero-actions">
         <a href="#framework" class="btn btn-primary">Explore the framework</a>
-        <a href="#speaking" class="btn btn-ghost">Invite me to speak</a>
+        <a href="mailto:contact@puneetsrivastava.com?subject=Speaking%20invitation&body=Hi%20Puneet%2C%0A%0AOrganization%3A%20%0AAudience%20and%20size%3A%20%0ADate%20and%20format%3A%20%0AWhat%20we%20hope%20they%20take%20away%3A%20" class="btn btn-ghost">Invite me to speak</a>
       </div>
     </div>
     <div class="hero-portrait">
       <div class="portrait-frame"><img src="/portrait-face.jpg" alt="Portrait of Puneet Srivastava" width="300" height="300"></div>
-      <div class="hero-creds">IIT Kanpur · IIM Ahmedabad<br>Dell · Cohesity · 20 years in pricing</div>
+      <div class="hero-id"><h1>Puneet Srivastava</h1>
+      <div class="hero-creds">IIT Kanpur · IIM Ahmedabad<br>Dell · Cohesity · 20 years in pricing</div></div>
     </div>
   </div>
 </header>
@@ -489,24 +506,28 @@ strong { font-weight: 600; color: var(--text); }
 <!-- THREE LENSES -->
 <section class="lenses" aria-label="Three lenses">
   <div class="wrap">
-    <p class="lens-intro reveal">One question, <strong>three lenses.</strong></p>
+    <div class="purpose">
+      <div class="eyebrow">Why this site exists</div>
+      <h2>Over the next five years, I want to help people see what their work is really worth, and act on it</h2>
+      <p>Three goals, one question. If you lead a team or teach a class, <a href="#speaking">invite me to speak</a>. If you are simply curious, <a href="#subscribe">read the newsletter</a>.</p>
+    </div>
     <div class="lens-grid">
       <div class="lens reveal">
         <div class="lens-num">I</div>
         <h3>Markets</h3>
-        <p>What a product is worth, and why most companies leave that answer to habit. Twenty years of pricing at Dell and Cohesity.</p>
+        <p><strong>Help companies price with judgment, not habit.</strong> Most pricing is inherited, not designed. Twenty years at Dell and Cohesity taught me how to fix that.</p>
         <a href="#writing" class="text-link">Pricing writing</a>
       </div>
       <div class="lens reveal">
         <div class="lens-num">II</div>
         <h3>Work</h3>
-        <p>What a person's work is worth once knowledge is free. The Knowledge Quadrant Framework, and the tools I build around it.</p>
+        <p><strong>Give professionals a clear map of what AI will cheapen and what will grow in value.</strong> That is the Knowledge Quadrant Framework, and the tools I build around it.</p>
         <a href="#framework" class="text-link">The framework</a>
       </div>
       <div class="lens reveal">
         <div class="lens-num">III</div>
         <h3>History</h3>
-        <p>How people decided what mattered long before us. From Akbar's revenue reform to Lucknow and Mauryan India.</p>
+        <p><strong>Bring history's lessons into boardrooms and classrooms.</strong> From Akbar's revenue reform to Mauryan India, most of our hard questions were tested long ago.</p>
         <a href="#history" class="text-link">History &amp; India</a>
       </div>
     </div>
@@ -584,7 +605,7 @@ strong { font-weight: 600; color: var(--text); }
         <ol>
           <li><div><a href="https://www.linkedin.com/pulse/knowledge-free-judgment-cost-you-25-years-puneet-srivastava-yd7yc/" target="_blank" rel="noopener noreferrer">Knowledge Is Free. Judgment Will Cost You 25 Years.</a><span class="note">The opening argument</span></div></li>
           <li><div><a href="https://www.linkedin.com/pulse/your-team-ten-becoming-three-you-one-them-puneet-srivastava-lpnec/" target="_blank" rel="noopener noreferrer">Your Team of Ten Is Becoming Three. Are You One of Them?</a><span class="note">Eight personas, mapped</span></div></li>
-          <li><div><span class="pending">The Judgment Paradox</span><span class="note">In progress. <a href="#subscribe">Subscribe</a> to read it first.</span></div></li>
+          <li><div><span class="pending">The Judgment Paradox</span><span class="note">In progress. <a href="#subscribe">Sign up free</a> to read it first, on October 13.</span></div></li>
         </ol>
       </div>
     </div>
@@ -596,7 +617,7 @@ strong { font-weight: 600; color: var(--text); }
   <div class="wrap">
     <div class="section-head reveal">
       <div class="eyebrow">The Lab</div>
-      <h2>I don't just write about AI. I build with it.</h2>
+      <h2>I don't just write about AI, I build with it</h2>
       <p>Nights-and-weekends products, each one testing an idea I care about. Some are polished. All are real.</p>
     </div>
     <div class="lab-grid">
@@ -653,7 +674,7 @@ strong { font-weight: 600; color: var(--text); }
       <article class="project reveal">
         <div class="project-head"><h3>Blackjack Bootcamp</h3><span class="status live">Live</span></div>
         <div class="kicker">Judgment under known odds.</div>
-        <p>A trainer that takes you from zero to table-ready: ten short lessons, an adaptive coach that deals you more of the hands you get wrong, timed tests with no hints, and a strategy chart heat-mapped with your own mistakes.</p>
+        <p>A trainer for the casino card game blackjack. It takes you from zero to table-ready: ten short lessons, an adaptive coach that deals you more of the hands you get wrong, timed tests with no hints, and a strategy chart heat-mapped with your own mistakes.</p>
         <p class="why">Why I built it: blackjack is the cleanest classroom for judgment I know. The math is settled; the discipline to follow it is the hard part.</p>
         <div class="project-foot">
           <span class="stack">6-deck basic strategy · Adaptive drills</span>
@@ -677,7 +698,7 @@ strong { font-weight: 600; color: var(--text); }
         <p class="why">Why I run them: an executive's opinion on AI should come from using it, not reading about it.</p>
         <div class="project-foot">
           <span class="stack">Ongoing experiments</span>
-          <a href="#subscribe" class="text-link">Get the notes</a>
+          <a href="#contact" class="text-link">Ask me about the results</a>
         </div>
       </article>
     </div>
@@ -697,7 +718,7 @@ strong { font-weight: 600; color: var(--text); }
   <div class="wrap">
     <div class="section-head reveal">
       <div class="eyebrow">Writing</div>
-      <h2>Essays on value, judgment, and what lasts.</h2>
+      <h2>Essays on value, judgment, and what lasts</h2>
     </div>
 
     <div class="featured reveal" id="history">
@@ -820,7 +841,7 @@ strong { font-weight: 600; color: var(--text); }
   <div class="wrap">
     <div class="section-head reveal">
       <div class="eyebrow">Speaking &amp; Workshops</div>
-      <h2>Talks that leave a room arguing, in a good way.</h2>
+      <h2>Talks that leave a room arguing, in a good way</h2>
       <p>I speak to leadership teams, pricing and commercial teams, and MBA classrooms. Every talk pairs a clear framework with stories people remember, often from history.</p>
     </div>
 
@@ -857,7 +878,7 @@ strong { font-weight: 600; color: var(--text); }
       <div class="format"><h4>Guest lecture</h4><p>For MBA and executive-education classrooms, with a case discussion.</p></div>
     </div>
 
-    <div class="speak-cta reveal">
+    <div class="speak-cta reveal" id="invite">
       <p>I take a limited number of invitations each quarter. Tell me about your audience and what you want them to leave with.</p>
       <a href="mailto:contact@puneetsrivastava.com?subject=Speaking%20invitation&body=Hi%20Puneet%2C%0A%0AOrganization%3A%20%0AAudience%20and%20size%3A%20%0ADate%20and%20format%3A%20%0AWhat%20we%20hope%20they%20take%20away%3A%20" class="btn btn-primary">Invite me to speak</a>
     </div>
@@ -869,32 +890,28 @@ strong { font-weight: 600; color: var(--text); }
   <div class="wrap about-grid">
     <div class="about-text reveal">
       <div class="eyebrow" style="margin-bottom:18px">About</div>
-      <p class="about-lead">I did not set out to become a pricing strategist. I set out to understand how things work, and what they are worth.</p>
+      <p class="about-lead">I believe the next decade will reprice human work faster than any decade before it. I have spent my career on the pricing side of that question.</p>
       <p>
-        Since 2022 I have led pricing strategy at Cohesity through its move to
-        cloud-native SaaS. The Knowledge Quadrant Framework came directly from that
-        work: watching knowledge get commoditized in real time and needing precise
-        language for what was happening.
+        My first lesson came at 22. At Infosys I built trade-processing systems for
+        Goldman Sachs, and I watched sophisticated work become routine the moment
+        someone found the repeatable pattern. That was the offshore wave. AI is the
+        second, and much bigger, one. It is why I study it from the inside.
       </p>
       <p>
-        Before that, Dell was my fifteen-year graduate school. Across India and
-        Round Rock, Texas, I built prediction models, recommendation systems, and
-        pricing architectures under some of the largest commercial decisions the
-        company made. Earlier, Coca-Cola taught me what no engineering curriculum
-        does: the gap between what something costs and what someone pays is a
-        human problem, not a math one.
+        Coca-Cola taught me that the gap between what something costs and what
+        someone pays is a human problem, not a math one. Fifteen years at Dell taught
+        me to build the models and pricing architecture beneath very large commercial
+        decisions. Since 2022 I have led pricing strategy at Cohesity.
       </p>
       <p>
-        I started at Infosys at 22, building trade-processing systems for Goldman
-        Sachs, and watched sophisticated work get systematized the moment someone
-        found the repeatable pattern. The offshore model was the original
-        displacement engine. AI is the second one, and I intend to understand it
-        from the inside.
+        Those two threads, pricing products and the repricing of human work, meet in
+        the Knowledge Quadrant Framework. For the next five years my goal is to teach
+        it: in leadership rooms, in MBA classrooms, and in one essay every two weeks.
       </p>
       <p>
-        Outside work, I read and write history. I am writing <em>The Arithmetic of
-        Mercy</em>, a novel set in Mauryan India, and I keep returning to Lucknow
-        and Awadh, where so many of my own stories begin.
+        History keeps me honest. I am writing <em>The Arithmetic of Mercy</em>, a novel
+        set in Mauryan India, and I keep returning to Lucknow and Awadh, where so many
+        of my own stories begin.
       </p>
       <div class="creds-list">
         <div><strong>IIT Kanpur</strong>B.Tech, Materials Science, CS minor</div>
@@ -921,9 +938,12 @@ strong { font-weight: 600; color: var(--text); }
   <div class="wrap">
     <div class="eyebrow">What It&rsquo;s Worth &middot; The newsletter</div>
     <h2>An essay every two weeks on value, judgment, and history.</h2>
-    <p>New writing, Lab notes, and Part 3 of the Knowledge Quadrant series before it goes anywhere else. No noise.</p>
-    <a href="https://whatitsworthletter.substack.com/subscribe" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Subscribe free</a>
-    <p style="margin:14px auto 0;font-size:0.88rem">Free, on Substack. Unsubscribe anytime.</p>
+    <p>The first issue, on October 13, is Part 3 of the Knowledge Quadrant series. Want to see the style first? Read a recent essay below.</p>
+    <div class="sub-actions">
+      <a href="https://whatitsworthletter.substack.com/subscribe" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Sign up free</a>
+      <a href="https://www.linkedin.com/pulse/failed-program-ran-empire-300-years-puneet-srivastava-rvgcc/" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Read a sample essay</a>
+    </div>
+    <p style="margin:14px auto 0;font-size:0.88rem">Free, always. Every two weeks. Unsubscribe anytime.</p>
   </div>
 </section>
 
@@ -933,7 +953,7 @@ strong { font-weight: 600; color: var(--text); }
     <div class="reveal">
       <div class="section-head" style="margin-bottom:24px">
         <div class="eyebrow">Contact &amp; Advisory</div>
-        <h2>Good problems are worth talking about.</h2>
+        <h2>Good problems are worth talking about</h2>
       </div>
       <p>
         I have spent twenty years inside complex commercial problems: pricing built

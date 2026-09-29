@@ -255,6 +255,7 @@ canvas#progressChart{ width:100%; max-width:100%; }
 .session-summary-row{ display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--line); }
 .session-summary-row:last-child{ border-bottom:none; }
 a.link{ color: var(--brass-bright); text-decoration: underline; cursor:pointer; }
+a.link:hover{ color: var(--cream); }
 </style>
 </head>
 <body>
@@ -877,7 +878,8 @@ function renderDashboard(){
     <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;">
       <div>
         <h1>Blackjack Bootcamp</h1>
-        <p style="margin-bottom:0;">Zero to table-ready in about two weeks.</p>
+        <p style="margin-bottom:6px;">A free trainer for the casino card game <strong style="color:var(--cream)">blackjack</strong>. It teaches "basic strategy": the mathematically best move for every hand you can be dealt.</p>
+        <p style="margin-bottom:0;">Never played? Start with <a class="link" onclick="navigate('lesson-detail',{lessonId:'objective'})">Lesson 1 (two minutes)</a>. Know the rules? Jump into the <a class="link" onclick="navigate('coach')">Coach</a> and practise real hands.</p>
       </div>
       <div>${milestoneBadgeHtml(milestone)}</div>
     </div>
