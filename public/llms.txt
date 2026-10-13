@@ -35,8 +35,9 @@ A model for how AI displacement affects knowledge work. Two axes: the nature of
 knowledge (explicit versus tacit) and the nature of output (accuracy versus
 originality). Four quadrants: The Doctors, The Builders, The Generals, and The
 Creators. Eight personas range from The Doer (highest displacement risk) to The
-Oracle (minimal). Published as a LinkedIn series; Part 3, The Judgment Paradox,
-is in progress.
+Oracle (minimal). Parts 1 and 2 were published on LinkedIn. The series continues
+as The Judgment Paradox in his newsletter, What It's Worth: Part 1 (Oct 2026) and
+Part 2 (Oct 2026) are out, Part 3 is in progress.
 
 THE LAB (products he has built)
 
@@ -82,6 +83,8 @@ value, judgment, and history.
 
 WRITING (selected)
 
+- Executive Apprenticeship: Next-Gen Leaders Must Be Given the Freedom to Fail (What It's Worth, Oct 2026) https://whatitsworthletter.substack.com/p/executive-apprenticeship-next-gen
+- Where Do the Next Generals Come From? (What It's Worth, Oct 2026) https://whatitsworthletter.substack.com/p/where-do-the-next-generals-come-from
 - The Failed Program That Ran an Empire for 300 Years (LinkedIn, Sep 2026)
 - Apple Built a Great Product and Priced It for a Market That Didn't Exist Yet (LinkedIn, Sep 2026)
 - A $60 Credit Would Have Saved $6,000. AT&T Said No. (LinkedIn, Aug 2026)
