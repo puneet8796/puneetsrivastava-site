@@ -48,6 +48,20 @@
 </script>
 
 <style>
+/* ─── STAGE BANNER + RECENT TALKS ─── */
+.stage-banner { margin-top: 56px; }
+.stage-banner figure { margin: 0; position: relative; border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--line); }
+.stage-banner img { display: block; width: 100%; max-width: none; height: clamp(220px, 38vw, 460px); object-fit: cover; object-position: 50% 40%; }
+.stage-banner figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 40px 24px 16px; color: #fff; font-size: 0.92rem; line-height: 1.45; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0) 100%); }
+.stage-banner figcaption strong { display: block; font-size: 1.02rem; color: #fff; }
+.recent-talks { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 0 0 40px; }
+.recent-talks figure { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+.recent-talks img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; object-position: 50% 30%; }
+.recent-talks figcaption { padding: 16px 20px 18px; font-size: 0.92rem; color: var(--body); line-height: 1.5; }
+.recent-talks .when { display: block; font-size: 0.76rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
+.recent-head { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--faint); margin: 0 0 14px; }
+@media (max-width: 720px) { .recent-talks { grid-template-columns: 1fr; } .stage-banner figcaption { position: static; padding: 12px 16px 14px; font-size: 0.86rem; color: var(--body); background: var(--surface); } .stage-banner figcaption strong { color: var(--text); } }
+
 /* ─── THEME TOKENS ──────────────── */
 :root, :root[data-theme="light"] {
   --bg: #f7f4ee;
@@ -502,6 +516,12 @@ strong { font-weight: 600; color: var(--text); }
       <div class="hero-creds">IIT Kanpur · IIM Ahmedabad<br>Dell · Cohesity · 20 years in pricing</div></div>
     </div>
   </div>
+  <div class="wrap stage-banner reveal">
+    <figure>
+      <img src="/speaking/talk-stage-wide.jpg" alt="Puneet Srivastava speaking on stage to a full room at the B2B Pricing &amp; Commercial Excellence Summit America in New York" width="2000" height="1385" loading="eager">
+      <figcaption><strong>On stage in New York</strong>B2B Pricing &amp; Commercial Excellence Summit America, September 2026. A solo talk and a panel on AI in commercial decision-making.</figcaption>
+    </figure>
+  </div>
 </header>
 
 <!-- THREE LENSES -->
@@ -858,6 +878,18 @@ strong { font-weight: 600; color: var(--text); }
       <p>I speak to leadership teams, pricing and commercial teams, and MBA classrooms. Every talk pairs a clear framework with stories people remember, often from history.</p>
     </div>
 
+    <h4 class="recent-head reveal">Recently</h4>
+    <div class="recent-talks reveal">
+      <figure>
+        <img src="/speaking/talk-solo.jpg" alt="Puneet Srivastava presenting on stage at the B2B Pricing &amp; Commercial Excellence Summit America" width="1200" height="1268" loading="lazy">
+        <figcaption><span class="when">Talk · New York · Sep 15, 2026</span>Solo talk at the B2B Pricing &amp; Commercial Excellence Summit America, organized by Ardensi.</figcaption>
+      </figure>
+      <figure>
+        <img src="/speaking/panel-closeup.jpg" alt="Puneet Srivastava on a panel at the B2B Pricing &amp; Commercial Excellence Summit America" width="1200" height="900" loading="lazy">
+        <figcaption><span class="when">Panel · New York · Sep 16, 2026</span><em>AI in Commercial Decision-Making: Hype, Reality, and What Comes Next</em>, moderated by Simon-Kucher, with panelists from LinkedIn, Takeda, and Amazon.</figcaption>
+      </figure>
+    </div>
+
     <div class="talks">
       <div class="talk reveal">
         <div class="num">01 · Keynote</div>
@@ -940,6 +972,7 @@ strong { font-weight: 600; color: var(--text); }
         <li><strong>Writing</strong> Part 3 of <em>The Judgment Paradox</em> for What It&rsquo;s Worth: what is left for people to do when AI runs most of the work.</li>
         <li><strong>Building</strong> <em>Do you know your India?</em>, and opening Kairos to a wider group of testers.</li>
         <li><strong>Reading</strong> for <em>The Arithmetic of Mercy</em>.</li>
+        <li><strong>Spoke</strong> at the B2B Pricing &amp; Commercial Excellence Summit America in New York: a solo talk and a panel on AI in commercial decision-making.</li>
         <li><strong>Saying yes</strong> to MBA classrooms and leadership teams who want to talk about judgment in the age of AI.</li>
       </ul>
     </aside>
