@@ -36,8 +36,8 @@ knowledge (explicit versus tacit) and the nature of output (accuracy versus
 originality). Four quadrants: The Doctors, The Builders, The Generals, and The
 Creators. Eight personas range from The Doer (highest displacement risk) to The
 Oracle (minimal). Parts 1 and 2 were published on LinkedIn. The series continues
-as The Judgment Paradox in his newsletter, What It's Worth: Part 1 (Oct 2026) and
-Part 2 (Oct 2026) are out, Part 3 is in progress.
+as The Judgment Paradox in his newsletter, What It's Worth: Parts 1, 2 and 3 (all Oct 2026)
+are out.
 
 THE LAB (products he has built)
 
@@ -88,6 +88,7 @@ RECENT SPEAKING
 WRITING (selected)
 
 - The Price of a Year (What It's Worth, Nov 2026; The Tuition Ledger, Part 1) https://whatitsworthletter.substack.com/p/the-price-of-a-year
+- The Children of the Magenta Line (What It's Worth, Oct 2026; The Judgment Paradox, Part 3) https://whatitsworthletter.substack.com/p/the-children-of-the-magenta-line
 - Executive Apprenticeship: Next-Gen Leaders Must Be Given the Freedom to Fail (What It's Worth, Oct 2026) https://whatitsworthletter.substack.com/p/executive-apprenticeship-next-gen
 - Where Do the Next Generals Come From? (What It's Worth, Oct 2026) https://whatitsworthletter.substack.com/p/where-do-the-next-generals-come-from
 - The Failed Program That Ran an Empire for 300 Years (LinkedIn, Sep 2026)
