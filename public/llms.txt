@@ -41,10 +41,6 @@ are out.
 
 THE LAB (products he has built)
 
-Kairos (puneetsrivastava.com/kairos/): a self-inquiry tool that applies the
-Knowledge Quadrant Framework to a person's own description of their work. Runs
-on Claude via Anthropic's API, with a local-model fallback. No login. In beta.
-
 Do you know your India? (newindia.puneetsrivastava.com): a tap-only, bilingual
 (English/Hindi) quiz show on India in the 2020s. 500 questions, each answer backed
 by a real source.

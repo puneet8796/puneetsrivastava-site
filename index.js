@@ -3,6 +3,9 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Kairos landing page retired (Nov 2026): send old links to the framework on the homepage
+app.get(/^\/kairos(\/.*)?$/, (req, res) => res.redirect(301, '/#thinking'));
+
 app.use(express.static('public'));
 
 app.get('/llms.txt', (req, res) => {
