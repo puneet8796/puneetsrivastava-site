@@ -1,1070 +1,329 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
+<!doctype html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Puneet Srivastava: Pricing, Judgment, and What Things Are Worth</title>
-<meta name="description" content="Puneet Srivastava is a pricing strategist, student of history, and builder with AI. Creator of the Knowledge Quadrant Framework, Kairos, and Do you know your India?. Speaker on AI, judgment, and the future of knowledge work.">
+<title>Puneet Srivastava: Pricing and packaging in the AI era</title>
+<meta name="description" content="Puneet Srivastava turns technology into revenue through pricing and packaging. Twenty years at Dell and Cohesity, now focused on AI monetization. Creator of the Knowledge Quadrant Framework and the newsletter What It's Worth.">
 <meta property="og:title" content="Puneet Srivastava">
-<meta property="og:description" content="Knowledge is getting cheaper. Judgment isn't. Pricing strategist, student of history, builder with AI.">
+<meta property="og:description" content="I turn technology into revenue. AI is changing how.">
 <meta property="og:url" content="https://puneetsrivastava.com">
 <meta property="og:type" content="website">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#f7f4ee">
+<meta name="theme-color" content="#F7F4EC">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400;1,8..60,600&display=swap" rel="stylesheet">
-<script>try{var t=localStorage.getItem("ps-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);}catch(e){}</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Puneet Srivastava",
-  "url": "https://puneetsrivastava.com",
-  "jobTitle": "Senior Director, Pricing Strategy and Intelligence",
-  "worksFor": {"@type": "Organization", "name": "Cohesity"},
-  "alumniOf": [
-    {"@type": "CollegeOrUniversity", "name": "IIT Kanpur"},
-    {"@type": "CollegeOrUniversity", "name": "IIM Ahmedabad"},
-    {"@type": "CollegeOrUniversity", "name": "HHL Leipzig"}
-  ],
-  "knowsAbout": [
-    "Pricing Strategy", "SaaS Monetization", "B2B Pricing",
-    "Knowledge Quadrant Framework", "AI and the Future of Work",
-    "Indian History", "Building Products with AI", "Public Speaking"
-  ],
-  "sameAs": [
-    "https://www.linkedin.com/in/puneet-srivastava-2b46203/",
-    "https://medium.com/@punsri",
-    "https://whatitsworthletter.substack.com"
-  ],
-  "email": "contact@puneetsrivastava.com"
-}
-</script>
-
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600&display=swap" rel="stylesheet">
 <style>
-/* ─── STAGE BANNER + RECENT TALKS ─── */
-.stage-banner { margin-top: 56px; }
-.stage-banner figure { margin: 0; position: relative; border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--line); }
-.stage-banner img { display: block; width: 100%; max-width: none; height: clamp(220px, 38vw, 460px); object-fit: cover; object-position: 50% 40%; }
-.stage-banner figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 40px 24px 16px; color: #fff; font-size: 0.92rem; line-height: 1.45; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0) 100%); }
-.stage-banner figcaption strong { display: block; font-size: 1.02rem; color: #fff; }
-.recent-talks { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 0 0 40px; }
-.recent-talks figure { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
-.recent-talks img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; object-position: 50% 30%; }
-.recent-talks figcaption { padding: 16px 20px 18px; font-size: 0.92rem; color: var(--body); line-height: 1.5; }
-.recent-talks .when { display: block; font-size: 0.76rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
-.recent-head { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--faint); margin: 0 0 14px; }
-@media (max-width: 720px) { .recent-talks { grid-template-columns: 1fr; } .stage-banner figcaption { position: static; padding: 12px 16px 14px; font-size: 0.86rem; color: var(--body); background: var(--surface); } .stage-banner figcaption strong { color: var(--text); } }
-
-/* ─── THEME TOKENS ──────────────── */
-:root, :root[data-theme="light"] {
-  --bg: #f7f4ee;
-  --bg-deep: #efebe3;
-  --surface: #ffffff;
-  --surface-2: #f3efe7;
-  --line: #e3ddd1;
-  --line-strong: #cfc7b8;
-  --text: #1c1b19;
-  --body: #34322e;
-  --muted: #5b574f;
-  --faint: #6f6a61;
-  --accent: #8a6a1c;
-  --accent-hover: #6f5412;
-  --accent-wash: rgba(138, 106, 28, 0.08);
-  --accent-line: rgba(138, 106, 28, 0.35);
-  --on-accent: #ffffff;
-  --nav-bg: rgba(247, 244, 238, 0.92);
-  --feature-bg: #fbf5e6;
-  --shadow: 0 1px 2px rgba(28, 27, 25, 0.04), 0 4px 16px rgba(28, 27, 25, 0.04);
-  --risk-high: #a3461d; --risk-high-bg: rgba(163, 70, 29, 0.08);
-  --risk-mid: #7d5f16;  --risk-mid-bg: rgba(138, 106, 28, 0.1);
-  --risk-low: #3c7336;  --risk-low-bg: rgba(60, 115, 54, 0.09);
-  color-scheme: light;
-}
-:root[data-theme="dark"] {
-  --bg: #1c1d20;
-  --bg-deep: #17181a;
-  --surface: #242529;
-  --surface-2: #2a2b2f;
-  --line: #34353a;
-  --line-strong: #4a4a4f;
-  --text: #eeeae3;
-  --body: #d9d5cd;
-  --muted: #b0aba1;
-  --faint: #938e84;
-  --accent: #d4b466;
-  --accent-hover: #e6c983;
-  --accent-wash: rgba(212, 180, 102, 0.1);
-  --accent-line: rgba(212, 180, 102, 0.4);
-  --on-accent: #1c1d20;
-  --nav-bg: rgba(28, 29, 32, 0.92);
-  --feature-bg: #29261f;
-  --shadow: none;
-  --risk-high: #eaa77e; --risk-high-bg: rgba(234, 167, 126, 0.12);
-  --risk-mid: #dcc27e;  --risk-mid-bg: rgba(220, 194, 126, 0.12);
-  --risk-low: #a3cc9e;  --risk-low-bg: rgba(163, 204, 158, 0.12);
-  color-scheme: dark;
-}
-:root {
-  --serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
-  --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
-}
-
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; scroll-padding-top: 64px; }
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--sans);
-  font-weight: 400;
-  font-size: 17px;
-  line-height: 1.7;
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
-  transition: background 0.3s, color 0.3s;
-}
-img { max-width: 100%; display: block; }
-a { color: var(--accent); text-decoration: none; }
-a:hover { color: var(--accent-hover); }
-a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
-
-p { color: var(--body); font-size: 1.06rem; line-height: 1.75; margin-bottom: 18px; }
-p:last-child { margin-bottom: 0; }
-strong { font-weight: 600; color: var(--text); }
-
-.wrap { max-width: 1080px; margin: 0 auto; padding: 0 32px; }
-
-.eyebrow {
-  font-family: var(--sans);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--accent);
-}
-.section { padding: 104px 0; border-top: 1px solid var(--line); }
-.section-head { margin-bottom: 48px; max-width: 720px; }
-.section-head h2 {
-  font-family: var(--serif);
-  font-weight: 600;
-  font-size: clamp(2rem, 4vw, 2.75rem);
-  line-height: 1.15;
-  color: var(--text);
-  margin: 12px 0 16px;
-  letter-spacing: -0.01em;
-}
-.section-head p { color: var(--muted); font-size: 1.12rem; }
-
-.btn {
-  display: inline-flex; align-items: center; gap: 10px;
-  font-family: var(--sans); font-size: 0.95rem; font-weight: 600;
-  padding: 14px 24px; border-radius: 6px;
-  transition: background 0.2s, color 0.2s, border-color 0.2s;
-  cursor: pointer;
-}
-.btn-primary { background: var(--accent); color: var(--on-accent); border: 1px solid var(--accent); }
-.btn-primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); color: var(--on-accent); }
-.btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--line-strong); }
-.btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
-.text-link { font-size: 0.95rem; font-weight: 600; }
-.text-link::after { content: ' \2192'; }
-
-/* ─── NAV ───────────────────────── */
-.site-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  background: var(--nav-bg);
-  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--line);
-}
-.nav-inner { position: relative; height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-.nav-monogram { font-family: var(--serif); font-weight: 600; font-size: 1.3rem; color: var(--text); letter-spacing: 0.02em; flex-shrink: 0; }
-.nav-monogram:hover { color: var(--accent); }
-.nav-right { display: flex; align-items: center; gap: 22px; min-width: 0; }
-.nav-links { display: flex; align-items: center; gap: 26px; }
-.nav-links a { font-size: 0.92rem; font-weight: 500; color: var(--muted); white-space: nowrap; transition: color 0.2s; }
-.nav-links a:hover { color: var(--accent); }
-.nav-links a.nav-cta { color: var(--on-accent); background: var(--accent); padding: 8px 16px; border-radius: 6px; font-weight: 600; }
-.nav-links a.nav-cta:hover { background: var(--accent-hover); color: var(--on-accent); }
-.theme-toggle {
-  flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%;
-  border: 1px solid var(--line-strong); background: transparent; color: var(--muted);
-  display: inline-flex; align-items: center; justify-content: center; cursor: pointer;
-}
-.theme-toggle:hover { color: var(--accent); border-color: var(--accent); }
-.theme-toggle svg { width: 16px; height: 16px; }
-.theme-toggle .sun { display: none; }
-:root[data-theme="dark"] .theme-toggle .sun { display: block; }
-:root[data-theme="dark"] .theme-toggle .moon { display: none; }
-
-/* ─── HERO ──────────────────────── */
-.hero { padding: 148px 0 100px; }
-.hero-grid { display: grid; grid-template-columns: 1.35fr 1fr; gap: 72px; align-items: center; }
-.hero-roles { display: flex; flex-wrap: wrap; gap: 4px 0; }
-.hero-roles span { white-space: nowrap; }
-.hero-roles span:not(:last-child)::after { content: '·'; margin: 0 12px; color: var(--faint); }
-.hero h1 {
-  font-family: var(--sans); font-weight: 500;
-  font-size: 1.25rem; color: var(--muted); margin: 16px 0 18px;
-}
-.hero-statement {
-  font-family: var(--serif); font-weight: 600;
-  font-size: clamp(2.6rem, 5.6vw, 4.2rem);
-  line-height: 1.06; color: var(--text); letter-spacing: -0.02em;
-  margin-bottom: 28px;
-}
-.hero-statement em { font-style: italic; color: var(--accent); font-weight: 600; }
-.hero-lede { font-size: 1.18rem; color: var(--body); max-width: 560px; margin-bottom: 36px; }
-.hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
-
-.hero-portrait { position: relative; }
-.portrait-frame { position: relative; margin: 14px 14px 0 0; }
-.portrait-frame::before {
-  content: ''; position: absolute; top: -14px; right: -14px; bottom: 14px; left: 14px;
-  border: 1px solid var(--accent-line); border-radius: 6px; z-index: 0;
-}
-.portrait-frame img { position: relative; z-index: 1; }
-.hero-portrait img {
-  width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 30%;
-  border-radius: 6px; box-shadow: var(--shadow);
-}
-.hero-creds { margin-top: 18px; font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
-
-/* ─── LENSES ────────────────────── */
-.lenses { padding: 0 0 104px; }
-.lens-intro { font-family: var(--serif); font-size: 1.5rem; font-style: italic; color: var(--muted); margin-bottom: 26px; }
-.lens-intro strong { font-weight: 600; }
-.lens-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); }
-.lens { padding: 30px 30px 8px 0; }
-.lens + .lens { padding-left: 30px; border-left: 1px solid var(--line); }
-.lens-num { font-family: var(--serif); font-weight: 600; font-size: 1rem; color: var(--accent); }
-.lens h3 { font-family: var(--serif); font-weight: 600; font-size: 1.6rem; margin: 4px 0 10px; color: var(--text); }
-.lens p { font-size: 1rem; color: var(--muted); margin-bottom: 14px; }
-
-/* ─── FRAMEWORK ─────────────────── */
-.fw-top { display: grid; grid-template-columns: 220px 1fr; gap: 56px; align-items: start; margin-bottom: 52px; }
-.fw-emblem { width: 220px; height: 220px; border-radius: 50%; overflow: hidden; box-shadow: var(--shadow); }
-.fw-emblem img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.35); }
-.fw-quote {
-  font-family: var(--serif); font-style: italic; font-weight: 400;
-  font-size: clamp(1.3rem, 2.3vw, 1.6rem); line-height: 1.45; color: var(--accent);
-  margin-bottom: 22px;
-}
-
-.quad-wrap { display: grid; grid-template-columns: 42px 1fr; grid-template-rows: auto 1fr; gap: 10px; }
-.axis-top { grid-column: 2; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.axis-top span, .axis-left span { font-size: 0.76rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--faint); }
-.axis-top span { text-align: center; padding-bottom: 4px; }
-.axis-left { display: grid; grid-template-rows: 1fr 1fr; gap: 12px; }
-.axis-left span { writing-mode: vertical-rl; transform: rotate(180deg); text-align: center; align-self: center; justify-self: center; }
-.quad-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.quad {
-  background: var(--surface); padding: 26px; border-radius: 6px;
-  border: 1px solid var(--line); border-top: 3px solid var(--accent); box-shadow: var(--shadow);
-}
-.quad.tacit { background: var(--surface-2); }
-.quad h3 { font-family: var(--serif); font-size: 1.35rem; font-weight: 600; color: var(--text); margin-bottom: 2px; }
-.quad .combo { font-size: 0.8rem; font-weight: 500; color: var(--faint); margin-bottom: 12px; }
-.quad p { font-size: 0.98rem; color: var(--body); line-height: 1.65; }
-.risk { display: inline-block; margin-top: 14px; font-size: 0.78rem; font-weight: 600; padding: 4px 10px; border-radius: 4px; }
-.risk.high { color: var(--risk-high); background: var(--risk-high-bg); }
-.risk.mid { color: var(--risk-mid); background: var(--risk-mid-bg); }
-.risk.low { color: var(--risk-low); background: var(--risk-low-bg); }
-
-.fw-after { margin-top: 44px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: start; }
-.series { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 26px 28px; box-shadow: var(--shadow); }
-.series h4 { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--faint); margin-bottom: 14px; }
-.series ol { list-style: none; counter-reset: part; }
-.series li { counter-increment: part; padding: 12px 0; border-top: 1px solid var(--line); display: grid; grid-template-columns: 28px 1fr; }
-.series li:first-child { border-top: 0; padding-top: 0; }
-.series li::before { content: counter(part); font-family: var(--serif); font-weight: 600; color: var(--accent); font-size: 1.1rem; line-height: 1.45; }
-.series a, .series .pending { font-family: var(--serif); font-weight: 600; font-size: 1.1rem; line-height: 1.4; }
-.series .pending { color: var(--muted); }
-.series .note { display: block; font-size: 0.86rem; color: var(--faint); margin-top: 3px; font-family: var(--sans); }
-.series .note a { font-family: var(--sans); font-size: inherit; font-weight: 600; }
-
-/* ─── LAB ───────────────────────── */
-.lab-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
-.project {
-  background: var(--surface); border: 1px solid var(--line); border-radius: 8px;
-  padding: 30px; display: flex; flex-direction: column; box-shadow: var(--shadow); transition: border-color 0.2s;
-}
-.project:hover { border-color: var(--line-strong); }
-.project-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 2px; }
-.project h3 { font-family: var(--serif); font-weight: 600; font-size: 1.7rem; color: var(--text); }
-.status { font-size: 0.74rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 10px; border-radius: 4px; white-space: nowrap; }
-.status.live { color: var(--risk-low); background: var(--risk-low-bg); }
-.status.beta { color: var(--accent); background: var(--accent-wash); }
-.status.new { color: var(--on-accent); background: var(--accent); }
-.status.notes { color: var(--muted); background: var(--surface-2); }
-.project .kicker { font-family: var(--serif); font-style: italic; font-size: 1.15rem; color: var(--accent); margin-bottom: 14px; }
-.project p { font-size: 1rem; color: var(--body); }
-.project .why { border-left: 3px solid var(--line); padding-left: 14px; font-size: 0.95rem; color: var(--muted); margin-top: 4px; }
-.project-foot { margin-top: auto; padding-top: 22px; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
-.stack { font-size: 0.85rem; color: var(--faint); }
-
-/* ─── WRITING ───────────────────── */
-.featured {
-  display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center;
-  background: var(--feature-bg); border: 1px solid var(--accent-line); border-radius: 8px; padding: 36px 40px; margin-bottom: 56px;
-}
-.featured .eyebrow { margin-bottom: 10px; display: block; }
-.featured h3 { font-family: var(--serif); font-weight: 600; font-size: clamp(1.6rem, 3vw, 2.1rem); line-height: 1.2; margin-bottom: 12px; }
-.featured h3 a { color: var(--text); }
-.featured h3 a:hover { color: var(--accent); }
-.featured p { color: var(--body); max-width: 640px; }
-
-.shelves { display: grid; grid-template-columns: repeat(2, 1fr); gap: 56px; }
-.shelf h3 {
-  font-size: 0.8rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--accent); padding-bottom: 12px; border-bottom: 2px solid var(--line); margin-bottom: 4px;
-}
-.shelf ul { list-style: none; }
-.shelf li { padding: 16px 0; border-bottom: 1px solid var(--line); }
-.shelf li .title { font-family: var(--serif); font-weight: 600; font-size: 1.14rem; line-height: 1.4; color: var(--text); display: block; }
-.shelf li a.title:hover { color: var(--accent); }
-.shelf .meta { font-size: 0.82rem; color: var(--faint); margin-top: 4px; }
-.shelf .desc { font-size: 0.95rem; color: var(--muted); margin-top: 4px; line-height: 1.6; }
-.tag-new { color: var(--accent); font-weight: 600; }
-
-/* ─── SPEAKING ──────────────────── */
-.talks { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-bottom: 44px; }
-.talk { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 6px; padding: 30px; box-shadow: var(--shadow); }
-.talk .num { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
-.talk h3 { font-family: var(--serif); font-weight: 600; font-size: 1.45rem; line-height: 1.25; margin: 8px 0 12px; color: var(--text); }
-.talk p { font-size: 1rem; color: var(--body); }
-.talk .for { margin-top: 14px; font-size: 0.86rem; color: var(--faint); }
-.formats { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin-bottom: 44px; }
-.format { padding: 26px 26px 26px 0; }
-.format + .format { padding-left: 26px; border-left: 1px solid var(--line); }
-.format h4 { font-family: var(--serif); font-weight: 600; font-size: 1.25rem; color: var(--text); margin-bottom: 6px; }
-.format p { font-size: 0.98rem; color: var(--muted); }
-.speak-cta { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
-.speak-cta p { color: var(--body); max-width: 560px; margin: 0; }
-
-/* ─── ABOUT ─────────────────────── */
-.about-grid { display: grid; grid-template-columns: 1fr 300px; gap: 64px; align-items: start; }
-.about-text p.about-lead { font-family: var(--serif); font-weight: 400; font-size: 1.55rem; line-height: 1.45; color: var(--text); margin-bottom: 26px; }
-.now { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 28px; position: sticky; top: 90px; box-shadow: var(--shadow); }
-.now h3 { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 2px; }
-.now .date { font-size: 0.85rem; color: var(--faint); margin-bottom: 14px; }
-.now ul { list-style: none; }
-.now li { font-size: 0.97rem; color: var(--body); padding: 10px 0; border-top: 1px solid var(--line); line-height: 1.55; }
-.creds-list { margin-top: 34px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px 32px; }
-.creds-list div { font-size: 0.92rem; color: var(--muted); border-top: 1px solid var(--line); padding-top: 10px; }
-.creds-list strong { display: block; font-size: 1rem; }
-
-/* ─── NEWSLETTER ────────────────── */
-.subscribe { background: var(--bg-deep); border-top: 1px solid var(--line); padding: 92px 0; text-align: center; }
-.subscribe h2 { font-family: var(--serif); font-weight: 600; font-size: clamp(1.8rem, 3.6vw, 2.5rem); line-height: 1.2; margin: 12px auto 14px; max-width: 700px; }
-.subscribe p { color: var(--muted); max-width: 560px; margin: 0 auto 28px; }
-
-/* ─── CONTACT / FOOTER ──────────── */
-.contact-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 64px; }
-.contact-links { display: flex; flex-direction: column; }
-.contact-links a { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 16px 0; border-bottom: 1px solid var(--line); color: var(--text); font-size: 1.05rem; font-weight: 500; }
-.contact-links a:first-child { border-top: 1px solid var(--line); }
-.contact-links a span { color: var(--faint); font-size: 0.85rem; font-weight: 400; }
-.contact-links a:hover { color: var(--accent); }
-.ask-ai { margin-top: 28px; }
-.ask-ai small { display: block; color: var(--faint); font-size: 0.85rem; margin-top: 10px; }
-
-.site-footer { border-top: 1px solid var(--line); padding: 32px 0; }
-.footer-inner { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 0.86rem; color: var(--faint); }
-
-/* ─── RESPONSIVE ────────────────── */
-@media (max-width: 960px) {
-  .nav-links { gap: 18px; }
-  .nav-links a { font-size: 0.86rem; }
-}
-@media (max-width: 900px) {
-  .hero-grid { grid-template-columns: 1fr; gap: 48px; }
-  .hero-portrait { max-width: 360px; }
-  .lens-grid, .formats { grid-template-columns: 1fr; }
-  .lens, .lens + .lens, .format, .format + .format { padding: 24px 0; border-left: 0; border-top: 1px solid var(--line); }
-  .lens:first-child, .format:first-child { border-top: 0; }
-  .fw-top { grid-template-columns: 1fr; gap: 32px; }
-  .fw-emblem { width: 170px; height: 170px; }
-  .fw-after, .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
-  .lab-grid, .talks, .shelves { grid-template-columns: 1fr; }
-  .now { position: static; }
-}
-@media (max-width: 720px) {
-  body { font-size: 16px; }
-  .wrap { padding: 0 18px; }
-  .section { padding: 76px 0; }
-  .nav-inner { height: auto; padding-top: 10px; padding-bottom: 8px; flex-wrap: wrap; row-gap: 6px; }
-  .nav-right { order: 3; width: 100%; }
-  .nav-links { gap: 18px; overflow-x: auto; width: 100%; padding-bottom: 4px; scrollbar-width: none; }
-  .nav-links::-webkit-scrollbar { display: none; }
-  .nav-links a.nav-cta { order: -1; padding: 6px 12px; }
-  .theme-toggle { position: absolute; right: 18px; top: 10px; }
-  .hero { padding: 132px 0 76px; }
-  .quad-wrap { grid-template-columns: 1fr; }
-  .axis-top, .axis-left { display: none; }
-  .quad-grid { grid-template-columns: 1fr; }
-  .featured { grid-template-columns: 1fr; padding: 28px 22px; }
-  .project, .talk { padding: 24px; }
-  .creds-list { grid-template-columns: 1fr; }
-}
-
-
-/* ─── HERO PORTRAIT: CIRCLE ─────── */
-.hero { padding: 128px 0 84px; }
-.hero-grid { grid-template-columns: 1.6fr 1fr; gap: 56px; }
-.hero-portrait { display: flex; flex-direction: column; align-items: center; text-align: center; }
-.portrait-frame { margin: 0; padding: 8px; border: 1px solid var(--accent-line); border-radius: 50%; flex-shrink: 0; line-height: 0; }
-.portrait-frame::before { display: none; }
-.hero-portrait img { width: 300px; height: 300px; aspect-ratio: 1 / 1; border-radius: 50%; object-fit: cover; object-position: center; }
-.hero-creds { text-align: center; }
-@media (max-width: 900px) {
-  .hero-grid { grid-template-columns: 1fr; gap: 28px; }
-  .hero-portrait { order: -1; flex-direction: row; align-items: center; text-align: left; gap: 18px; max-width: none; }
-  .portrait-frame { padding: 5px; }
-  .hero-portrait img { width: 120px; height: 120px; }
-  .hero-creds { margin-top: 0; text-align: left; }
-}
-@media (max-width: 720px) { .hero { padding: 120px 0 64px; } }
-
-/* ─── BRAND MARK ────────────────── */
-.nav-monogram { display: inline-flex; align-items: center; gap: 10px; font-size: 1.12rem; letter-spacing: 0.005em; color: var(--text); }
-.nav-monogram:hover { color: var(--text); }
-.nav-monogram .brand-mark { width: 30px; height: 30px; flex-shrink: 0; transition: transform 0.4s ease; }
-
-@media (max-width: 720px) { .nav-monogram { font-size: 1.05rem; } .nav-monogram .brand-mark { width: 26px; height: 26px; } }
-
-/* ─── PLUG ──────────────────────── */
-.plug { margin-top: 18px; display: grid; grid-template-columns: 1fr auto; gap: 28px; align-items: center; background: var(--surface-2); border: 1px dashed var(--line-strong); border-radius: 8px; padding: 26px 30px; }
-.plug h3 { font-family: var(--serif); font-weight: 600; font-size: 1.5rem; margin: 6px 0 8px; color: var(--text); }
-.plug p { color: var(--body); font-size: 1rem; max-width: 640px; }
-@media (max-width: 720px) { .plug { grid-template-columns: 1fr; padding: 22px; } }
-
-/* ─── v4 FEEDBACK FIXES ─────────── */
-.section { padding: 80px 0; }
-.hero { padding: 120px 0 64px; }
-.lenses { padding: 0 0 80px; }
-.hero-id { margin-top: 18px; }
-.hero-roles { margin-bottom: 18px; }
-.hero-id h1 { font-family: var(--serif); font-weight: 600; font-size: 1.45rem; color: var(--text); margin: 0 0 4px; }
-.hero-id .hero-creds { margin-top: 0; }
-.purpose { border-top: 1px solid var(--line); padding-top: 44px; margin-bottom: 8px; max-width: 820px; }
-.purpose h2 { font-family: var(--serif); font-weight: 600; font-size: clamp(1.6rem, 3vw, 2.1rem); line-height: 1.25; margin: 10px 0 12px; color: var(--text); }
-.purpose p { color: var(--muted); }
-.lens-grid { border-top: 0; margin-top: 18px; }
-.lens p strong { display: block; margin-bottom: 6px; }
-.sub-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-@media (max-width: 900px) {
-  .hero-id { margin-top: 0; }
-  .hero-id h1 { font-size: 1.2rem; }
-}
+body{margin:0}
+a{color:inherit}
+a:hover{opacity:0.78}
+input:focus-visible,a:focus-visible,button:focus-visible{outline:2px solid #8A3B24;outline-offset:2px}
+.navlinks{display:flex}
+.menubtn{display:none}
+@media (max-width:760px){.navlinks{display:none}.menubtn{display:inline-flex}}
 </style>
-</head>
 
+<style>html{scroll-behavior:smooth}</style>
+</head>
 <body>
 
-<!-- NAV -->
-<nav class="site-nav" aria-label="Main">
-  <div class="wrap nav-inner">
-    <a href="#top" class="nav-monogram" aria-label="Puneet Srivastava, home">
-      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="14.25" fill="none" stroke="var(--accent)" stroke-width="1.5"/><path d="M6.1 6.1 L25.9 25.9 A14 14 0 0 1 6.1 6.1 Z" fill="var(--text)"/><circle cx="16" cy="11.2" r="1.1" fill="var(--accent)"/><path d="M15.2 12.7 h1.6 v3.3 h-1.6 z" fill="var(--accent)"/></svg>
-      <span>Puneet Srivastava</span>
-    </a>
-    <div class="nav-right">
-      <div class="nav-links">
-      <a href="#framework">Framework</a>
-      <a href="#lab">Lab</a>
-      <a href="#writing">Writing</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-      <a href="#speaking" class="nav-cta">Speaking</a>
+
+
+<div id="top" style="background:#F7F4EC;color:#17150F;font-family:Inter,system-ui,sans-serif;line-height:1.55">
+
+  <!-- MASTHEAD -->
+  <div style="max-width:1180px;margin:0 auto;padding:0 28px;box-sizing:border-box">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 24px;padding:14px 0 12px;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#5A5546">
+      <span>Austin, Texas</span>
+      <span>Pricing and packaging in the AI era</span>
     </div>
-      <button class="theme-toggle" type="button" aria-label="Switch light or dark theme">
-        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
-        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:16px 32px;padding:16px 0 18px;border-top:3px double #17150F;border-bottom:1px solid #17150F">
+      <a href="#top" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:#17150F;min-width:0">
+        <svg width="38" height="38" viewBox="0 0 36 36" role="img" aria-label="The Threshold: a circle split diagonally with a small figure standing on the line" style="flex:none">
+          <path d="M6.7 29.3 A16 16 0 0 1 29.3 6.7 Z" fill="#8A3B24"></path>
+          <circle cx="18" cy="18" r="16" fill="none" stroke="#17150F" stroke-width="1.6"></circle>
+          <line x1="6.7" y1="29.3" x2="29.3" y2="6.7" stroke="#17150F" stroke-width="1.6"></line>
+          <circle cx="18" cy="12.2" r="2" fill="#17150F"></circle>
+          <line x1="18" y1="14.6" x2="18" y2="20.5" stroke="#17150F" stroke-width="2" stroke-linecap="round"></line>
+        </svg>
+        <span style="font-family:Newsreader,Georgia,serif;font-weight:600;font-size:clamp(22px,3vw,30px);letter-spacing:-0.01em;white-space:nowrap">Puneet Srivastava</span>
+      </a>
+      <div class="navlinks" style="flex-wrap:wrap;align-items:center;gap:4px 26px;font-size:15px">
+        <a href="#work" style="text-decoration:none;color:#3A372E;padding:10px 0">Work</a>
+        <a href="#thinking" style="text-decoration:none;color:#3A372E;padding:10px 0">Thinking</a>
+        <a href="#writing" style="text-decoration:none;color:#3A372E;padding:10px 0">Writing</a>
+        <a href="#speaking" style="text-decoration:none;color:#3A372E;padding:10px 0">Speaking</a>
+        <a href="#about" style="text-decoration:none;color:#3A372E;padding:10px 0">About</a>
+        <a href="#contact" style="text-decoration:none;background:#17150F;color:#F7F4EC;padding:11px 20px;border-radius:4px;font-weight:500;min-height:44px;box-sizing:border-box;display:inline-flex;align-items:center">Start a conversation</a>
+      </div>
+      <button type="button" class="menubtn" id="menubtn" aria-label="Open menu" aria-expanded="false" style="align-items:center;justify-content:center;width:44px;height:44px;border:1px solid #17150F;border-radius:4px;background:transparent;cursor:pointer;flex:none">
+        <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><line x1="3" y1="6" x2="17" y2="6" stroke="#17150F" stroke-width="1.8"></line><line x1="3" y1="10" x2="17" y2="10" stroke="#17150F" stroke-width="1.8"></line><line x1="3" y1="14" x2="17" y2="14" stroke="#17150F" stroke-width="1.8"></line></svg>
       </button>
     </div>
-  </div>
-</nav>
-
-<main id="top">
-
-<!-- HERO -->
-<header class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <div class="eyebrow hero-roles"><span>Pricing Strategist</span><span>Student of History</span><span>Builder with AI</span></div>
-      <p class="hero-statement">Knowledge is getting cheaper. <em>Judgment isn't.</em></p>
-      <p class="hero-lede">
-        I help leaders and professionals answer the question AI is making urgent:
-        <strong>what is our work actually worth?</strong> I have spent twenty years
-        pricing products at Dell and Cohesity. Now I speak, write, and build tools
-        on how judgment, not knowledge, will set the value of people and businesses.
-      </p>
-      <div class="hero-actions">
-        <a href="#framework" class="btn btn-primary">Explore the framework</a>
-        <a href="mailto:contact@puneetsrivastava.com?subject=Speaking%20invitation&body=Hi%20Puneet%2C%0A%0AOrganization%3A%20%0AAudience%20and%20size%3A%20%0ADate%20and%20format%3A%20%0AWhat%20we%20hope%20they%20take%20away%3A%20" class="btn btn-ghost">Invite me to speak</a>
-      </div>
-    </div>
-    <div class="hero-portrait">
-      <div class="portrait-frame"><img src="/portrait-face.jpg?v=2" alt="Portrait of Puneet Srivastava" width="300" height="300"></div>
-      <div class="hero-id"><h1>Puneet Srivastava</h1>
-      <div class="hero-creds">IIT Kanpur · IIM Ahmedabad<br>Dell · Cohesity · 20 years in pricing</div></div>
-    </div>
-  </div>
-  <div class="wrap stage-banner reveal">
-    <figure>
-      <img src="/speaking/talk-stage-wide.jpg" alt="Puneet Srivastava speaking on stage to a full room at the B2B Pricing &amp; Commercial Excellence Summit America in New York" width="2000" height="1385" loading="eager">
-      <figcaption><strong>On stage in New York</strong>B2B Pricing &amp; Commercial Excellence Summit America, September 2026. A solo talk and a panel on AI in commercial decision-making.</figcaption>
-    </figure>
-  </div>
-</header>
-
-<!-- THREE LENSES -->
-<section class="lenses" aria-label="Three lenses">
-  <div class="wrap">
-    <div class="purpose">
-      <div class="eyebrow">Why this site exists</div>
-      <h2>Over the next five years, I want to help people see what their work is really worth, and act on it</h2>
-      <p>Three goals, one question. If you lead a team or teach a class, <a href="#speaking">invite me to speak</a>. If you are simply curious, <a href="#subscribe">read the newsletter</a>.</p>
-    </div>
-    <div class="lens-grid">
-      <div class="lens reveal">
-        <div class="lens-num">I</div>
-        <h3>Markets</h3>
-        <p><strong>Help companies price with judgment, not habit.</strong> Most pricing is inherited, not designed. Twenty years at Dell and Cohesity taught me how to fix that.</p>
-        <a href="#writing" class="text-link">Pricing writing</a>
-      </div>
-      <div class="lens reveal">
-        <div class="lens-num">II</div>
-        <h3>Work</h3>
-        <p><strong>Give professionals a clear map of what AI will cheapen and what will grow in value.</strong> That is the Knowledge Quadrant Framework, and the tools I build around it.</p>
-        <a href="#framework" class="text-link">The framework</a>
-      </div>
-      <div class="lens reveal">
-        <div class="lens-num">III</div>
-        <h3>History</h3>
-        <p><strong>Bring history's lessons into boardrooms and classrooms.</strong> From Akbar's revenue reform to Mauryan India, most of our hard questions were tested long ago.</p>
-        <a href="#history" class="text-link">History &amp; India</a>
+    <div id="mobilemenu" hidden>
+      <div style="display:flex;flex-direction:column;border-bottom:1px solid #17150F;font-size:17px">
+        <a href="#work" data-close style="text-decoration:none;padding:14px 0;border-bottom:1px solid #D8D2C2">Work</a>
+        <a href="#thinking" data-close style="text-decoration:none;padding:14px 0;border-bottom:1px solid #D8D2C2">Thinking</a>
+        <a href="#writing" data-close style="text-decoration:none;padding:14px 0;border-bottom:1px solid #D8D2C2">Writing</a>
+        <a href="#speaking" data-close style="text-decoration:none;padding:14px 0;border-bottom:1px solid #D8D2C2">Speaking</a>
+        <a href="#about" data-close style="text-decoration:none;padding:14px 0;border-bottom:1px solid #D8D2C2">About</a>
+        <a href="#contact" data-close style="text-decoration:none;padding:14px 0;font-weight:600;color:#8A3B24">Start a conversation →</a>
       </div>
     </div>
   </div>
-</section>
 
-<!-- FRAMEWORK -->
-<section id="framework" class="section">
-  <div class="wrap">
-    <div class="fw-top">
-      <div class="fw-emblem reveal"><img src="/threshold.jpg" alt="A figure standing on the line between light and dark" loading="lazy"></div>
-      <div class="reveal">
-        <div class="eyebrow">Signature idea</div>
-        <div class="section-head" style="margin-bottom:22px">
-          <h2>The Knowledge Quadrant Framework</h2>
-        </div>
-        <p class="fw-quote">"The question nobody is asking clearly enough is not whether AI will take your job. It is which part of what you do is actually yours."</p>
-        <p>
-          The framework maps how people create value at work, and how exposed
-          that value is to AI. Two axes. <strong>Knowledge</strong>:
-          explicit knowledge is documented and searchable, the kind AI replicates
-          at scale; tacit knowledge is judgment earned by living through real
-          situations. <strong>Output</strong>:
-          accuracy means there is a right answer and being wrong costs something;
-          originality means there is no right answer, only a fresh one.
-        </p>
-      </div>
-    </div>
-
-    <div class="quad-wrap reveal" role="group" aria-label="The four quadrants">
-      <div class="axis-top"><span>Accuracy</span><span>Originality</span></div>
-      <div class="axis-left"><span>Explicit</span><span>Tacit</span></div>
-      <div class="quad-grid">
-        <div class="quad">
-          <h3>The Doctors</h3>
-          <div class="combo">Explicit + Accuracy</div>
-          <p>Surgeons, lawyers, analysts, engineers writing production code. High stakes, verifiable output. AI is entering this room fastest.</p>
-          <span class="risk high">Exposure: highest</span>
-        </div>
-        <div class="quad">
-          <h3>The Builders</h3>
-          <div class="combo">Explicit + Originality</div>
-          <p>Marketers, designers, copywriters, product communicators. Pattern-based creativity at scale. AI is displacing the volume tier first.</p>
-          <span class="risk high">Exposure: high</span>
-        </div>
-        <div class="quad tacit">
-          <h3>The Generals</h3>
-          <div class="combo">Tacit + Accuracy</div>
-          <p>Strategists, senior leaders, negotiators, advisors. Consequential calls on incomplete information. The human premium zone, and it is growing.</p>
-          <span class="risk mid">Exposure: lower</span>
-        </div>
-        <div class="quad tacit">
-          <h3>The Creators</h3>
-          <div class="combo">Tacit + Originality</div>
-          <p>Work that comes from lived judgment and a point of view no one else holds. This quadrant creates history. AI can assist but cannot originate.</p>
-          <span class="risk low">Exposure: lowest</span>
+  <!-- LEAD -->
+  <div style="max-width:1180px;margin:0 auto;padding:0 28px;box-sizing:border-box">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(460px,100%),1fr));gap:40px 72px;align-items:center;padding:64px 0 72px">
+      <div style="display:flex;flex-direction:column;gap:26px">
+        <h1 style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:600;font-size:clamp(40px,6vw,72px);line-height:1.02;letter-spacing:-0.02em;text-wrap:balance">I turn technology into revenue. <em style="font-style:italic;color:#8A3B24">AI is changing how.</em></h1>
+        <p style="margin:0;font-size:19px;line-height:1.6;color:#3A372E;max-width:580px;text-wrap:pretty">Twenty years pricing and packaging technology at Dell and Cohesity. My work sits where three things meet: what the technology can do, how people actually decide, and the story a company runs on. AI is rewriting all three, and the path from them to dollars. I am studying how.</p>
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:12px 28px">
+          <a href="#work" style="text-decoration:none;background:#17150F;color:#F7F4EC;padding:14px 26px;border-radius:4px;font-weight:500;font-size:16px;min-height:48px;box-sizing:border-box;display:inline-flex;align-items:center">See the work</a>
+          <a href="#thinking" style="color:#8A3B24;font-weight:500;font-size:16px;padding:12px 0">Read the thinking →</a>
         </div>
       </div>
-    </div>
-
-    <div class="fw-after">
-      <div class="reveal">
-        <p>
-          Inside the four quadrants live eight personas, from <strong>The Doer</strong>
-          (highest displacement risk) to <strong>The Oracle</strong> (minimal).
-          Most people are not where they think they are. I built Kairos to close that gap.
-        </p>
-        <div class="hero-actions" style="margin-top:28px">
-          <a href="/kairos/" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Find where you stand</a>
-          <a href="#speaking" class="btn btn-ghost">Bring it to your team</a>
-        </div>
-      </div>
-      <div class="series reveal">
-        <h4>The series</h4>
-        <ol>
-          <li><div><a href="https://www.linkedin.com/pulse/knowledge-free-judgment-cost-you-25-years-puneet-srivastava-yd7yc/" target="_blank" rel="noopener noreferrer">Knowledge Is Free. Judgment Will Cost You 25 Years.</a><span class="note">The opening argument</span></div></li>
-          <li><div><a href="https://www.linkedin.com/pulse/your-team-ten-becoming-three-you-one-them-puneet-srivastava-lpnec/" target="_blank" rel="noopener noreferrer">Your Team of Ten Is Becoming Three. Are You One of Them?</a><span class="note">Eight personas, mapped</span></div></li>
-          <li><div><a href="https://whatitsworthletter.substack.com/p/where-do-the-next-generals-come-from" target="_blank" rel="noopener noreferrer">Where Do the Next Generals Come From?</a><span class="note">The Judgment Paradox, Part 1</span></div></li>
-          <li><div><a href="https://whatitsworthletter.substack.com/p/executive-apprenticeship-next-gen" target="_blank" rel="noopener noreferrer">Executive Apprenticeship: Next-Gen Leaders Must Be Given the Freedom to Fail</a><span class="note">The Judgment Paradox, Part 2</span></div></li>
-          <li><div><a href="https://whatitsworthletter.substack.com/p/the-children-of-the-magenta-line" target="_blank" rel="noopener noreferrer">The Children of the Magenta Line</a><span class="note">The Judgment Paradox, Part 3</span></div></li>
-        </ol>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- LAB -->
-<section id="lab" class="section">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div class="eyebrow">The Lab</div>
-      <h2>I don't just write about AI, I build with it</h2>
-      <p>Nights-and-weekends products, each one testing an idea I care about. Some are polished. All are real.</p>
-    </div>
-    <div class="lab-grid">
-      <article class="project reveal">
-        <div class="project-head"><h3>Kairos</h3><span class="status beta">Beta</span></div>
-        <div class="kicker">Know where you stand.</div>
-        <p>A self-inquiry tool built on the Knowledge Quadrant Framework. Describe your actual work in your own words, and get back your quadrant blend, your dominant persona, and one question to sit with.</p>
-        <p class="why">Why I built it: the AI-and-jobs debate happens at the level of industries. The real answer lives inside your own day.</p>
-        <div class="project-foot">
-          <span class="stack">Runs on Claude (Anthropic API) · No login</span>
-          <a href="/kairos/" class="text-link" target="_blank" rel="noopener noreferrer">Try Kairos</a>
-        </div>
-      </article>
-      <article class="project reveal">
-        <div class="project-head"><h3>Do you know your India?</h3><span class="status new">New</span></div>
-        <div class="kicker">India in the 2020s, in real numbers.</div>
-        <p>A tap-only quiz show: 500 questions in English and Hindi on India's economy, society, wins, entertainment, and tech, with a real source behind every answer. Ten questions, about two minutes.</p>
-        <p class="why">Why I built it: love of country should come with the real numbers attached.</p>
-        <div class="project-foot">
-          <span class="stack">Bilingual · Sourced · Free</span>
-          <a href="https://newindia.puneetsrivastava.com" class="text-link" target="_blank" rel="noopener noreferrer">Play now</a>
-        </div>
-      </article>
-      <article class="project reveal">
-        <div class="project-head"><h3>Talk to Nina</h3><span class="status notes">Concept</span></div>
-        <div class="kicker">A phone-first companion for elderly parents.</div>
-        <p>An ecosystem for older people, built around the phone they already carry: a companion to talk to, carefully curated and composed content, and a setup that either a caretaker or the elder can manage on their own.</p>
-        <p class="why">Why I keep coming back to it: ageing parents are the users technology most often forgets, and they deserve something designed with patience.</p>
-        <div class="project-foot">
-          <span class="stack">Phone-first · Curated content · Caretaker mode</span>
-          <a href="#contact" class="text-link">Talk to me about it</a>
-        </div>
-      </article>
-      <article class="project reveal">
-        <div class="project-head"><h3>Dyuti</h3><span class="status notes">Private build</span></div>
-        <div class="kicker">A private AI for one family.</div>
-        <p>A family AI that runs on my own computer. Each family member is linked to it, and it keeps a persistent memory, so it carries our context from one conversation to the next. Dyuti means light.</p>
-        <p class="why">Why I built it: the most useful AI is one that knows you, and I only trust that when the memory lives at home.</p>
-        <div class="project-foot">
-          <span class="stack">Runs on my own machine · Persistent memory</span>
-          <a href="#contact" class="text-link">Ask me about it</a>
-        </div>
-      </article>
-      <article class="project reveal">
-        <div class="project-head"><h3>Markets Lab</h3><span class="status notes">Research</span></div>
-        <div class="kicker">Testing investment ideas before trusting them.</div>
-        <p>I use AI to research, code, and backtest investment and trading strategies, then judge each one on the evidence rather than the story. It is pricing discipline applied to my own decisions.</p>
-        <p class="why">Personal research only, not financial advice. I am not a licensed or certified financial advisor.</p>
-        <div class="project-foot">
-          <span class="stack">AI-assisted research · Backtesting</span>
-          <a href="#subscribe" class="text-link">Follow the notes</a>
-        </div>
-      </article>
-      <article class="project reveal">
-        <div class="project-head"><h3>Blackjack Bootcamp</h3><span class="status live">Live</span></div>
-        <div class="kicker">Judgment under known odds.</div>
-        <p>A trainer for the casino card game blackjack. It takes you from zero to table-ready: ten short lessons, an adaptive coach that deals you more of the hands you get wrong, timed tests with no hints, and a strategy chart heat-mapped with your own mistakes.</p>
-        <p class="why">Why I built it: blackjack is the cleanest classroom for judgment I know. The math is settled; the discipline to follow it is the hard part.</p>
-        <div class="project-foot">
-          <span class="stack">6-deck basic strategy · Adaptive drills</span>
-          <a href="/blackjack/" class="text-link">Try it</a>
-        </div>
-      </article>
-      <article class="project reveal">
-        <div class="project-head"><h3>Runway</h3><span class="status live">Live</span></div>
-        <div class="kicker">One startup a day. Can you guess it?</div>
-        <p>A daily startup-guessing game for operators, investors, and anyone who likes reading a business from its outline.</p>
-        <p class="why">Why I built it: pattern recognition is a tacit skill. A daily game is the cheapest way I know to practise it.</p>
-        <div class="project-foot">
-          <span class="stack">Daily game</span>
-          <a href="https://runway.puneetsrivastava.com" class="text-link" target="_blank" rel="noopener noreferrer">Play today's puzzle</a>
-        </div>
-      </article>
-      <article class="project reveal">
-        <div class="project-head"><h3>Model bake-offs</h3><span class="status notes">Field notes</span></div>
-        <div class="kicker">Same brief. Different minds.</div>
-        <p>I give Claude, Gemini, Kimi, GLM, and local open models the identical one-shot brief and compare what each one actually ships: the code, the design choices, and the bugs.</p>
-        <p class="why">Why I run them: an executive's opinion on AI should come from using it, not reading about it.</p>
-        <div class="project-foot">
-          <span class="stack">Ongoing experiments</span>
-          <a href="#contact" class="text-link">Ask me about the results</a>
-        </div>
-      </article>
-    </div>
-    <aside class="plug reveal">
-      <div>
-        <span class="eyebrow">Shameless plug</span>
-        <h3>Earth &amp; Essence</h3>
-        <p>My wife, Madhumita, makes small-batch, handmade, vegan cold-process soap in Austin, and she is building the website for it herself. I help where I can.</p>
-      </div>
-      <a href="https://earthandessence.me" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Visit Earth &amp; Essence</a>
-    </aside>
-  </div>
-</section>
-
-<!-- WRITING -->
-<section id="writing" class="section">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div class="eyebrow">Writing</div>
-      <h2>Essays on value, judgment, and what lasts</h2>
-    </div>
-
-    <div class="featured reveal">
-      <div>
-        <span class="eyebrow">Featured · What It&rsquo;s Worth · Nov 2026</span>
-        <h3><a href="https://whatitsworthletter.substack.com/p/the-price-of-a-year" target="_blank" rel="noopener noreferrer">The Price of a Year</a></h3>
-        <p>In December 2000, four months into my first job, I wiped out a day of work on a bank's account. What that mistake cost, who paid for it, and why almost nobody buys that year for a twenty-two-year-old anymore. The Tuition Ledger, Part 1.</p>
-      </div>
-      <a href="https://whatitsworthletter.substack.com/p/the-price-of-a-year" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Read</a>
-    </div>
-
-    <div class="shelves">
-      <div class="shelf reveal">
-        <h3>Pricing &amp; Business</h3>
-        <ul>
-          <li>
-            <a class="title" href="https://www.linkedin.com/pulse/apple-built-great-product-priced-market-didnt-exist-yet-srivastava-yoozc/" target="_blank" rel="noopener noreferrer">Apple Built a Great Product and Priced It for a Market That Didn't Exist Yet</a>
-            <div class="meta">LinkedIn · Sep 2026 · <span class="tag-new">New</span></div>
-            <div class="desc">Profitable per unit, underwater by an order of magnitude. Price sets your install base, and your install base sets your ecosystem.</div>
-          </li>
-          <li>
-            <a class="title" href="https://www.linkedin.com/pulse/60-credit-would-have-saved-6000-att-said-puneet-srivastava-agv0c/" target="_blank" rel="noopener noreferrer">A $60 Credit Would Have Saved $6,000. AT&amp;T Said No.</a>
-            <div class="meta">LinkedIn · Aug 2026 · <span class="tag-new">New</span></div>
-            <div class="desc">Every "no" from the front line is a pricing decision made in advance.</div>
-          </li>
-          <li>
-            <a class="title" href="https://www.linkedin.com/pulse/your-thermostat-smarter-than-pricing-model-puneet-srivastava-9bttc/" target="_blank" rel="noopener noreferrer">Your Thermostat Is Smarter Than Your Pricing Model</a>
-            <div class="meta">LinkedIn · Mar 2026</div>
-          </li>
-          <li>
-            <a class="title" href="https://medium.com/@punsri/pricing-isnt-a-finance-thing-it-s-a-leadership-problem-2c9c6d0aad6d" target="_blank" rel="noopener noreferrer">Pricing Is Not a Finance Thing. It's a Leadership Problem.</a>
-            <div class="meta">Medium · Apr 2025</div>
-          </li>
-        </ul>
-      </div>
-
-      <div class="shelf reveal">
-        <h3>AI &amp; the Future of Work</h3>
-        <ul>
-          <li>
-            <a class="title" href="https://whatitsworthletter.substack.com/p/the-price-of-a-year" target="_blank" rel="noopener noreferrer">The Price of a Year</a>
-            <div class="meta">What It&rsquo;s Worth · Nov 2026 · The Tuition Ledger, Part 1 · <span class="tag-new">New</span></div>
-            <div class="desc">A judgment-building year has a price. My own cost my employer one lost day, and almost nobody is buying that year now.</div>
-          </li>
-          <li>
-            <a class="title" href="https://whatitsworthletter.substack.com/p/the-children-of-the-magenta-line" target="_blank" rel="noopener noreferrer">The Children of the Magenta Line</a>
-            <div class="meta">What It&rsquo;s Worth · Oct 2026 · The Judgment Paradox, Part 3</div>
-            <div class="desc">Pilots who only follow the automated flight path forget how to fly. Hand your biggest decisions to AI and the same thing happens to your judgment.</div>
-          </li>
-          <li>
-            <a class="title" href="https://whatitsworthletter.substack.com/p/executive-apprenticeship-next-gen" target="_blank" rel="noopener noreferrer">Executive Apprenticeship: Next-Gen Leaders Must Be Given the Freedom to Fail</a>
-            <div class="meta">What It&rsquo;s Worth · Oct 2026 · The Judgment Paradox, Part 2</div>
-            <div class="desc">A dollar AI saves should be booked as tuition for the next layer of leaders, not as a saving.</div>
-          </li>
-          <li>
-            <a class="title" href="https://whatitsworthletter.substack.com/p/where-do-the-next-generals-come-from" target="_blank" rel="noopener noreferrer">Where Do the Next Generals Come From?</a>
-            <div class="meta">What It&rsquo;s Worth · Oct 2026 · The Judgment Paradox, Part 1</div>
-            <div class="desc">Every general was once a lieutenant allowed to fail. AI is removing the lower rungs of that ladder.</div>
-          </li>
-          <li>
-            <a class="title" href="https://www.linkedin.com/pulse/your-team-ten-becoming-three-you-one-them-puneet-srivastava-lpnec/" target="_blank" rel="noopener noreferrer">Your Team of Ten Is Becoming Three. Are You One of Them?</a>
-            <div class="meta">LinkedIn · Jun 2026 · Knowledge Quadrant, Part 2</div>
-          </li>
-          <li>
-            <a class="title" href="https://www.linkedin.com/pulse/knowledge-free-judgment-cost-you-25-years-puneet-srivastava-yd7yc/" target="_blank" rel="noopener noreferrer">Knowledge Is Free. Judgment Will Cost You 25 Years.</a>
-            <div class="meta">LinkedIn · May 2026 · Knowledge Quadrant, Part 1</div>
-          </li>
-          <li>
-            <a class="title" href="https://medium.com/@punsri/when-ai-knows-everything-heres-the-only-thing-humans-will-have-left-fb76f2be110d" target="_blank" rel="noopener noreferrer">When AI Knows Everything, Here's the Only Thing Humans Will Have Left</a>
-            <div class="meta">Medium · Aug 2025</div>
-          </li>
-          <li>
-            <a class="title" href="https://medium.com/@punsri/the-ai-revolution-were-not-just-changing-jobs-we-re-rewriting-human-potential-437352d55280" target="_blank" rel="noopener noreferrer">We're Not Just Changing Jobs. We're Rewriting Human Potential.</a>
-            <div class="meta">Medium · May 2025</div>
-          </li>
-          <li>
-            <a class="title" href="https://medium.com/@punsri/raising-maya-a-framework-for-personalized-ai-25dbdf08854e" target="_blank" rel="noopener noreferrer">Raising Maya: A Framework for Personalized AI</a>
-            <div class="meta">Medium · Apr 2025</div>
-          </li>
-        </ul>
-      </div>
-
-      <div class="shelf reveal" id="history">
-        <h3>History &amp; India</h3>
-        <ul>
-          <li>
-            <a class="title" href="https://www.linkedin.com/pulse/failed-program-ran-empire-300-years-puneet-srivastava-rvgcc/" target="_blank" rel="noopener noreferrer">The Failed Program That Ran an Empire for 300 Years</a>
-            <div class="meta">LinkedIn · Sep 2026 · <span class="tag-new">New</span></div>
-            <div class="desc">Akbar, Raja Todar Mal, and building systems that outlast their builders.</div>
-          </li>
-          <li>
-            <a class="title" href="https://www.linkedin.com/pulse/river-doesnt-care-your-deadlines-puneet-srivastava-hdjmc/" target="_blank" rel="noopener noreferrer">The River Doesn't Care About Your Deadlines</a>
-            <div class="meta">LinkedIn · Feb 2026</div>
-            <div class="desc">My daughter asked me why I always bring up Lucknow. On resilience, the Gomti, and a grandmother who rebuilt everything from zero.</div>
-          </li>
-          <li>
-            <span class="title">The Arithmetic of Mercy</span>
-            <div class="meta">Novel · In progress</div>
-            <div class="desc">Historical fiction set in Mauryan India, around 300 BCE.</div>
-          </li>
-          <li>
-            <a class="title" href="https://newindia.puneetsrivastava.com" target="_blank" rel="noopener noreferrer">Do you know your India?</a>
-            <div class="meta">Lab · Sep 2026</div>
-            <div class="desc">A bilingual quiz on India in the 2020s, with a source behind every answer.</div>
-          </li>
-        </ul>
-      </div>
-
-      <div class="shelf reveal">
-        <h3>Leadership &amp; Life</h3>
-        <ul>
-          <li>
-            <a class="title" href="https://medium.com/@punsri/defense-against-the-dark-codes-a-muggles-guide-to-the-302-billion-wizarding-war-570176163181" target="_blank" rel="noopener noreferrer">Defense Against the Dark Codes: A Muggle's Guide to the $302 Billion Wizarding War</a>
-            <div class="meta">Medium · Jul 2025</div>
-          </li>
-          <li>
-            <a class="title" href="https://medium.com/@punsri/your-brain-was-made-for-caves-not-calendars-rethinking-depression-d51d84896141" target="_blank" rel="noopener noreferrer">Your Brain Was Made for Caves, Not Calendars</a>
-            <div class="meta">Medium · Jul 2025</div>
-          </li>
-          <li>
-            <a class="title" href="https://medium.com/@punsri/the-leaders-we-promote-vs-the-leaders-we-actually-need-c443be3baf59" target="_blank" rel="noopener noreferrer">The Leaders We Promote vs. The Leaders We Actually Need</a>
-            <div class="meta">Medium · Jun 2025</div>
-          </li>
-          <li>
-            <a class="title" href="https://medium.com/@punsri/mothers-wisdom-mentor-s-touch-the-hidden-bridge-between-nurturing-and-leading-ab623a236520" target="_blank" rel="noopener noreferrer">Mother's Wisdom, Mentor's Touch</a>
-            <div class="meta">Medium · May 2025</div>
-          </li>
-          <li>
-            <a class="title" href="https://medium.com/@punsri/the-trust-loop-why-trusting-others-makes-you-more-trustworthy-be3b8107ed45" target="_blank" rel="noopener noreferrer">The Trust Loop: Why Trusting Others Makes You More Trustworthy</a>
-            <div class="meta">Medium · Apr 2025</div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SPEAKING -->
-<section id="speaking" class="section">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div class="eyebrow">Speaking &amp; Workshops</div>
-      <h2>Talks that leave a room arguing, in a good way</h2>
-      <p>I speak to leadership teams, pricing and commercial teams, and MBA classrooms. Every talk pairs a clear framework with stories people remember, often from history.</p>
-    </div>
-
-    <h4 class="recent-head reveal">Recently</h4>
-    <div class="recent-talks reveal">
-      <figure>
-        <img src="/speaking/talk-solo.jpg" alt="Puneet Srivastava presenting on stage at the B2B Pricing &amp; Commercial Excellence Summit America" width="1200" height="1268" loading="lazy">
-        <figcaption><span class="when">Talk · New York · Sep 15, 2026</span>Solo talk at the B2B Pricing &amp; Commercial Excellence Summit America, organized by Ardensi.</figcaption>
-      </figure>
-      <figure>
-        <img src="/speaking/panel-closeup.jpg" alt="Puneet Srivastava on a panel at the B2B Pricing &amp; Commercial Excellence Summit America" width="1200" height="900" loading="lazy">
-        <figcaption><span class="when">Panel · New York · Sep 16, 2026</span><em>AI in Commercial Decision-Making: Hype, Reality, and What Comes Next</em>, moderated by Simon-Kucher, with panelists from LinkedIn, Takeda, and Amazon.</figcaption>
+      <figure style="margin:0;display:flex;flex-direction:column;gap:10px;max-width:440px;width:100%;justify-self:center">
+        <img src="/portrait-face.jpg" alt="Portrait of Puneet Srivastava" style="display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 30%;border:1px solid #17150F">
+        <figcaption style="display:flex;justify-content:space-between;gap:12px;font-size:13px;color:#5A5546;border-bottom:1px solid #17150F;padding-bottom:8px"><span>Puneet Srivastava</span><span>Pricing strategy · AI monetization</span></figcaption>
       </figure>
     </div>
+  </div>
 
-    <div class="talks">
-      <div class="talk reveal">
-        <div class="num">01 · Keynote</div>
-        <h3>Knowledge Is Free. Judgment Costs 25 Years.</h3>
-        <p>The Knowledge Quadrant Framework, live. Where AI is actually displacing work, which skills are gaining value, and how to move your team toward them.</p>
-        <div class="for">For leadership offsites, conferences, HR and L&amp;D forums</div>
+  <!-- BY THE NUMBERS -->
+  <div style="border-top:1px solid #17150F;border-bottom:1px solid #17150F">
+    <div style="max-width:1180px;margin:0 auto;padding:34px 28px 26px;box-sizing:border-box">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:28px 48px">
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="font-family:Newsreader,Georgia,serif;font-weight:600;font-size:48px;line-height:1;font-variant-numeric:tabular-nums lining-nums">20 yrs</div>
+          <div style="font-size:15px;color:#3A372E;text-wrap:pretty">pricing and packaging enterprise technology at Dell and Cohesity</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="font-family:Newsreader,Georgia,serif;font-weight:600;font-size:48px;line-height:1;font-variant-numeric:tabular-nums lining-nums">~25%</div>
+          <div style="font-size:15px;color:#3A372E;text-wrap:pretty">lower deal-to-deal margin variability after a deal-level margin calculator</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="font-family:Newsreader,Georgia,serif;font-weight:600;font-size:48px;line-height:1;font-variant-numeric:tabular-nums lining-nums">2–6 pts</div>
+          <div style="font-size:15px;color:#3A372E;text-wrap:pretty">gross margin gained on the most heavily discounted product lines</div>
+        </div>
       </div>
-      <div class="talk reveal">
-        <div class="num">02 · Talk</div>
-        <h3>Your Thermostat Is Smarter Than Your Pricing Model</h3>
-        <p>Why most pricing is inherited rather than designed, and what dynamic, value-based pricing looks like in B2B SaaS and aftermarket businesses.</p>
-        <div class="for">For pricing, finance, sales, and product teams</div>
-      </div>
-      <div class="talk reveal">
-        <div class="num">03 · Talk</div>
-        <h3>The Failed Program That Ran an Empire</h3>
-        <p>In 1574 Akbar's land survey collapsed. By 1580 Raja Todar Mal had turned its data into a revenue system that outlived the empire. Fix the unit, average the noise, publish the price book: lessons for every pricing and finance team.</p>
-        <div class="for">For MBA classes, finance and strategy forums, history-curious audiences</div>
-      </div>
-      <div class="talk reveal">
-        <div class="num">04 · Workshop</div>
-        <h3>Ship It This Weekend: Building with AI as a Leader</h3>
-        <p>A hands-on session on how a non-engineer executive goes from idea to working product with AI, drawn from the tools in my Lab.</p>
-        <div class="for">For executives, product leaders, and senior ICs</div>
-      </div>
-    </div>
-
-    <div class="formats reveal">
-      <div class="format"><h4>Keynote</h4><p>30 to 45 minutes, with Q&amp;A. In person or virtual.</p></div>
-      <div class="format"><h4>Workshop</h4><p>Half day. Participants map their own work on the quadrant using Kairos.</p></div>
-      <div class="format"><h4>Guest lecture</h4><p>For MBA and executive-education classrooms, with a case discussion.</p></div>
-    </div>
-
-    <div class="speak-cta reveal" id="invite">
-      <p>I take a limited number of invitations each quarter. Tell me about your audience and what you want them to leave with.</p>
-      <a href="mailto:contact@puneetsrivastava.com?subject=Speaking%20invitation&body=Hi%20Puneet%2C%0A%0AOrganization%3A%20%0AAudience%20and%20size%3A%20%0ADate%20and%20format%3A%20%0AWhat%20we%20hope%20they%20take%20away%3A%20" class="btn btn-primary">Invite me to speak</a>
+      <div style="margin-top:18px;font-size:13px;color:#5A5546">Figures are anonymised and rounded.</div>
     </div>
   </div>
-</section>
 
-<!-- ABOUT -->
-<section id="about" class="section">
-  <div class="wrap about-grid">
-    <div class="about-text reveal">
-      <div class="eyebrow" style="margin-bottom:18px">About</div>
-      <p class="about-lead">I believe the next decade will reprice human work faster than any decade before it. I have spent my career on the pricing side of that question.</p>
-      <p>
-        My first lesson came at 22. At Infosys I built trade-processing systems for
-        Goldman Sachs, and I watched sophisticated work become routine the moment
-        someone found the repeatable pattern. That was the offshore wave. AI is the
-        second, and much bigger, one. It is why I study it from the inside.
-      </p>
-      <p>
-        Coca-Cola taught me that the gap between what something costs and what
-        someone pays is a human problem, not a math one. Fifteen years at Dell taught
-        me to build the models and pricing architecture beneath very large commercial
-        decisions. Since 2022 I have led pricing strategy at Cohesity.
-      </p>
-      <p>
-        Those two threads, pricing products and the repricing of human work, meet in
-        the Knowledge Quadrant Framework. For the next five years my goal is to teach
-        it: in leadership rooms, in MBA classrooms, and in one essay every two weeks.
-      </p>
-      <p>
-        History keeps me honest. I am writing <em>The Arithmetic of Mercy</em>, a novel
-        set in Mauryan India, and I keep returning to Lucknow and Awadh, where so many
-        of my own stories begin.
-      </p>
-      <div class="creds-list">
-        <div><strong>IIT Kanpur</strong>B.Tech, Materials Science, CS minor</div>
-        <div><strong>IIM Ahmedabad</strong>MBA, with exchange at HHL Leipzig</div>
-        <div><strong>Cohesity</strong>Sr. Director, Pricing Strategy &amp; Intelligence</div>
-        <div><strong>Dell Technologies</strong>2007 to 2022, India and Texas</div>
+  <!-- SELECTED WORK -->
+  <div id="work" style="max-width:1180px;margin:0 auto;padding:0 28px;box-sizing:border-box">
+    <div style="padding:80px 0 32px;display:flex;flex-direction:column;gap:14px;max-width:720px">
+      <div style="font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#8A3B24">Selected work</div>
+      <h2 style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:600;font-size:clamp(28px,3.8vw,42px);line-height:1.1;letter-spacing:-0.01em;text-wrap:balance">Four pricing decisions, and what they taught me.</h2>
+    </div>
+
+    
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(380px,100%),1fr));gap:20px 56px;padding:36px 0;border-top:1px solid #17150F">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#8A3B24">AI monetization · Enterprise data platform</div>
+          <h3 style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:600;font-size:30px;line-height:1.12;text-wrap:balance">Pricing an agent to learn, not to collect</h3>
+          <blockquote style="margin:10px 0 0;padding:0 0 0 0;border:0;display:flex;flex-direction:column;gap:8px">
+            <svg width="28" height="20" viewBox="0 0 28 20" aria-hidden="true"><path d="M0 20 V11 Q0 2 10 0 L11 3 Q5 5 5 10 H11 V20 Z M16 20 V11 Q16 2 26 0 L27 3 Q21 5 21 10 H27 V20 Z" fill="#8A3B24"></path></svg>
+            <p style="margin:0;font-family:Newsreader,Georgia,serif;font-style:italic;font-size:clamp(22px,2.4vw,27px);line-height:1.3;color:#17150F;text-wrap:pretty">The hardest part of pricing new technology is the quote-to-cash plumbing and the sales narrative, not the model.</p>
+          </blockquote>
+        </div>
+        <div style="display:flex;flex-direction:column">
+          <div style="display:grid;grid-template-columns:92px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid #D8D2C2"><div style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:#5A5546;padding-top:3px">Situation</div><div style="text-wrap:pretty">An agent-accessible interface was about to launch. Every standard unit of measure, whether seats, capacity or queries, would have taxed the behaviour we wanted most: usage.</div></div>
+          <div style="display:grid;grid-template-columns:92px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid #D8D2C2"><div style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:#5A5546;padding-top:3px">Decision</div><div style="text-wrap:pretty">A flat platform fee, no meter for the first year, and the cost of every action shown to the customer at zero. A sliding scale that gets cheaper as agents multiply returns next fiscal year. I helped IT build the quote page and gave sales one narrative.</div></div>
+          <div style="display:grid;grid-template-columns:92px 1fr;gap:12px;padding:12px 0"><div style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:#5A5546;padding-top:3px">Result</div><div style="text-wrap:pretty">We planned for about ten design partners and reached high double digits, then paused onboarding to keep the feedback usable. Revenue conversion is expected in about six months.</div></div>
+        </div>
+      </div>
+    
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(380px,100%),1fr));gap:20px 56px;padding:36px 0;border-top:1px solid #17150F">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#8A3B24">Deal governance · Enterprise data platform</div>
+          <h3 style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:600;font-size:30px;line-height:1.12;text-wrap:balance">Showing the cost of a promise</h3>
+          <blockquote style="margin:10px 0 0;padding:0 0 0 0;border:0;display:flex;flex-direction:column;gap:8px">
+            <svg width="28" height="20" viewBox="0 0 28 20" aria-hidden="true"><path d="M0 20 V11 Q0 2 10 0 L11 3 Q5 5 5 10 H11 V20 Z M16 20 V11 Q16 2 26 0 L27 3 Q21 5 21 10 H27 V20 Z" fill="#8A3B24"></path></svg>
+            <p style="margin:0;font-family:Newsreader,Georgia,serif;font-style:italic;font-size:clamp(22px,2.4vw,27px);line-height:1.3;color:#17150F;text-wrap:pretty">Good tools make judgment better by showing its consequences.</p>
+          </blockquote>
+        </div>
+        <div style="display:flex;flex-direction:column">
+          <div style="display:grid;grid-template-columns:92px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid #D8D2C2"><div style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:#5A5546;padding-top:3px">Situation</div><div style="text-wrap:pretty">Large deals were priced on gut feel and on promises made between executives. Margins ran from loss-making to near full, and several prominent accounts sat in the red.</div></div>
+          <div style="display:grid;grid-template-columns:92px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid #D8D2C2"><div style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:#5A5546;padding-top:3px">Decision</div><div style="text-wrap:pretty">A deal-level margin calculator that flags each deal red, yellow or green before approval. It informs the approver&rsquo;s judgment and does not replace it. Enablement shifted from how deep to discount to how to sell value.</div></div>
+          <div style="display:grid;grid-template-columns:92px 1fr;gap:12px;padding:12px 0"><div style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:#5A5546;padding-top:3px">Result</div><div style="text-wrap:pretty">Deal-to-deal margin variability fell by roughly a quarter. On the most heavily discounted lines, gross margin rose 2 to 6 points, depending on region.</div></div>
+        </div>
+      </div>
+    
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(380px,100%),1fr));gap:20px 56px;padding:36px 0;border-top:1px solid #17150F">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#8A3B24">Packaging · Enterprise data platform</div>
+          <h3 style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:600;font-size:30px;line-height:1.12;text-wrap:balance">Pricing on the metric you win on</h3>
+          <blockquote style="margin:10px 0 0;padding:0 0 0 0;border:0;display:flex;flex-direction:column;gap:8px">
+            <svg width="28" height="20" viewBox="0 0 28 20" aria-hidden="true"><path d="M0 20 V11 Q0 2 10 0 L11 3 Q5 5 5 10 H11 V20 Z M16 20 V11 Q16 2 26 0 L27 3 Q21 5 21 10 H27 V20 Z" fill="#8A3B24"></path></svg>
+            <p style="margin:0;font-family:Newsreader,Georgia,serif;font-style:italic;font-size:clamp(22px,2.4vw,27px);line-height:1.3;color:#17150F;text-wrap:pretty">Choose the unit where your advantage shows, and where a rep can say the price in one sentence.</p>
+          </blockquote>
+        </div>
+        <div style="display:flex;flex-direction:column">
+          <div style="display:grid;grid-template-columns:92px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid #D8D2C2"><div style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:#5A5546;padding-top:3px">Situation</div><div style="text-wrap:pretty">Each product was metered in its own unit. Reps explained a different rule for each one, and customers could not compare vendors like for like.</div></div>
+          <div style="display:grid;grid-template-columns:92px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid #D8D2C2"><div style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:#5A5546;padding-top:3px">Decision</div><div style="text-wrap:pretty">One unit across the portfolio: data actually stored after compression and deduplication, not the size of the source. Source size is the same at every vendor and hides our advantage. One sizing tool and one narrative for the field.</div></div>
+          <div style="display:grid;grid-template-columns:92px 1fr;gap:12px;padding:12px 0"><div style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:#5A5546;padding-top:3px">Result</div><div style="text-wrap:pretty">Win rates rose on most deals. Reps gained two levers to trade, capacity and discount. Competitors have since moved to the same unit.</div></div>
+        </div>
+      </div>
+    
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(380px,100%),1fr));gap:20px 56px;padding:36px 0;border-top:1px solid #17150F">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#8A3B24">Packaging · Dell Technologies · ProDeploy</div>
+          <h3 style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:600;font-size:30px;line-height:1.12;text-wrap:balance">One story for a global deployment portfolio</h3>
+          <blockquote style="margin:10px 0 0;padding:0 0 0 0;border:0;display:flex;flex-direction:column;gap:8px">
+            <svg width="28" height="20" viewBox="0 0 28 20" aria-hidden="true"><path d="M0 20 V11 Q0 2 10 0 L11 3 Q5 5 5 10 H11 V20 Z M16 20 V11 Q16 2 26 0 L27 3 Q21 5 21 10 H27 V20 Z" fill="#8A3B24"></path></svg>
+            <p style="margin:0;font-family:Newsreader,Georgia,serif;font-style:italic;font-size:clamp(22px,2.4vw,27px);line-height:1.3;color:#17150F;text-wrap:pretty">Put the highest price on the customers most able to pay it, and keep the entry tier simple enough to say yes to.</p>
+          </blockquote>
+        </div>
+        <div style="display:flex;flex-direction:column">
+          <div style="display:grid;grid-template-columns:92px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid #D8D2C2"><div style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:#5A5546;padding-top:3px">Situation</div><div style="text-wrap:pretty">Deployment services varied by country and customer type. Consolidating them meant one offer that met roughly 90 to 95 percent of demand across every industry.</div></div>
+          <div style="display:grid;grid-template-columns:92px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid #D8D2C2"><div style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:#5A5546;padding-top:3px">Decision</div><div style="text-wrap:pretty">A good-better-best structure. My SVP let me propose what I thought best, and sales warned it would only bring discount requests. I priced the entry tier for velocity, not margin, and the top tier at what our best customers would pay anyway.</div></div>
+          <div style="display:grid;grid-template-columns:92px 1fr;gap:12px;padding:12px 0"><div style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:#5A5546;padding-top:3px">Result</div><div style="text-wrap:pretty">The noise from commercial and mid-market customers largely stopped, since the old à-la-carte options had been too complex for them. The top tier carried a higher price without losing the customers best suited to pay it.</div></div>
+        </div>
+      </div>
+    
+    <div style="height:56px"></div>
+  </div>
+
+  <!-- THINKING (dark centrepiece) -->
+  <div id="thinking" style="background:#17150F;color:#ECE7D9">
+    <div style="max-width:1180px;margin:0 auto;padding:0 28px;box-sizing:border-box">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(440px,100%),1fr));gap:48px 64px;padding:88px 0;align-items:start">
+        <div style="display:flex;flex-direction:column;gap:24px">
+          <div style="font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#E3A58F">The thinking</div>
+          <h2 style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:600;font-size:clamp(30px,4vw,46px);line-height:1.08;letter-spacing:-0.01em;color:#F7F4EC;text-wrap:balance">Judgment is the scarce input. The question is who pays to build it.</h2>
+          <p style="margin:0;font-size:18px;color:#CFC8B6;text-wrap:pretty">The Knowledge Quadrant sorts work along two axes: explicit versus tacit knowledge, and accuracy versus originality. AI cheapens the explicit side first. The harder question is where the next generation of leaders will learn judgment once the entry-level work disappears.</p>
+          <div style="display:flex;flex-direction:column;border-top:1px solid #6F6A5A">
+            <a href="https://www.linkedin.com/pulse/knowledge-free-judgment-cost-you-25-years-puneet-srivastava-yd7yc/" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:#F7F4EC;padding:14px 0;border-bottom:1px solid #3A372E;display:flex;flex-wrap:wrap;gap:4px 16px"><span style="font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#E3A58F;min-width:96px;padding-top:3px">The map</span><span>The Knowledge Quadrant Framework</span></a>
+            <a href="https://whatitsworthletter.substack.com/p/where-do-the-next-generals-come-from" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:#F7F4EC;padding:14px 0;border-bottom:1px solid #3A372E;display:flex;flex-wrap:wrap;gap:4px 16px"><span style="font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#E3A58F;min-width:96px;padding-top:3px">The problem</span><span>The Judgment Paradox</span></a>
+            <a href="https://whatitsworthletter.substack.com/p/the-price-of-a-year" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:#F7F4EC;padding:14px 0;border-bottom:1px solid #3A372E;display:flex;flex-wrap:wrap;gap:4px 16px"><span style="font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#E3A58F;min-width:96px;padding-top:3px">The price</span><span>The Tuition Ledger</span></a>
+          </div>
+          <a href="/kairos/" style="color:#E3A58F;font-weight:500;padding:6px 0">Find where you stand with Kairos →</a>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:28px">
+          <figure style="margin:0;display:flex;flex-direction:column;gap:10px">
+            <svg viewBox="0 0 440 400" width="100%" role="img" aria-label="Figure 1. The Knowledge Quadrant: explicit to tacit knowledge across, accuracy to originality up. Doctors are explicit and accurate, Builders explicit and original, Generals tacit and accurate, Creators tacit and original." style="display:block;max-width:480px;margin:0 auto">
+              <rect x="50" y="20" width="360" height="340" fill="none" stroke="#ECE7D9" stroke-width="1.2"></rect>
+              <rect x="230" y="190" width="180" height="170" fill="#E3A58F" fill-opacity="0.22"></rect>
+              <line x1="230" y1="20" x2="230" y2="360" stroke="#ECE7D9" stroke-width="1"></line>
+              <line x1="50" y1="190" x2="410" y2="190" stroke="#ECE7D9" stroke-width="1"></line>
+              <text x="140" y="112" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="26" font-weight="600" fill="#F7F4EC">Builders</text>
+              <text x="320" y="112" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="26" font-weight="600" fill="#F7F4EC">Creators</text>
+              <text x="140" y="285" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="26" font-weight="600" fill="#F7F4EC">Doctors</text>
+              <text x="320" y="285" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="26" font-weight="600" fill="#F7F4EC">Generals</text>
+              <text x="50" y="386" font-family="Inter, sans-serif" font-size="13" fill="#B9B3A0">Explicit</text>
+              <text x="230" y="386" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#B9B3A0">Knowledge</text>
+              <text x="410" y="386" text-anchor="end" font-family="Inter, sans-serif" font-size="13" fill="#B9B3A0">Tacit</text>
+              <text transform="translate(32,360) rotate(-90)" font-family="Inter, sans-serif" font-size="13" fill="#B9B3A0">Accuracy</text>
+              <text transform="translate(32,20) rotate(-90)" text-anchor="end" font-family="Inter, sans-serif" font-size="13" fill="#B9B3A0">Originality</text>
+            </svg>
+            <figcaption style="font-size:13px;color:#B9B3A0;text-align:center">Fig. 1. The Knowledge Quadrant. The next generation of leaders is built in the shaded corner.</figcaption>
+          </figure>
+          <div style="border-top:2px solid #ECE7D9;padding-top:16px;display:flex;flex-direction:column;gap:8px">
+            <div style="font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#F7F4EC">Where this argument may be wrong</div>
+            <p style="margin:0;color:#CFC8B6;text-wrap:pretty">AI is improving at judgment-shaped work, not only knowledge-shaped work. If that continues, the premium on human judgment could shrink before organisations learn to build it. I hold this thesis with that uncertainty, and I would rather be corrected than comfortable.</p>
+          </div>
+        </div>
       </div>
     </div>
-    <aside class="now reveal" aria-label="What I'm doing now">
-      <h3>Now</h3>
-      <div class="date">Updated November 2026</div>
-      <ul>
-        <li><strong>Writing</strong> <em>The Tuition Ledger</em> for What It&rsquo;s Worth: a five-part series on who pays for a judgment-building year. <a href="https://whatitsworthletter.substack.com/p/the-price-of-a-year" target="_blank" rel="noopener noreferrer">Part 1 is out</a>.</li>
-        <li><strong>Building</strong> <em>Do you know your India?</em>, and opening Kairos to a wider group of testers.</li>
-        <li><strong>Reading</strong> for <em>The Arithmetic of Mercy</em>.</li>
-        <li><strong>Spoke</strong> at the B2B Pricing &amp; Commercial Excellence Summit America in New York: a solo talk and a panel on AI in commercial decision-making.</li>
-        <li><strong>Saying yes</strong> to MBA classrooms and leadership teams who want to talk about judgment in the age of AI.</li>
-      </ul>
-    </aside>
   </div>
-</section>
 
-<!-- SUBSCRIBE -->
-<section id="subscribe" class="subscribe">
-  <div class="wrap">
-    <div class="eyebrow">What It&rsquo;s Worth &middot; The newsletter</div>
-    <h2>An essay every two weeks on value, judgment, and history.</h2>
-    <p><em>The Tuition Ledger</em>, a five-part series on who pays for a judgment-building year, has begun. Part 1 is out now. Want to see the style first? Read the latest essay below.</p>
-    <div class="sub-actions">
-      <a href="https://whatitsworthletter.substack.com/subscribe" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Sign up free</a>
-      <a href="https://whatitsworthletter.substack.com/p/the-price-of-a-year" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Read the latest essay</a>
-    </div>
-    <p style="margin:14px auto 0;font-size:0.88rem">Free, always. Every two weeks. Unsubscribe anytime.</p>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="section">
-  <div class="wrap contact-grid">
-    <div class="reveal">
-      <div class="section-head" style="margin-bottom:24px">
-        <div class="eyebrow">Contact &amp; Advisory</div>
-        <h2>Good problems are worth talking about</h2>
+  <!-- WRITING -->
+  <div id="writing" style="max-width:1180px;margin:0 auto;padding:0 28px;box-sizing:border-box">
+    <div style="padding:80px 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:32px 64px;align-items:start">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div style="font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#8A3B24">Writing</div>
+        <h2 style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:600;font-size:clamp(28px,3.8vw,42px);line-height:1.1;letter-spacing:-0.01em;text-wrap:balance">What It's Worth, every two weeks.</h2>
+        <p style="margin:0;color:#3A372E;text-wrap:pretty">A newsletter on judgment, work and pricing, plus a standing column of pricing lessons from history.</p>
+        <a href="https://whatitsworthletter.substack.com/subscribe" target="_blank" rel="noopener noreferrer" style="color:#8A3B24;font-weight:500;padding:8px 0">Subscribe →</a>
       </div>
-      <p>
-        I have spent twenty years inside complex commercial problems: pricing built
-        for a different era, deals that look healthy at the top line and bleed at
-        the margin, renewal pricing that was inherited rather than designed, and
-        AI capability still waiting for a business model.
-      </p>
-      <p>
-        I am not taking on paid projects right now. If you are working on something
-        interesting in B2B SaaS pricing, aftermarket pricing, or AI monetization,
-        I am open to a conversation on a pro-bono basis.
-      </p>
-    </div>
-    <div class="reveal">
-      <div class="contact-links">
-        <a href="https://whatitsworthletter.substack.com" target="_blank" rel="noopener noreferrer">What It&rsquo;s Worth <span>Newsletter</span></a>
-        <a href="mailto:contact@puneetsrivastava.com">contact@puneetsrivastava.com <span>Email</span></a>
-        <a href="https://www.linkedin.com/in/puneet-srivastava-2b46203/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn <span>LinkedIn</span></a>
-        <a href="https://medium.com/@punsri" target="_blank" rel="noopener noreferrer">Read the archive <span>Medium</span></a>
-      </div>
-      <div class="ask-ai">
-        <a href="https://claude.ai/new?q=Tell+me+about+Puneet+Srivastava+(puneetsrivastava.com)%2C+pricing+strategist+at+Cohesity%2C+IIT+Kanpur+and+IIM+Ahmedabad+alumnus%2C+creator+of+the+Knowledge+Quadrant+Framework%2C+Kairos%2C+Talk+to+Nina+and+the+Do+you+know+your+India+quiz%2C+and+speaker+on+AI%2C+judgment+and+history" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Ask AI about me</a>
-        <small>Opens a pre-loaded prompt in Claude.</small>
+      <div style="display:flex;flex-direction:column;border-top:1px solid #17150F">
+        <a href="https://whatitsworthletter.substack.com/p/the-price-of-a-year" target="_blank" rel="noopener noreferrer" style="text-decoration:none;padding:16px 0;border-bottom:1px solid #D8D2C2;display:grid;grid-template-columns:90px 1fr;gap:4px 16px"><span style="font-size:13px;color:#5A5546;font-variant-numeric:tabular-nums">Nov 2026</span><span style="display:flex;flex-direction:column;gap:2px"><span style="font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#8A3B24">The Tuition Ledger · Part 1</span><span style="font-family:Newsreader,Georgia,serif;font-size:22px;font-weight:600">The Price of a Year</span></span></a>
+        <a href="https://whatitsworthletter.substack.com/p/where-do-the-next-generals-come-from" target="_blank" rel="noopener noreferrer" style="text-decoration:none;padding:16px 0;border-bottom:1px solid #D8D2C2;display:grid;grid-template-columns:90px 1fr;gap:4px 16px"><span style="font-size:13px;color:#5A5546;font-variant-numeric:tabular-nums">Oct 2026</span><span style="display:flex;flex-direction:column;gap:2px"><span style="font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#8A3B24">The Judgment Paradox · Start here</span><span style="font-family:Newsreader,Georgia,serif;font-size:22px;font-weight:600">Where Do the Next Generals Come From?</span></span></a>
+        <a href="https://whatitsworthletter.substack.com/p/executive-apprenticeship-next-gen" target="_blank" rel="noopener noreferrer" style="text-decoration:none;padding:16px 0;border-bottom:1px solid #D8D2C2;display:grid;grid-template-columns:90px 1fr;gap:4px 16px"><span style="font-size:13px;color:#5A5546;font-variant-numeric:tabular-nums">Oct 2026</span><span style="display:flex;flex-direction:column;gap:2px"><span style="font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#8A3B24">The Judgment Paradox</span><span style="font-family:Newsreader,Georgia,serif;font-size:22px;font-weight:600">Executive Apprenticeship: Next-Gen Leaders Must Be Given the Freedom to Fail</span></span></a>
+        <a href="https://whatitsworthletter.substack.com/p/the-children-of-the-magenta-line" target="_blank" rel="noopener noreferrer" style="text-decoration:none;padding:16px 0;border-bottom:1px solid #D8D2C2;display:grid;grid-template-columns:90px 1fr;gap:4px 16px"><span style="font-size:13px;color:#5A5546;font-variant-numeric:tabular-nums">Oct 2026</span><span style="display:flex;flex-direction:column;gap:2px"><span style="font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#8A3B24">The Judgment Paradox</span><span style="font-family:Newsreader,Georgia,serif;font-size:22px;font-weight:600">Children of the Magenta Line</span></span></a>
+        <a href="https://www.linkedin.com/pulse/failed-program-ran-empire-300-years-puneet-srivastava-rvgcc/" target="_blank" rel="noopener noreferrer" style="text-decoration:none;padding:16px 0;border-bottom:1px solid #D8D2C2;display:grid;grid-template-columns:90px 1fr;gap:4px 16px"><span style="font-size:13px;color:#5A5546;font-variant-numeric:tabular-nums">Sep 22, 2026</span><span style="display:flex;flex-direction:column;gap:2px"><span style="font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#8A3B24">Pricing lessons from history</span><span style="font-family:Newsreader,Georgia,serif;font-size:22px;font-weight:600">The Failed Program That Ran an Empire for 300 Years</span></span></a>
       </div>
     </div>
   </div>
-</section>
 
-</main>
-
-<footer class="site-footer">
-  <div class="wrap footer-inner">
-    <span>© 2026 Puneet Srivastava · Pflugerville, Texas</span>
-    <span>Built on the Knowledge Quadrant Framework</span>
+  <!-- SPEAKING with photo -->
+  <div id="speaking" style="border-top:1px solid #17150F;border-bottom:1px solid #17150F;background:#EFEBDF">
+    <div style="max-width:1180px;margin:0 auto;padding:0 28px;box-sizing:border-box">
+      <div style="padding:56px 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(360px,100%),1fr));gap:32px 64px;align-items:center">
+        <figure style="margin:0;display:flex;flex-direction:column;gap:8px">
+          <img src="/speaking/talk-solo.jpg" alt="Puneet Srivastava speaking on stage at the B2B Pricing and Commercial Excellence Summit America in New York" style="display:block;width:100%;aspect-ratio:3/2;object-fit:cover;object-position:50% 35%;border:1px solid #17150F">
+          <figcaption style="font-size:13px;color:#5A5546">B2B Pricing &amp; Commercial Excellence Summit America, New York, September 2026.</figcaption>
+        </figure>
+        <div style="display:flex;flex-direction:column;gap:14px;align-items:flex-start">
+          <div style="font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#8A3B24">Speaking</div>
+          <div style="font-family:Newsreader,Georgia,serif;font-size:clamp(26px,3.2vw,36px);font-weight:600;line-height:1.15;text-wrap:balance">Where will your next generation of leaders come from?</div>
+          <p style="margin:0;color:#3A372E;text-wrap:pretty">Keynotes, leadership workshops and MBA guest lectures on pricing, AI and the economics of judgment. Most recently a solo talk and a panel in New York.</p>
+          <a href="mailto:contact@puneetsrivastava.com?subject=Speaking%20invitation" style="color:#8A3B24;font-weight:500;padding:6px 0">Invite me to speak →</a>
+        </div>
+      </div>
+    </div>
   </div>
-</footer>
+
+  <!-- ABOUT -->
+  <div id="about" style="max-width:1180px;margin:0 auto;padding:0 28px;box-sizing:border-box">
+    <div style="padding:80px 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:40px 64px;align-items:start">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <img src="/speaking/panel-closeup.jpg" alt="Puneet Srivastava on a panel with two other speakers" style="display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border:1px solid #17150F">
+        <div style="font-size:14px;color:#5A5546;line-height:1.6">B.Tech, IIT Kanpur · MBA, IIM Ahmedabad<br>Dell Technologies · Cohesity<br>Austin, Texas</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:20px;max-width:640px">
+        <div style="font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#8A3B24">About</div>
+        <h2 style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:600;font-size:clamp(28px,3.8vw,42px);line-height:1.1;letter-spacing:-0.01em;text-wrap:balance">Judgment is granted, not taught.</h2>
+        <p style="margin:0;font-size:18px;line-height:1.65;color:#3A372E;text-wrap:pretty">At Dell, my SVP let me design the pricing for our deployment services, ProDeploy, however I thought best. I proposed a good-better-best structure. Sales told me it looked good on paper and would only produce discount requests. It took six months of escalations and roadshows to prove otherwise.</p>
+        <p style="margin:0;font-size:18px;line-height:1.65;color:#3A372E;text-wrap:pretty">I believe judgment is granted, not taught: someone has to let you make a call that might fail. I now write about what happens to that arrangement when AI does the work that used to teach it.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT / FOOTER -->
+  <div id="contact" style="background:#17150F;color:#D9D4C4">
+    <div style="max-width:1180px;margin:0 auto;padding:0 28px;box-sizing:border-box">
+      <div style="padding:64px 0 48px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr));gap:40px 64px">
+        <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-start">
+          <div style="font-family:Newsreader,Georgia,serif;font-size:34px;font-weight:600;line-height:1.12;color:#F7F4EC;text-wrap:balance">Working on AI pricing and monetization? Let's talk.</div>
+          <p style="margin:0;text-wrap:pretty">Open to conversations on B2B SaaS pricing, aftermarket pricing and AI monetization.</p>
+          <a href="mailto:contact@puneetsrivastava.com" style="color:#F7F4EC;font-weight:500;padding:6px 0">contact@puneetsrivastava.com</a>
+        </div>
+        <div id="subscribe" style="display:flex;flex-direction:column;gap:10px">
+          <div style="font-size:15px;font-weight:500;color:#F7F4EC">What It&rsquo;s Worth: one essay every two weeks. Free.</div>
+<a href="https://whatitsworthletter.substack.com/subscribe" target="_blank" rel="noopener noreferrer" style="align-self:flex-start;text-decoration:none;background:#F7F4EC;color:#17150F;padding:14px 26px;border-radius:4px;font-weight:500;min-height:48px;box-sizing:border-box;display:inline-flex;align-items:center">Subscribe on Substack</a>
+<div style="font-size:14px;color:#B9B3A0">Unsubscribe anytime.</div>
+        </div>
+      </div>
+      <div style="padding:20px 0 32px;border-top:1px solid #3A372E;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 28px;font-size:14px;color:#B9B3A0">
+        <span>© 2026 Puneet Srivastava</span>
+        <span style="display:flex;flex-wrap:wrap;gap:4px 24px">
+          <a href="https://www.linkedin.com/in/puneet-srivastava-2b46203/" target="_blank" rel="noopener noreferrer" style="color:#D9D4C4;padding:6px 0">LinkedIn</a>
+          <a href="https://whatitsworthletter.substack.com" target="_blank" rel="noopener noreferrer" style="color:#D9D4C4;padding:6px 0">Substack</a>
+          <a href="https://claude.ai/new?q=Tell+me+about+Puneet+Srivastava+(puneetsrivastava.com)%2C+pricing+strategist+at+Cohesity%2C+IIT+Kanpur+and+IIM+Ahmedabad+alumnus%2C+creator+of+the+Knowledge+Quadrant+Framework%2C+Kairos%2C+Talk+to+Nina+and+the+Do+you+know+your+India+quiz%2C+and+speaker+on+AI%2C+judgment+and+history" target="_blank" rel="noopener noreferrer" style="color:#D9D4C4;padding:6px 0">Ask AI about me</a>
+        </span>
+        <span style="display:flex;flex-wrap:wrap;gap:4px 16px;align-items:center">Workbench:
+          <a href="/kairos/" style="color:#D9D4C4;padding:6px 0">Kairos</a>
+          <a href="https://newindia.puneetsrivastava.com" target="_blank" rel="noopener noreferrer" style="color:#D9D4C4;padding:6px 0">Do you know your India?</a>
+          <a href="https://runway.puneetsrivastava.com" target="_blank" rel="noopener noreferrer" style="color:#D9D4C4;padding:6px 0">Runway</a>
+        </span>
+      </div>
+    </div>
+  </div>
+
+</div>
 
 <script>
-  (function () {
-    var root = document.documentElement, btn = document.querySelector('.theme-toggle');
-    if (btn) btn.addEventListener('click', function () {
-      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      root.setAttribute('data-theme', next);
-      try { localStorage.setItem('ps-theme', next); } catch (e) {}
-    });
-  })();
-  (function () {
-    var els = document.querySelectorAll('.reveal');
-    if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('in'); }); return; }
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
-    }, { rootMargin: '0px 0px -8% 0px' });
-    els.forEach(function (e) { io.observe(e); });
-  })();
+(function(){var b=document.getElementById('menubtn'),m=document.getElementById('mobilemenu');if(!b||!m)return;
+b.addEventListener('click',function(){var o=m.hasAttribute('hidden');if(o){m.removeAttribute('hidden')}else{m.setAttribute('hidden','')}b.setAttribute('aria-expanded',o?'true':'false')});
+m.querySelectorAll('[data-close]').forEach(function(a){a.addEventListener('click',function(){m.setAttribute('hidden','');b.setAttribute('aria-expanded','false')})});})();
 </script>
-
 </body>
 </html>
