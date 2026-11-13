@@ -25,6 +25,7 @@ input:focus-visible,a:focus-visible,button:focus-visible{outline:2px solid #8A3B
 .navlinks{display:flex}
 .menubtn{display:none}
 @media (max-width:760px){.navlinks{display:none}.menubtn{display:inline-flex}}
+@media (max-width:560px){.qdesc{display:none}}
 </style>
 
 <style>html{scroll-behavior:smooth}</style>
@@ -203,27 +204,42 @@ input:focus-visible,a:focus-visible,button:focus-visible{outline:2px solid #8A3B
             <a href="https://whatitsworthletter.substack.com/p/where-do-the-next-generals-come-from" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:#F7F4EC;padding:14px 0;border-bottom:1px solid #3A372E;display:flex;flex-wrap:wrap;gap:4px 16px"><span style="font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#E3A58F;min-width:96px;padding-top:3px">The problem</span><span>The Judgment Paradox</span></a>
             <a href="https://whatitsworthletter.substack.com/p/the-price-of-a-year" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:#F7F4EC;padding:14px 0;border-bottom:1px solid #3A372E;display:flex;flex-wrap:wrap;gap:4px 16px"><span style="font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#E3A58F;min-width:96px;padding-top:3px">The price</span><span>The Tuition Ledger</span></a>
           </div>
-          <a href="/kairos/" style="color:#E3A58F;font-weight:500;padding:6px 0">Find where you stand with Kairos →</a>
         </div>
 
         <div style="display:flex;flex-direction:column;gap:28px">
-          <figure style="margin:0;display:flex;flex-direction:column;gap:10px">
-            <svg viewBox="0 0 440 400" width="100%" role="img" aria-label="Figure 1. The Knowledge Quadrant: explicit to tacit knowledge across, accuracy to originality up. Doctors are explicit and accurate, Builders explicit and original, Generals tacit and accurate, Creators tacit and original." style="display:block;max-width:480px;margin:0 auto">
-              <rect x="50" y="20" width="360" height="340" fill="none" stroke="#ECE7D9" stroke-width="1.2"></rect>
-              <rect x="230" y="190" width="180" height="170" fill="#E3A58F" fill-opacity="0.22"></rect>
-              <line x1="230" y1="20" x2="230" y2="360" stroke="#ECE7D9" stroke-width="1"></line>
-              <line x1="50" y1="190" x2="410" y2="190" stroke="#ECE7D9" stroke-width="1"></line>
-              <text x="140" y="112" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="26" font-weight="600" fill="#F7F4EC">Builders</text>
-              <text x="320" y="112" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="26" font-weight="600" fill="#F7F4EC">Creators</text>
-              <text x="140" y="285" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="26" font-weight="600" fill="#F7F4EC">Doctors</text>
-              <text x="320" y="285" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="26" font-weight="600" fill="#F7F4EC">Generals</text>
-              <text x="50" y="386" font-family="Inter, sans-serif" font-size="13" fill="#B9B3A0">Explicit</text>
-              <text x="230" y="386" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#B9B3A0">Knowledge</text>
-              <text x="410" y="386" text-anchor="end" font-family="Inter, sans-serif" font-size="13" fill="#B9B3A0">Tacit</text>
-              <text transform="translate(32,360) rotate(-90)" font-family="Inter, sans-serif" font-size="13" fill="#B9B3A0">Accuracy</text>
-              <text transform="translate(32,20) rotate(-90)" text-anchor="end" font-family="Inter, sans-serif" font-size="13" fill="#B9B3A0">Originality</text>
-            </svg>
-            <figcaption style="font-size:13px;color:#B9B3A0;text-align:center">Fig. 1. The Knowledge Quadrant. The next generation of leaders is built in the shaded corner.</figcaption>
+          <figure style="margin:0;display:flex;flex-direction:column;gap:12px">
+            <div role="img" aria-label="Figure 1. The Knowledge Quadrant. Columns: explicit and tacit knowledge. Rows: accuracy and originality. Doctors are explicit and accurate, AI pressure high. Generals are tacit and accurate, AI pressure low. Builders are explicit and original, AI pressure medium. Creators are tacit and original, AI pressure lowest." style="display:grid;grid-template-columns:22px repeat(2,minmax(0,1fr));gap:10px">
+              <div></div>
+              <div style="font-size:11px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#B9B3A0;text-align:center">Explicit knowledge</div>
+              <div style="font-size:11px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#B9B3A0;text-align:center">Tacit knowledge</div>
+              <div style="writing-mode:vertical-rl;transform:rotate(180deg);font-size:11px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#B9B3A0;text-align:center">Accuracy</div>
+              <div style="background:#211F19;border:1px solid #4A463B;border-top:4px solid #8C8674;border-radius:8px;padding:clamp(14px,2vw,22px);display:flex;flex-direction:column;gap:10px;min-width:0">
+                <div style="display:flex;flex-direction:column;gap:2px"><div style="font-family:Newsreader,Georgia,serif;font-weight:700;font-size:clamp(20px,2.4vw,28px);line-height:1.05;color:#F7F4EC">The Doctors</div><div style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#B9B3A0">Explicit · Accurate</div></div>
+                <div style="font-size:13px;color:#D9D4C4">Surgeons · Engineers · Analysts · Lawyers</div>
+                <p class="qdesc" style="margin:0;font-size:14px;line-height:1.5;color:#CFC8B6;text-wrap:pretty">High stakes, verifiable output. The knowledge is documented, and AI is learning it fast.</p>
+                <div style="margin-top:auto;padding-top:4px"><span style="display:inline-block;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#F7F4EC;border:1px solid #6F6A5A;border-radius:999px;padding:5px 10px">AI pressure: High</span></div>
+              </div>
+              <div style="background:#2C2A23;border:2px solid #ECE7D9;border-top:4px solid #ECE7D9;border-radius:8px;padding:clamp(14px,2vw,22px);display:flex;flex-direction:column;gap:10px;min-width:0">
+                <div style="display:flex;flex-direction:column;gap:2px"><div style="font-family:Newsreader,Georgia,serif;font-weight:700;font-size:clamp(20px,2.4vw,28px);line-height:1.05;color:#F7F4EC">The Generals</div><div style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#B9B3A0">Tacit · Accurate</div></div>
+                <div style="font-size:13px;color:#D9D4C4">Strategists · Leaders · Negotiators · Advisors</div>
+                <p class="qdesc" style="margin:0;font-size:14px;line-height:1.5;color:#CFC8B6;text-wrap:pretty">Consequential calls on incomplete information. Where experience becomes irreplaceable.</p>
+                <div style="margin-top:auto;padding-top:4px"><span style="display:inline-block;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#F7F4EC;border:1px solid #ECE7D9;border-radius:999px;padding:5px 10px">AI pressure: Low</span></div>
+              </div>
+              <div style="writing-mode:vertical-rl;transform:rotate(180deg);font-size:11px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#B9B3A0;text-align:center">Originality</div>
+              <div style="background:#211F19;border:1px solid #4A463B;border-top:4px solid #8C8674;border-radius:8px;padding:clamp(14px,2vw,22px);display:flex;flex-direction:column;gap:10px;min-width:0">
+                <div style="display:flex;flex-direction:column;gap:2px"><div style="font-family:Newsreader,Georgia,serif;font-weight:700;font-size:clamp(20px,2.4vw,28px);line-height:1.05;color:#F7F4EC">The Builders</div><div style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#B9B3A0">Explicit · Original</div></div>
+                <div style="font-size:13px;color:#D9D4C4">Marketers · Designers · Copywriters · Engineers</div>
+                <p class="qdesc" style="margin:0;font-size:14px;line-height:1.5;color:#CFC8B6;text-wrap:pretty">Pattern-based creativity at scale. AI is displacing the volume work first.</p>
+                <div style="margin-top:auto;padding-top:4px"><span style="display:inline-block;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#F7F4EC;border:1px solid #6F6A5A;border-radius:999px;padding:5px 10px">AI pressure: Medium</span></div>
+              </div>
+              <div style="background:#211F19;border:1px solid #4A463B;border-top:4px solid #8C8674;border-radius:8px;padding:clamp(14px,2vw,22px);display:flex;flex-direction:column;gap:10px;min-width:0">
+                <div style="display:flex;flex-direction:column;gap:2px"><div style="font-family:Newsreader,Georgia,serif;font-weight:700;font-size:clamp(20px,2.4vw,28px);line-height:1.05;color:#F7F4EC">The Creators</div><div style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#B9B3A0">Tacit · Original</div></div>
+                <div style="font-size:13px;color:#D9D4C4">Composers · Scientists · Visionaries · Founders</div>
+                <p class="qdesc" style="margin:0;font-size:14px;line-height:1.5;color:#CFC8B6;text-wrap:pretty">Creates from lived experience and radical imagination. AI can assist, not originate.</p>
+                <div style="margin-top:auto;padding-top:4px"><span style="display:inline-block;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#F7F4EC;border:1px solid #6F6A5A;border-radius:999px;padding:5px 10px">AI pressure: Lowest</span></div>
+              </div>
+            </div>
+            <figcaption style="font-size:13px;color:#B9B3A0;text-align:center">Fig. 1. The Knowledge Quadrant. The next generation of leaders is built in the Generals quadrant.</figcaption>
           </figure>
           <div style="border-top:2px solid #ECE7D9;padding-top:16px;display:flex;flex-direction:column;gap:8px">
             <div style="font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#F7F4EC">Where this argument may be wrong</div>
@@ -307,10 +323,9 @@ input:focus-visible,a:focus-visible,button:focus-visible{outline:2px solid #8A3B
         <span style="display:flex;flex-wrap:wrap;gap:4px 24px">
           <a href="https://www.linkedin.com/in/puneet-srivastava-2b46203/" target="_blank" rel="noopener noreferrer" style="color:#D9D4C4;padding:6px 0">LinkedIn</a>
           <a href="https://whatitsworthletter.substack.com" target="_blank" rel="noopener noreferrer" style="color:#D9D4C4;padding:6px 0">Substack</a>
-          <a href="https://claude.ai/new?q=Tell+me+about+Puneet+Srivastava+(puneetsrivastava.com)%2C+pricing+strategist+at+Cohesity%2C+IIT+Kanpur+and+IIM+Ahmedabad+alumnus%2C+creator+of+the+Knowledge+Quadrant+Framework%2C+Kairos%2C+Talk+to+Nina+and+the+Do+you+know+your+India+quiz%2C+and+speaker+on+AI%2C+judgment+and+history" target="_blank" rel="noopener noreferrer" style="color:#D9D4C4;padding:6px 0">Ask AI about me</a>
+          <a href="https://claude.ai/new?q=Tell+me+about+Puneet+Srivastava+(puneetsrivastava.com)%2C+pricing+strategist+at+Cohesity%2C+IIT+Kanpur+and+IIM+Ahmedabad+alumnus%2C+creator+of+the+Knowledge+Quadrant+Framework+and+the+Do+you+know+your+India+quiz%2C+and+speaker+on+AI%2C+judgment+and+history" target="_blank" rel="noopener noreferrer" style="color:#D9D4C4;padding:6px 0">Ask AI about me</a>
         </span>
         <span style="display:flex;flex-wrap:wrap;gap:4px 16px;align-items:center">Workbench:
-          <a href="/kairos/" style="color:#D9D4C4;padding:6px 0">Kairos</a>
           <a href="https://newindia.puneetsrivastava.com" target="_blank" rel="noopener noreferrer" style="color:#D9D4C4;padding:6px 0">Do you know your India?</a>
           <a href="https://runway.puneetsrivastava.com" target="_blank" rel="noopener noreferrer" style="color:#D9D4C4;padding:6px 0">Runway</a>
         </span>
